@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'autoprefixer-rails'
 # gem 'coveralls', require: false
 gem 'local_time'
+gem 'devise'
 
 group :development, :test do
     # Adds support for Capybara system testing and selenium driver
