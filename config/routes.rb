@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+    devise_for :users
     root 'welcome#index'
     resources :products, only: [:index, :show]
 
@@ -16,8 +16,8 @@ Rails.application.routes.draw do
     namespace :admin do
         root 'admin#index'
         resources :products,    except: [:show, :destroy]
-        resources :promo_codes, except: [:show, :destroy]
-        resources :orders,      except: [:show, :destroy]
+        resources :promo_codes, except: :show
+        resources :orders,        only: [:index, :edit, :update]
         resources :users,       except: [:show, :new, :create]
     end
 

@@ -1,6 +1,5 @@
 module SlugHelper
 
-
     ##
     # Creates a slug from the given +param+.
     #

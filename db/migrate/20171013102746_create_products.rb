@@ -9,5 +9,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
 
             t.timestamps
         end
+
+        add_index :products, :slug
     end
 end

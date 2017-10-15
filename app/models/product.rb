@@ -1,7 +1,12 @@
+require 'slug_helper'
+
 class Product < ApplicationRecord
 
+    include SlugHelper
+
     has_many :sizes, dependent: :destroy
-    has_many :orders, through: :product_orders
+    has_many :order_products
+    has_many :orders, through: :order_products
 
     validates_associated :sizes, :orders
 
@@ -11,6 +16,7 @@ class Product < ApplicationRecord
 
     validates :name,
               presence: true,
+              uniqueness: true,
               length: { within: 3..128 }
 
     validates :description, presence: true
@@ -23,7 +29,7 @@ class Product < ApplicationRecord
               }
 
     before_validation do
-        self.slug = slugify(self.title)
+        self.slug = slugify(self.name)
     end
 
     def to_param

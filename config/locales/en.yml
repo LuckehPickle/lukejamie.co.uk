@@ -31,3 +31,13 @@
 
 en:
   invalid_postcode: "Must be a valid postcode."
+  finish_after_start_date: "must be after start date."
+  create_product: "Successfully created a new product named '%{name}'."
+  update_product: "Updated '%{name}'."
+  create_address: "Successfully added new address at %{address}, %{town}."
+  update_address: "Updated address at %{address}, %{town}."
+  delete_address: "Deleted address at %{address}, %{town}."
+  create_promo_code: "Successfully created a new promo code '%{code}'."
+  update_promo_code: "Updated promo code '%{code}'."
+  delete_promo_code: "Deleted promo code '%{code}'."
+  update_order: "Updated order '%{reference}'."

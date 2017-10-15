@@ -1,24 +1,5 @@
-# README
+# Luke Jamie Apparel
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Ruby on Rails eCommerce site for [Luke Jamie Apparel](https://lukejamie.co.uk). Designed and developed by [Sean Bailey](http://seanbailey.io).
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Designed for Ruby 2.4.1.
