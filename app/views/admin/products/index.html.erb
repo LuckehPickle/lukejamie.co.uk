@@ -1,5 +1,7 @@
-<h1>Admin::Product#index</h1>
-<p>Find me in app/views/admin/product/index.html.erb</p>
+<% content_for :subtitle do %>Products<% end %>
+
+<h1>Products</h1>
+<p><%= link_to 'Create a new product.', new_admin_product_path %></p>
 
 <ul>
     <% @products.each do |product| %>

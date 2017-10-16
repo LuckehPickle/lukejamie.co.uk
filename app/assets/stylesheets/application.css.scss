@@ -1,0 +1,66 @@
+/*
+ * Application wide styles.
+ *
+ *= require normalize
+ *= require_self
+ */
+
+
+
+/**
+ * -- Settings --
+ * Adjustments here will cascade throughout the entire project, allowing for quick modifications.
+ *
+ * colors ............................... Color palette.
+ */
+
+@import "settings/colors";
+
+
+
+/**
+ * -- Tools --
+ * Various tools for use within stylesheets. Mostly used for mixins.
+ *
+ * hidden ............................... A mixin for hiding elements from visually, or from screen readers.
+ * no select ............................ A mixin for preventing highlighting.
+ */
+
+@import "tools/hidden";
+@import "tools/no-select";
+
+
+
+/*
+ * -- Generic --
+ * Generic changes that don't target particular elements or components.
+ *
+ * box sizing ........................... Provides a more sensible default for box sizing.
+ * highlight ............................ Changes default text highlight appearance.
+ */
+
+@import "generic/box-sizing";
+@import "generic/hightlight";
+
+
+
+/*
+ * -- Elements --
+ * Styles which target a particular HTML 5 element.
+ *
+ * body ................................. Generic changes to the document body.
+ */
+
+@import "elements/body";
+
+
+
+
+/*
+ * -- Components --
+ * Styles which target a particular custom component.
+ *
+ * admin navigation ..................... Styles for the admin navigation.
+ */
+
+@import "components/admin-navigation";

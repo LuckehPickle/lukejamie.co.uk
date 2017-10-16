@@ -16,9 +16,9 @@ Rails.application.routes.draw do
     namespace :admin do
         root 'admin#index'
         resources :products,    except: [:show, :destroy]
-        resources :promo_codes, except: :show
+        resources :promo_codes, except: :show, path: 'promo-codes'
         resources :orders,        only: [:index, :edit, :update]
-        resources :users,       except: [:show, :new, :create]
+        resources :users,       except: [:new, :create]
     end
 
 end

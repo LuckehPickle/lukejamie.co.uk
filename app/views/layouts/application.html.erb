@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html>
+
     <head>
-        <title>lukejamie.co.uk</title>
+        <title><%= yield(:title).empty? ? 'Luke Jamie' : yield(:title) %> | lukejamie.co.uk</title>
+
+        <meta charset="UTF-8" />
+        <meta name="author" content="Sean Bailey, sean@seanbailey.io" />
+        <meta name="copyright" content="Copyright 2017, Luke Jamie. All Rights Reserved." />
+
+        <!--
+            Mobile themes
+             1. Chrome, Firefox OS, and Opera
+             2. Windows phones, IE, and Edge
+             3. Safari
+        -->
+        <meta name="theme-color" content="hsl(262, 52%, 34%)" />                   <!-- 1 -->
+        <meta name="msapplication-navbutton-color" content="hsl(262, 52%, 34%)" /> <!-- 2 -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />      <!-- 3 -->
+
+        <!-- Fix mobile viewports for responsive design. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <%= csrf_meta_tags %>
 
-        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag 'application',
+                                'https://fonts.googleapis.com/css?family=Rubik:400,500" rel="stylesheet',
+                                'https://fonts.googleapis.com/icon?family=Material+Icons',
+                                media: 'all', 'data-turbolinks-track': 'reload' %>
+
+        <style>
+            <%= yield :styles %>
+        </style>
+
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     </head>
 
     <body>
-
-        <% flash.each do |key, value| %>
-            <div class="flash flash-<%= key %>">
-                <i class="material-icons">info</i>
-                <span><%= value %></span>
-            </div>
-        <% end %>
-
-        <%= yield %>
-
+        <%= render 'flashes' %>
+        <%= content_for?(:content) ? yield(:content) : yield %>
     </body>
 
 </html>

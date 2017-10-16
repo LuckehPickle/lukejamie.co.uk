@@ -1,5 +1,7 @@
-<h1>Account::Address#index</h1>
-<p>Find me in app/views/account/adress/index.html.erb</p>
+<% content_for :title do %>Addresses<% end %>
+
+<h1>Addresses</h1>
+<p><%= link_to 'Create a new address.', new_account_address_path %></p>
 
 <ul>
     <% @addresses.each do |address| %>

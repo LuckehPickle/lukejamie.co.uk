@@ -1,0 +1,61 @@
+<nav class="admin-navigation">
+    <ul>
+
+        <!-- Store front -->
+        <li>
+            <%= link_to root_path do %>
+                <i class="material-icons">&#xE8D1;</i>
+                <span>Store front</span>
+            <% end %>
+        </li>
+
+        <!-- Admin Panel -->
+        <li>
+            <%= link_to admin_root_path do %>
+                <i class="material-icons">&#xE8F1;</i>
+                <span>Admin panel</span>
+            <% end %>
+        </li>
+
+        <!-- Products -->
+        <li>
+            <%= link_to admin_products_path do %>
+                <i class="material-icons">&#xE53B;</i>
+                <span>Products</span>
+            <% end %>
+        </li>
+
+        <!-- Orders -->
+        <li>
+            <%= link_to admin_orders_path do %>
+                <i class="material-icons">&#xE8CB;</i>
+                <span>Orders</span>
+            <% end %>
+        </li>
+
+        <!-- Promo Codes -->
+        <li>
+            <%= link_to admin_promo_codes_path do %>
+                <i class="material-icons">&#xE53F;</i>
+                <span>Promo codes</span>
+            <% end %>
+        </li>
+
+        <!-- Users -->
+        <li>
+            <%= link_to admin_users_path do %>
+                <i class="material-icons">&#xE7FB;</i>
+                <span>Users</span>
+            <% end %>
+        </li>
+
+        <!-- Analytics -->
+        <li>
+            <%= link_to 'javascript:void(0)' do %>
+                <i class="material-icons">&#xE85C;</i>
+                <span>Analytics</span>
+            <% end %>
+        </li>
+
+    </ul>
+</nav>

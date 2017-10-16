@@ -1,0 +1,10 @@
+<% unless flash.empty? %>
+    <ul class="flashes">
+        <% flash.each do |key, value| %>
+            <li class="flash flash-<%= key %>">
+                <i class="material-icons">info</i>
+                <span><%= value %></span>
+            </li>
+        <% end %>
+    </ul>
+<% end %>
