@@ -1,0 +1,75 @@
+form {
+    font-size: 15px;
+    margin-bottom: 3rem;
+
+    .buttons {
+        margin-top: 3rem;
+        justify-content: flex-end;
+        width: 420px;
+
+        .button { margin-right: 0.5rem; }
+        .button:last-child { margin-right: 0; }
+
+    }
+
+    & > div {
+        display: flex;
+        align-items: flex-start;
+        margin: 0 0 1.5rem;
+
+        label {
+            text-align: right;
+            width: 100px;
+            margin-top: 0.5rem;
+            margin-right: 1rem;
+        }
+
+        label {
+            line-height: 1.5;
+            //font-weight: 500;
+        }
+
+        p {
+            color: lighten($text-on-light, 40%);
+            line-height: 1.5;
+        }
+
+        .hint {
+            margin: 0.5rem 0 0;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        textarea {
+            background: white;
+            border: 1px solid $border-color;
+            border-radius: 2px;
+            padding: 0.5rem 0.6rem;
+            font-family: "Roboto", sans-serif;
+            font-size: 15px;
+        }
+
+        input[type="text"] {
+            width: 300px;
+        }
+
+        input[type="number"] {
+            width: 100px;
+        }
+
+        textarea {
+            width: 400px;
+            min-height: 150px;
+        }
+
+        input#promo_code_code {
+            font-family: "Roboto Mono", monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+
+    & > *:last-child { margin-bottom: 0; }
+}

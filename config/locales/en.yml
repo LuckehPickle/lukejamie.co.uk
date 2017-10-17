@@ -41,3 +41,6 @@ en:
   update_promo_code: "Updated promo code '%{code}'."
   delete_promo_code: "Deleted promo code '%{code}'."
   update_order: "Updated order '%{reference}'."
+  new_promo_code: "Create promo code"
+  promo_code_description: "Here you can view all promotional, discount codes."
+  product_description: "Create new products, or update existing ones."

@@ -1,0 +1,21 @@
+<%= link_to edit_admin_product_path(product), class: 'brick' do %>
+
+    <% if product.hidden %>
+        <div class="hidden-banner">
+            <i class="material-icons">&#xE8F5;</i>
+            <span>This item is hidden.</span>
+        </div>
+    <% end %>
+
+    <div class="image-placeholder"></div>
+
+    <div class="brick-footer">
+        <div>
+            <p class="name"><%= product.name %></p>
+            <p class="price"><%= number_to_currency product.price, locale: :en_GB %></p>
+        </div>
+
+        <p>Updated <%= local_time_ago product.updated_at %></p>
+    </div>
+
+<% end %>

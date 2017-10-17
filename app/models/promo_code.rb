@@ -8,7 +8,7 @@ class PromoCode < ApplicationRecord
               length: { within: 5..16 },
               format: {
                   with: /\A[A-Z0-9]+\z/,
-                  message: 'Must be alpha numeric.'
+                  message: 'must be alpha numeric.'
               }
 
     validates :label,

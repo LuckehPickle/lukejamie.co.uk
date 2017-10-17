@@ -22,8 +22,9 @@
         <%= f.label :hidden %>
     </div>
 
-    <div>
-        <%= f.submit %>
+    <div class="buttons">
+        <%= link_to 'Cancel', admin_products_path, class: 'button button-secondary' %>
+        <%= f.submit @product.new_record? ? 'Create' : 'Update', class: 'button' %>
     </div>
 
 <% end %>

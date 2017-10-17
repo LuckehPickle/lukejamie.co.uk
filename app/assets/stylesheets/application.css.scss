@@ -49,9 +49,11 @@
  * Styles which target a particular HTML 5 element.
  *
  * body ................................. Generic changes to the document body.
+ * form ................................. Various form related styles.
  */
 
 @import "elements/body";
+@import "elements/form";
 
 
 
@@ -60,7 +62,13 @@
  * -- Components --
  * Styles which target a particular custom component.
  *
- * admin navigation ..................... Styles for the admin navigation.
+ * button ............................... Fancy looking buttons!
+ * admin layout ......................... Layout for admin pages.
+ * masonry .............................. A masonry layout.
+ * flash ................................ Flash! Aaaahhhaa! Saviour of the universe.
  */
 
-@import "components/admin-navigation";
+@import "components/button";
+@import "components/admin-layout";
+@import "components/masonry";
+@import "components/flash";

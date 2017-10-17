@@ -1,7 +1,30 @@
 .admin-content {
-    padding: 1.5rem;
+    padding: 2rem 2.5rem;
 
-    *:first-child { margin-top: 0; }
+    & > *:first-child { margin-top: 0; }
+
+    .admin-content-header {
+        margin-bottom: 2rem;
+
+        h1 {
+            font-size: 15px;
+            font-weight: 500;
+            margin: 0 0 0.5rem;
+        }
+
+        p {
+            font-size: 15px;
+            color: lighten($text-on-light, 25%);
+            line-height: 1.5;
+            margin: 0 0 1rem;
+        }
+    }
+
+    .admin-content-form {
+        padding-top: 3rem;
+        border-top: 1px solid $border-color;
+    }
+
 }
 
 .admin-navigation {
@@ -14,8 +37,6 @@
 
     ul {
         display: flex;
-        font-family: "Rubik", Helvetica, sans-serif;
-        font-size: 15px;
         list-style-type: none;
         padding: 0;
         margin: 0;
@@ -36,6 +57,7 @@
         }
 
         i {
+            color: lighten($admin-anchor, 5%);
             margin-bottom: 0.5rem;
             font-size: 23px;
         }
@@ -61,14 +83,14 @@
             a {
                 flex-direction: row;
                 text-align: left;
-                padding: 0.55rem 1.5rem;
-                font-size: 16px;
+                padding: 0.55rem 1.75rem;
+                font-size: 15px;
                 line-height: 1;
             }
 
             i {
                 margin-bottom: 0;
-                margin-right: 1rem;
+                margin-right: 1.25rem;
             }
         }
     }

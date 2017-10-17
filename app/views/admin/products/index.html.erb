@@ -1,10 +1,10 @@
 <% content_for :subtitle do %>Products<% end %>
 
-<h1>Products</h1>
-<p><%= link_to 'Create a new product.', new_admin_product_path %></p>
+<div class="admin-content-header">
+    <h1>Products</h1>
+    <p><%= t('product_description') %></p>
+</div>
 
-<ul>
-    <% @products.each do |product| %>
-        <li><%= link_to product.name, edit_admin_product_path(product) %></li>
-    <% end %>
-</ul>
+<div class="infinite-masonry">
+    <%= render @products %>
+</div>

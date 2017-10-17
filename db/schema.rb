@@ -29,13 +29,12 @@ ActiveRecord::Schema.define(version: 20171014020322) do
   end
 
   create_table "order_products", force: :cascade do |t|
-    t.bigint "order_id", null: false
+    t.uuid "order_id", null: false
     t.bigint "product_id", null: false
     t.bigint "size_id", null: false
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_order_products_on_order_id"
     t.index ["product_id"], name: "index_order_products_on_product_id"
     t.index ["size_id"], name: "index_order_products_on_size_id"
   end

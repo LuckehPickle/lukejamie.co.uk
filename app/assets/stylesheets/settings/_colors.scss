@@ -1,4 +1,13 @@
-$gold: hsl(49, 55%, 49%);
+$text-on-light: hsl(0, 20%, 20%);
+
+$primary-button-from: hsl(47, 90%, 51%);
+$primary-button-to:   hsl(57, 90%, 51%);
+$primary-button-text: hsl(57, 95%, 95%);
 
 $admin-anchor: hsl(39, 0%, 40%);
-$admin-anchor-hover: $gold;
+$admin-anchor-hover: hsl(49, 55%, 49%);
+
+$highlight-foreground: white;
+$highlight-background: salmon;
+
+$border-color: hsl(39, 0%, 75%);

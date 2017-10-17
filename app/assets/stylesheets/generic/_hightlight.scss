@@ -1,0 +1,8 @@
+/*
+ * Changes default text highlight appearance.
+ */
+
+::selection {
+    color:      $highlight-foreground;
+    background: $highlight-background;
+}

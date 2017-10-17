@@ -1,5 +1,5 @@
 <% unless flash.empty? %>
-    <ul class="flashes">
+    <ul class="flashes" data-turbolinks-permanent="1">
         <% flash.each do |key, value| %>
             <li class="flash flash-<%= key %>">
                 <i class="material-icons">info</i>

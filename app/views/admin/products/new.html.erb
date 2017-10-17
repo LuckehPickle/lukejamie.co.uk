@@ -1,4 +1,8 @@
-<h1>Admin::Product#new</h1>
-<p>Find me in app/views/admin/product/new.html.erb</p>
+<% content_for :subtitle do %>New product<% end %>
+
+<div class="admin-content-header">
+    <h1>Create a new product</h1>
+    <p>Products created here will automatically show up on the store front.</p>
+</div>
 
 <%= render 'form' %>
