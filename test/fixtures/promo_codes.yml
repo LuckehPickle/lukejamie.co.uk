@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  code: SUMMER2017
+  label: Summer Sale 2017
+  discount: 10
+  start_date: <%= Date.new(2017, 1, 15) %>
+  finish_date: <%= Date.new(2017, 2, 15) %>
+
+two:
+  code: HOLIDAYS2017
+  label: Tis the season
+  discount: 15
+  start_date: <%= Date.new(2017, 12, 20) %>
+  finish_date: <%= Date.new(2017, 12, 30) %>

@@ -5,7 +5,7 @@ class Admin::ProductsController < ApplicationController
 
 
     def index
-        @products = Product.all
+        @products = Product.order updated_at: :desc
     end
 
 

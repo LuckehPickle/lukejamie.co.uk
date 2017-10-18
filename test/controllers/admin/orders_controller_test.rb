@@ -1,14 +1,21 @@
 require 'test_helper'
 
 class Admin::OrdersControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get admin_orders_index_url
-    assert_response :success
-  end
+    include Devise::Test::IntegrationHelpers
 
-  test "should get edit" do
-    get admin_orders_edit_url
-    assert_response :success
-  end
+    setup do
+        sign_in users(:one), scope: :admin
+    end
+
+    test 'should get index' do
+        get admin_orders_path
+        assert_response :success
+    end
+
+    test 'should get edit' do
+        order = orders(:one)
+        get edit_admin_order_path(order)
+        assert_response :success
+    end
 
 end

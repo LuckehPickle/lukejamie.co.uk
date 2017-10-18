@@ -1,4 +1,5 @@
 <nav class="admin-navigation">
+
     <ul>
 
         <!-- Store front -->
@@ -10,7 +11,7 @@
         </li>
 
         <!-- Admin Panel -->
-        <li>
+        <li <%= 'active' if request.fullpath == '/admin' %>>
             <%= link_to admin_root_path do %>
                 <i class="material-icons">&#xE8F1;</i>
                 <span>Admin panel</span>
@@ -18,7 +19,7 @@
         </li>
 
         <!-- Products -->
-        <li>
+        <li <%= 'active' if request.fullpath.start_with? admin_products_path %>>
             <%= link_to admin_products_path do %>
                 <i class="material-icons">&#xE53B;</i>
                 <span>Products</span>
@@ -26,7 +27,7 @@
         </li>
 
         <!-- Orders -->
-        <li>
+        <li <%= 'active' if request.fullpath.start_with? admin_orders_path %>>
             <%= link_to admin_orders_path do %>
                 <i class="material-icons">&#xE8CB;</i>
                 <span>Orders</span>
@@ -34,7 +35,7 @@
         </li>
 
         <!-- Promo Codes -->
-        <li>
+        <li <%= 'active' if request.fullpath.start_with? admin_promo_codes_path %>>
             <%= link_to admin_promo_codes_path do %>
                 <i class="material-icons">&#xE53F;</i>
                 <span>Promo codes</span>
@@ -42,7 +43,7 @@
         </li>
 
         <!-- Users -->
-        <li>
+        <li <%= 'active' if request.fullpath.start_with? admin_users_path %>>
             <%= link_to admin_users_path do %>
                 <i class="material-icons">&#xE7FB;</i>
                 <span>Users</span>
@@ -50,7 +51,7 @@
         </li>
 
         <!-- Analytics -->
-        <li>
+        <li <%= 'active' if request.fullpath.start_with? '/analytics' %>>
             <%= link_to 'javascript:void(0)' do %>
                 <i class="material-icons">&#xE85C;</i>
                 <span>Analytics</span>

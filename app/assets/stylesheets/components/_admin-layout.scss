@@ -1,4 +1,6 @@
 .admin-content {
+    min-height: 100vh;
+    background: hsl(0, 0, 95%);
     padding: 2rem 2.5rem;
 
     & > *:first-child { margin-top: 0; }
@@ -40,6 +42,21 @@
         list-style-type: none;
         padding: 0;
         margin: 0;
+        color: $admin-anchor;
+
+        li[active] {
+            position: relative;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                width: 5px;
+                background: $primary-button-from;
+            }
+        }
 
         a {
             display: flex;
@@ -47,13 +64,17 @@
             align-items: center;
             flex-shrink: 0;
             text-decoration: none;
-            color: $admin-anchor;
+            color: inherit;
             cursor: pointer;
             padding: 0.75rem 0.5rem;
             outline: none;
             vertical-align: middle;
             text-align: center;
             font-size: 14px;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.05);
+            }
         }
 
         i {

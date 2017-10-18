@@ -1,19 +1,27 @@
 require 'test_helper'
 
 class Admin::ProductsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get admin_product_index_url
-    assert_response :success
-  end
+    include Devise::Test::IntegrationHelpers
 
-  test "should get new" do
-    get admin_product_new_url
-    assert_response :success
-  end
+    setup do
+        sign_in users(:one), scope: :admin
 
-  test "should get edit" do
-    get admin_product_edit_url
-    assert_response :success
-  end
+    end
+
+    test 'should get index' do
+        get admin_products_path
+        assert_response :success
+    end
+
+    test 'should get new' do
+        get new_admin_product_path
+        assert_response :success
+    end
+
+    test 'should get edit' do
+        product = products(:one)
+        get edit_admin_product_path(product)
+        assert_response :success
+    end
 
 end

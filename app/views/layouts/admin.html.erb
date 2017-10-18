@@ -2,10 +2,6 @@
     <%= content_for?(:subtitle) ? yield(:subtitle) + ' (Admin Panel)' : 'Admin Panel' %>
 <% end %>
 
-<% content_for :styles do %>
-    body { background: hsl(0, 96%, 96%); }
-<% end %>
-
 <% content_for :content do %>
 
     <%= render 'admin/navigation' %>

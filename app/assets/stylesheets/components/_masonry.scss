@@ -1,7 +1,7 @@
 .infinite-masonry {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-gap: 2rem;
 
     .brick {
         position: relative;
@@ -44,7 +44,7 @@
         right: 0;
         display: flex;
         align-items: center;
-        background: linear-gradient(90deg, $primary-button-from, $primary-button-to);
+        background: $primary-button-from;
         color: $primary-button-text;
         font-size: 15px;
         font-weight: 500;

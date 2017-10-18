@@ -7,16 +7,16 @@ one:
   price: 25.00
   hidden: false
 
-duplicate:
-  slug: 'blue-shirt'
-  name: 'Blue shirt'
-  description: 'Another generic blue shirt.'
-  price: 250.00
-  hidden: false
-
 two:
   slug: 'red-pants'
   name: 'Red pants'
   description: 'Some generic red pants. You can wear them if you like.'
   price: 36.00
+  hidden: false
+
+duplicate:
+  slug: 'blue-shirt'
+  name: 'Blue shirt'
+  description: 'Another generic blue shirt.'
+  price: 250.00
   hidden: false
