@@ -1,13 +1,20 @@
 $text-on-light: hsl(0, 20%, 20%);
 
-$primary-button-from: hsl(45, 100%, 48%);
-$primary-button-to:   hsl(55, 100%, 48%);
-$primary-button-text: hsl(45, 0%, 95%);
+$primary-gradient-from: hsl(45, 100%, 48%);
+$primary-gradient-to:   hsl(55, 100%, 48%);
 
-$admin-anchor: hsl(39, 0%, 40%);
-$admin-anchor-hover: hsl(49, 55%, 49%);
+$primary-button-from: $primary-gradient-to;
+$primary-button-to:   $primary-gradient-to;
+$primary-button-text: hsl(0, 0%, 100%);
+
+$admin-anchor: hsl(0, 0%, 45%);
+$admin-anchor-active: hsl(45, 100%, 48%);
+$admin-nav-background: hsl(0, 0%, 100%);
 
 $highlight-foreground: white;
 $highlight-background: salmon;
 
-$border-color: hsl(39, 0%, 75%);
+$border-color: hsl(39, 0%, 73%);
+
+$progress-active: hsl(145, 63%, 49%);
+$progress-inactive: hsl(6, 78%, 57%);

@@ -1,12 +1,15 @@
 .button {
+    font-family: "Roboto", Helvetica, sans-serif;
     font-size: 15px;
     font-weight: 500;
     color: $primary-button-text;
-    background: linear-gradient(0deg, $primary-button-from, $primary-button-to);
+    background: linear-gradient(0deg, $primary-gradient-from, $primary-gradient-to);
     border: none;
     border-radius: 3px;
-    padding: 0.75rem 1.25rem;
+    padding: 0.8rem 1.4rem;
     text-decoration: none;
+    line-height: 1;
+    vertical-align: middle;
     cursor: pointer;
     transition: all 200ms;
 
@@ -22,6 +25,7 @@
     color: $text-on-light;
 
     &:hover {
+        background: rgba(0, 0, 0, 0.07);
         box-shadow: none;
         transform: none;
     }

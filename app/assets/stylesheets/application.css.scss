@@ -2,6 +2,7 @@
  * Application wide styles.
  *
  *= require normalize
+ *= require codemirror
  *= require_self
  */
 
@@ -50,10 +51,12 @@
  *
  * body ................................. Generic changes to the document body.
  * form ................................. Various form related styles.
+ * anchors .............................. General styles for links/anchors.
  */
 
 @import "elements/body";
 @import "elements/form";
+@import "elements/anchors";
 
 
 
@@ -66,9 +69,13 @@
  * admin layout ......................... Layout for admin pages.
  * masonry .............................. A masonry layout.
  * flash ................................ Flash! Aaaahhhaa! Saviour of the universe.
+ * editor ............................... Markdown editor, supported by code mirror.
+ * admin table .......................... A table for holding admin content.
  */
 
 @import "components/button";
 @import "components/admin-layout";
 @import "components/masonry";
 @import "components/flash";
+@import "components/editor";
+@import "components/admin-table";

@@ -2,14 +2,32 @@
 
 <div class="admin-content-header">
     <h1>Promo codes</h1>
-    <p><%= t('promo_code_description') %></p>
+    <p><%= t('promo_code_description') %> <%= link_to t('new_promo_code'), new_admin_promo_code_path %></p>
 </div>
-
-<%= link_to t('new_promo_code'), new_admin_promo_code_path %>
 
 
 <% if not @promo_codes.empty? %>
-    <%= render @promo_codes %>
+    <table class="admin-table">
+
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th class="grow">Label</th>
+                <th>Discount</th>
+                <th>Progress</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Tables are the worst... -->
+            <tr class="spacer"><% 4.times do %><td></td><% end %></tr>
+            <%= render @promo_codes %>
+            <tr class="spacer"><% 4.times do %><td></td><% end %></tr>
+        </tbody>
+
+    </table>
 <% else %>
     I'm empty
 <% end %>
+
+<%= paginate @promo_codes %>

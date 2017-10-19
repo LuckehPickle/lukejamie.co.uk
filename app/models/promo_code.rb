@@ -44,4 +44,12 @@ class PromoCode < ApplicationRecord
         end
     end
 
+
+    ##
+    # Returns a percentage representing how long a promo code
+    # has been active for.
+    def percentage
+
+    end
+
 end

@@ -4,7 +4,7 @@ class Admin::PromoCodesController < ApplicationController
     layout 'admin'
 
     def index
-        @promo_codes = PromoCode.all
+        @promo_codes = PromoCode.page(params[:page]).per(20)
     end
 
     def new

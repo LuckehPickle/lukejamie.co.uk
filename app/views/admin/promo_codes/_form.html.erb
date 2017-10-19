@@ -4,48 +4,39 @@
 
     <div>
         <%= f.label :code %>
+        <p>Should be alphanumeric.</p>
         <%= f.text_field :code %>
     </div>
 
     <div>
         <%= f.label :label %>
-
-        <div class="field-wrapper">
-            <%= f.text_field :label %>
-            <p class="hint">A brief description about this code.</p>
-        </div>
+        <p>A brief description about this code.</p>
+        <%= f.text_field :label %>
     </div>
 
     <div>
         <%= f.label :discount %>
-
-        <div class="field-wrapper">
-            <%= f.number_field :discount %>
-            <p class="hint">As a percentage.</p>
-        </div>
+        <p>As a percentage.</p>
+        <%= f.number_field :discount, min: '0', max: '100' %>
     </div>
 
-    <div>
-        <%= f.label :start_date %>
+    <div class="conjoined">
 
-        <div class="field-wrapper">
+        <div>
+            <%= f.label :start_date %>
             <%= f.date_field :start_date %>
-            <p class="hint">Note: will become valid at the start of this date.</p>
         </div>
-    </div>
 
-    <div>
-        <%= f.label :finish_date %>
-
-        <div class="field-wrapper">
+        <div>
+            <%= f.label :finish_date %>
             <%= f.date_field :finish_date %>
-            <p class="hint">Note: will expire at the end of this date.</p>
         </div>
+
     </div>
 
     <div class="buttons">
+        <%= f.submit @promo_code.new_record? ? 'Create promo code' : 'Update promo code', class: 'button' %>
         <%= link_to 'Cancel', admin_promo_codes_path, class: 'button button-secondary' %>
-        <%= f.submit @promo_code.new_record? ? 'Create' : 'Update', class: 'button' %>
     </div>
 
 <% end %>

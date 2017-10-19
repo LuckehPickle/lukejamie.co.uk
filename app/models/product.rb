@@ -4,6 +4,10 @@ class Product < ApplicationRecord
 
     include SlugHelper
 
+    searchkick callbacks: :queue
+
+    default_scope { order(updated_at: :desc) }
+
     has_many :sizes, dependent: :destroy
     has_many :order_products
     has_many :orders, through: :order_products

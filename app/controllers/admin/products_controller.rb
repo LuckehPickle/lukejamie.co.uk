@@ -5,7 +5,7 @@ class Admin::ProductsController < ApplicationController
 
 
     def index
-        @products = Product.order updated_at: :desc
+        @products = Product.page(params[:page]).per(30)
     end
 
 

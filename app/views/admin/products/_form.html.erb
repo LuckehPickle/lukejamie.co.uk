@@ -1,15 +1,17 @@
-<%= form_for [:admin, @product] do |f| %>
+<%= form_for [:admin, @product], html: { class: 'admin-content-form'} do |f| %>
 
     <%= render partial: 'application/form-errors', locals: { object: @product } %>
 
     <div>
         <%= f.label :name %>
+        <p>Should be unique.</p>
         <%= f.text_field :name %>
     </div>
 
     <div>
         <%= f.label :description %>
-        <%= f.text_area :description %>
+        <p>Markdown is supported. See <a href="https://guides.github.com/features/mastering-markdown/#syntax" target="_blank">this guide</a> for help.</p>
+        <%= f.text_area :description, class: 'CodeMirror' %>
     </div>
 
     <div>
@@ -23,8 +25,8 @@
     </div>
 
     <div class="buttons">
+        <%= f.submit @product.new_record? ? 'Create product' : 'Update product', class: 'button' %>
         <%= link_to 'Cancel', admin_products_path, class: 'button button-secondary' %>
-        <%= f.submit @product.new_record? ? 'Create' : 'Update', class: 'button' %>
     </div>
 
 <% end %>

@@ -23,8 +23,22 @@
     }
 
     .admin-content-form {
-        padding-top: 3rem;
-        border-top: 1px solid $border-color;
+        position: relative;
+        padding: 3rem 2.5rem;
+        border-radius: 3px;
+        background: white;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, $primary-gradient-from, $primary-gradient-to);
+        }
     }
 
 }
@@ -34,7 +48,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: white;
+    background: $admin-nav-background;
     box-shadow: 6px 0 20px rgba(0, 0, 0, 0.05);
 
     ul {
@@ -54,7 +68,11 @@
                 bottom: 0;
                 left: 0;
                 width: 5px;
-                background: $primary-button-from;
+                background: $admin-anchor-active;
+            }
+
+            a, i{
+                color: $admin-anchor-active;
             }
         }
 
@@ -71,6 +89,7 @@
             vertical-align: middle;
             text-align: center;
             font-size: 14px;
+            //font-weight: 500;
 
             &:hover {
                 background: rgba(0, 0, 0, 0.05);

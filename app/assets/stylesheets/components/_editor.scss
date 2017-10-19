@@ -1,0 +1,12 @@
+div.CodeMirror {
+    border: 1px solid $border-color;
+    border-radius: 2px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 700px;
+
+    pre {
+        padding: 0 8px;
+    }
+}

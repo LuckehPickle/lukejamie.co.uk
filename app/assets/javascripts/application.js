@@ -13,4 +13,21 @@
 //= require rails-ujs
 //= require turbolinks
 //= require local-time
+//= require codemirror
+//= require markdown
 //= require_tree .
+
+document.addEventListener("turbolinks:load", function () {
+
+    var editor = document.querySelector(".CodeMirror");
+
+    if (editor !== null) {
+        CodeMirror.fromTextArea(editor, {
+            mode: 'markdown',
+            indentUnit: 4,
+            lineWrapping: true,
+            lineNumbers: true
+        });
+    }
+
+});
