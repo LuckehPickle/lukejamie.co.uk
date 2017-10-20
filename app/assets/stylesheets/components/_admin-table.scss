@@ -19,8 +19,11 @@
             td:last-child  { border-bottom-right-radius: 3px; }
         }
 
+        tr > td:first-child { padding-left:  2.5rem; }
+        tr > td:last-child  { padding-right: 2.5rem; }
+
         .spacer td {
-            padding: 0.25rem;
+            padding: 0.4rem;
         }
     }
 
@@ -29,7 +32,13 @@
     }
 
     td {
-        padding: 1.2rem 1.75rem;
+        padding: 1.2rem 1rem;
+        font-size: 14px;
+
+        p {
+            margin: 0.5rem 0 0;
+            color: lighten($text-on-light, 40%);
+        }
     }
 
     th.grow,

@@ -38,7 +38,7 @@ class PromoCode < ApplicationRecord
     # Ensures that the finish date is after the starting date.
     def finish_date_after_start_date
         if start_date.present? and finish_date.present?
-            if finish_date <= start_date
+            if finish_date < start_date
                 errors.add(:finish_date, t('finish_after_start_date'))
             end
         end
@@ -46,10 +46,20 @@ class PromoCode < ApplicationRecord
 
 
     ##
+    # Determines whether this promo code is currently active.
+    def active?
+        Time.now >= start_date.at_beginning_of_day and
+            Time.now <= finish_date.at_end_of_day
+    end
+
+
+    ##
     # Returns a percentage representing how long a promo code
     # has been active for.
     def percentage
-
+        total = finish_date.at_end_of_day - start_date.at_beginning_of_day
+        current = Time.now - start_date.at_beginning_of_day
+        (current / total) * 100
     end
 
 end

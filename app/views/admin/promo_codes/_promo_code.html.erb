@@ -1,8 +1,18 @@
 <tr>
     <td><%= promo_code.code %></td>
-    <td class="grow"><%= promo_code.label %></td>
+    <td class="grow">
+        <%= promo_code.label %>
+        <p>
+            <%= local_time promo_code.start_date, '%B %e, %Y' %> to
+            <%= local_time promo_code.finish_date, '%B %e, %Y' %>
+        </p>
+    </td>
     <td><%= promo_code.discount %>%</td>
     <td><div class="progress-bar">
-        <span class="progress" style="<%= promo_code.percentage %>%"></span>
+        <% if promo_code.active? %>
+            <span class="progress" style="width: <%= promo_code.percentage %>%;"></span>
+        <% else %>
+            <span class="progress" style="width: 100%; background: red;"></span>
+        <% end %>
     </div></td>
 </tr>
