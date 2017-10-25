@@ -1,0 +1,25 @@
+<%= form_for [:admin, @user], html: { class: 'admin-content-form'} do |f| %>
+
+    <%= render partial: 'application/form-errors', locals: { object: @user } %>
+
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+    </div>
+
+    <div>
+        <%= f.label :role %>
+        <%= f.select :role, User.roles.keys.map { |role| [role.titleize, role]} %>
+    </div>
+
+    <div class="buttons">
+        <%= f.submit 'Update user', class: 'button' %>
+        <%= link_to 'Cancel', admin_users_path, class: 'button button-secondary' %>
+    </div>
+
+<% end %>

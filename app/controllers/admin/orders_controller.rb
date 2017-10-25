@@ -9,7 +9,7 @@ class Admin::OrdersController < ApplicationController
 
     def index
         return if enforce_admin(current_user)
-        @orders = Order.all
+        @orders = Order.page(params[:page]).per(20)
     end
 
     def edit

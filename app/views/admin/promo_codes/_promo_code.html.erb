@@ -1,20 +1,15 @@
 <%= link_to edit_admin_promo_code_path(promo_code), class: 'admin-list-item' do %>
 
-    <!-- Status icon -->
-    <div id="promo-code-icon">
-        <% if promo_code.active? %>
-            <i class="material-icons active">&#xE614;</i>
-        <% else %>
-            <i class="material-icons inactive">&#xE615;</i>
-        <% end %>
-    </div>
-
 
     <!-- Promo code information -->
     <div class="grow">
-        <p id="promo-code-code"><%= promo_code.code %></p>
+        <p id="promo-code-code">
+            <%= promo_code.code %>
+            <% if promo_code.active? %>
+                <span class="list-badge" id="active-badge" title="This promo code is currently active">active</span>
+            <% end %>
+        </p>
         <p><%= promo_code.label %></p>
-        <p class="dim">Updated <%= local_time_ago promo_code.updated_at %>.</p>
     </div>
 
 
@@ -26,12 +21,12 @@
 
     <!-- Dates and progress -->
     <div id="promo-code-dates">
-        <p><div class="progress-bar"><span class="progress" style="width: <%= promo_code.percentage %>%;"></span></div></p>
-        <div id="promo-code-date-range">
-            <p>
-                <%= local_time promo_code.start_date.at_beginning_of_day,  '%b %e, %Y' %> to
-                <%= local_time promo_code.finish_date.at_end_of_day, '%b %e, %Y' %>
-            </p>
+        <div class="progress-bar">
+            <% if promo_code.finish_date.at_end_of_day < Time.now %>
+                <span class="progress"></span>
+            <% elsif promo_code.active? %>
+                <span class="progress" style="width: <%= promo_code.percentage %>%;"></span>
+            <% end %>
         </div>
     </div>
 

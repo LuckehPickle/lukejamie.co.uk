@@ -13,7 +13,8 @@
 .flash {
     display: flex;
     align-items: center;
-    background: linear-gradient(90deg, $primary-button-from, $primary-button-to);
+    background: linear-gradient(90deg, $purple-from, $purple-to);
+    color: $purple-text;
     border-radius: 3px 3px;
     width: 100%;
     padding: 1rem 1.25rem;
@@ -27,7 +28,6 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 1.5;
-    color: $primary-button-text;
 
     .material-icons {
         margin-right: 1rem;

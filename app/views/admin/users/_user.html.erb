@@ -1,10 +1,33 @@
-<%= link_to edit_admin_user_path(user), class: 'admin-list-item' do %>
+<%= link_to admin_user_path(user), class: 'admin-list-item' do %>
+
 
     <!-- User information -->
     <div class="grow">
-        <p><%= user.name %></p>
+        <p id="user-name">
+            <%= user.name %>
+
+            <% if user.admin? %>
+                <span class="list-badge" id="admin-badge" title="This user is an administrator">admin</span>
+            <% end %>
+
+            <% if user.order_count != 0 %>
+                <span class="list-badge" title="This user has made <%= pluralize user.order_count, 'order' %>">
+                    <%= pluralize user.order_count, 'order' %>
+                </span>
+            <% end %>
+        </p>
         <p><%= user.email %></p>
-        <p class="dim">Joined <%= local_time_ago user.created_at %>.</p>
+    </div>
+
+
+    <!-- IP Address -->
+    <div>
+        <p id="user-ip"><%= user.current_sign_in_ip %></p>
+    </div>
+
+    <!-- Dates -->
+    <div>
+        <p>Joined <%= local_time_ago user.created_at %></p>
     </div>
 
 <% end %>

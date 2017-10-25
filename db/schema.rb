@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025011248) do
+ActiveRecord::Schema.define(version: 20171025084554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20171025011248) do
   end
 
   create_table "order_products", force: :cascade do |t|
-    t.uuid "order_id", null: false
+    t.string "order_id", null: false
     t.bigint "product_id", null: false
     t.bigint "size_id", null: false
     t.integer "quantity", null: false
@@ -40,15 +40,17 @@ ActiveRecord::Schema.define(version: 20171025011248) do
   end
 
   create_table "orders", id: false, force: :cascade do |t|
-    t.uuid "reference", null: false
+    t.string "reference", null: false
     t.bigint "user_id", null: false
     t.bigint "address_id", null: false
     t.bigint "promo_code_id"
-    t.string "state", null: false
+    t.integer "state", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quantity", default: 0
     t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["promo_code_id"], name: "index_orders_on_promo_code_id"
+    t.index ["reference"], name: "index_orders_on_reference"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -102,6 +104,7 @@ ActiveRecord::Schema.define(version: 20171025011248) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "role", default: 0
+    t.integer "order_count", default: 0
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

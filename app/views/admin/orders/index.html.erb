@@ -4,3 +4,13 @@
     <h1>Orders</h1>
     <p>View all orders.</p>
 </div>
+
+<% if not @orders.empty? %>
+    <div class="admin-list">
+        <%= render @orders %>
+    </div>
+<% else %>
+    I'm empty
+<% end %>
+
+<%= paginate @orders %>

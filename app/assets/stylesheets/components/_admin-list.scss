@@ -3,13 +3,13 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
     border-radius: 3px;
     overflow: hidden;
-    padding: 0.75rem 0;
+    padding: 1rem 0;
 
     & > *:last-child { border-bottom: none; }
 }
 
 .admin-list-item {
-    padding: 1.25rem 1.25rem;
+    padding: 1.25rem 0.75rem;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -18,16 +18,13 @@
     i.inactive { color: $progress-inactive; }
 
     .progress-bar {
-        margin: 0 0 1rem;
         width: 200px;
         height: 6px;
-        //border-radius: 4px;
         background: hsl(0, 0, 90%);
         overflow: hidden;
 
         .progress {
             display: block;
-            //background: linear-gradient(90deg, $primary-gradient-from, $primary-gradient-to);
             background: $progress-active;
             height: 6px;
         }
@@ -44,12 +41,10 @@
         a {
             color: $text-on-light;
             font-weight: bold;
-
-            &:hover { color: $admin-anchor-active; }
         }
 
         p {
-            margin: 0 0 7px;
+            margin: 0 0 8px;
             font-size: 15px;
             color: $text-on-light;
         }
@@ -58,8 +53,18 @@
             margin-bottom: 0;
         }
 
-        .mono { font-family: "Roboto Mono", monospace; }
         .dim  { color: lighten($text-on-light, 30%); }
+    }
+
+    .list-badge {
+        margin-left: 0.5rem;
+        background: $gold-from;
+        padding: 2px 5px;
+        border-radius: 2px;
+        font-family: "Roboto Mono", monospace;
+        font-size: 12px;
+        color: $gold-text;
+        text-transform: lowercase;
     }
 
     &:hover {
@@ -74,32 +79,54 @@
 }
 
 #promo-code-code {
-    font-family: "Roboto Mono", monospace;
     font-weight: bold;
-    letter-spacing: 0.5px;
 }
 
 #promo-code-discount {
-    font-family: "Roboto Mono", monospace;
     font-weight: 500;
+    font-size: 14px;
     text-align: right;
 }
 
-#promo-code-date-range {
+#order-reference,
+#promo-code-code,
+#user-name {
+    font-weight: bold;
     display: flex;
     align-items: center;
-    justify-content: center;
+}
+
+#user-ip {
+    font-family: "Roboto Mono", monospace;
+    //color: lighten($text-on-light, 30%);
+}
+
+#order-reference {
+    text-transform: uppercase;
+}
+
+#order-user {
     color: lighten($text-on-light, 30%);
+    span { color: $text-on-light; }
+}
 
-    i {
-        font-size: 20px;
-        margin-right: 0.5rem;
-    }
+#admin-badge,
+#refunded-badge {
+    background: $purple-from;
+    color: $purple-text;
+}
 
-    p {
-        color: inherit;
-        font-size: 14px;
-        //font-family: "Roboto Mono", monospace;
-        //text-align: center;
-    }
+#active-badge {
+    background: $green;
+    color: $green-text;
+}
+
+#needs-shipping-badge {
+    background: $teal;
+    color: $teal-text;
+}
+
+#returned-badge {
+    background: $orange;
+    color: $orange-text;
 }

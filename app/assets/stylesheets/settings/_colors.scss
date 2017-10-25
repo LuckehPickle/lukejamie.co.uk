@@ -1,20 +1,26 @@
+$gold-from: hsl(39, 67%, 49%);
+$gold-to:   hsl(50, 67%, 49%);
+$gold-text: hsl(39, 15%, 95%);
+
+$purple-from: hsl(282, 44%, 47%);
+$purple-to:   hsl(292, 44%, 47%);
+$purple-text: hsl(282, 15%, 95%);
+
+$teal: hsl(168, 76%, 42%);
+$teal-text: hsl(168, 15%, 95%);
+
+$orange: hsl(37, 90%, 61%);
+$orange-text: hsl(37, 15%, 98%);
+
+$green: hsl(145, 63%, 43%);
+$green-text: hsl(145, 15%, 97%);
+
 $text-on-light: hsl(0, 20%, 20%);
-
-$primary-gradient-from: hsl(39, 67%, 49%);
-$primary-gradient-to:   hsl(50, 67%, 49%);
-
-$primary-button-from: $primary-gradient-to;
-$primary-button-to:   $primary-gradient-to;
-$primary-button-text: hsl(0, 0%, 100%);
-
-$admin-anchor: hsl(0, 0%, 45%);
-$admin-anchor-active: hsl(49, 67%, 49%);
-$admin-nav-background: hsl(0, 0%, 100%);
 
 $highlight-foreground: white;
 $highlight-background: salmon;
 
 $border-color: hsl(39, 0%, 73%);
 
-$progress-active: hsl(132, 80%, 37%);
+$progress-active: hsl(145, 63%, 49%);
 $progress-inactive: hsl(5, 80%, 45%);

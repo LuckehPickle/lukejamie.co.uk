@@ -37,7 +37,7 @@
             left: 0;
             right: 0;
             height: 6px;
-            background: linear-gradient(90deg, $primary-gradient-from, $primary-gradient-to);
+            background: linear-gradient(90deg, $gold-from, $gold-to);
         }
     }
 
@@ -48,16 +48,15 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: $admin-nav-background;
+    background: hsl(0, 0%, 100%);
     box-shadow: 6px 0 20px rgba(0, 0, 0, 0.05);
-    //border-right: 1px solid hsl(0, 0%, 75%);
 
     ul {
         display: flex;
         list-style-type: none;
         padding: 0;
         margin: 0;
-        color: $admin-anchor;
+        color: hsl(0, 0%, 45%);
 
         li[active] {
             position: relative;
@@ -69,11 +68,11 @@
                 bottom: 0;
                 left: 0;
                 width: 5px;
-                background: $admin-anchor-active;
+                background: $gold-from;
             }
 
             a, i{
-                color: $admin-anchor-active;
+                color: $gold-from;
             }
         }
 
@@ -90,7 +89,6 @@
             vertical-align: middle;
             text-align: center;
             font-size: 14px;
-            //font-weight: 500;
 
             &:hover {
                 background: rgba(0, 0, 0, 0.05);
@@ -98,7 +96,7 @@
         }
 
         i {
-            color: lighten($admin-anchor, 5%);
+            color: hsl(0, 0%, 40%);
             margin-bottom: 0.5rem;
             font-size: 21px;
         }
