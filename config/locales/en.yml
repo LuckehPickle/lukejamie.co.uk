@@ -44,3 +44,4 @@ en:
   new_promo_code: "Create promo code"
   promo_code_description: "Here you can view all promotional, discount codes."
   product_description: "Create new products, or update existing ones."
+  must_be_admin: "You must be an administrator to access this part of the site."

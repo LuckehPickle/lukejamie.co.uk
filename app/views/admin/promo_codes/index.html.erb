@@ -7,25 +7,9 @@
 
 
 <% if not @promo_codes.empty? %>
-    <table class="admin-table">
-
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th class="grow">Label</th>
-                <th>Discount</th>
-                <th>Progress</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <!-- Tables are the worst... -->
-            <tr class="spacer"><% 4.times do %><td></td><% end %></tr>
-            <%= render @promo_codes %>
-            <tr class="spacer"><% 4.times do %><td></td><% end %></tr>
-        </tbody>
-
-    </table>
+    <div class="admin-list">
+        <%= render @promo_codes %>
+    </div>
 <% else %>
     I'm empty
 <% end %>

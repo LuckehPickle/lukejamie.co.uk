@@ -1,17 +1,24 @@
+require 'admin_authentication_helper'
+
 class Admin::OrdersController < ApplicationController
+
+    include AdminAuthenticationHelper
 
     before_action :authenticate_user!
     layout 'admin'
 
     def index
+        return if enforce_admin(current_user)
         @orders = Order.all
     end
 
     def edit
+        return if enforce_admin(current_user)
         @order = Order.find_by_reference! params[:id]
     end
 
     def update
+        return if enforce_admin(current_user)
         @order = Order.find_by_reference! params[:id]
 
         if @order.update order_params

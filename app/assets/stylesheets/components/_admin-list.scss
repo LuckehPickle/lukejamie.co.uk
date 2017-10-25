@@ -1,0 +1,105 @@
+.admin-list {
+    background: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 0.75rem 0;
+
+    & > *:last-child { border-bottom: none; }
+}
+
+.admin-list-item {
+    padding: 1.25rem 1.25rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    i.active   { color: $progress-active; }
+    i.inactive { color: $progress-inactive; }
+
+    .progress-bar {
+        margin: 0 0 1rem;
+        width: 200px;
+        height: 6px;
+        //border-radius: 4px;
+        background: hsl(0, 0, 90%);
+        overflow: hidden;
+
+        .progress {
+            display: block;
+            //background: linear-gradient(90deg, $primary-gradient-from, $primary-gradient-to);
+            background: $progress-active;
+            height: 6px;
+        }
+    }
+
+    .grow {
+        flex-grow: 1;
+    }
+
+    & > div {
+        padding: 0 1.25rem;
+        flex-shrink: 0;
+
+        a {
+            color: $text-on-light;
+            font-weight: bold;
+
+            &:hover { color: $admin-anchor-active; }
+        }
+
+        p {
+            margin: 0 0 7px;
+            font-size: 15px;
+            color: $text-on-light;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        .mono { font-family: "Roboto Mono", monospace; }
+        .dim  { color: lighten($text-on-light, 30%); }
+    }
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.04);
+    }
+
+}
+
+#promo-code-icon {
+    padding: 0 0.75rem;
+    i { font-size: 26px; }
+}
+
+#promo-code-code {
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+#promo-code-discount {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 500;
+    text-align: right;
+}
+
+#promo-code-date-range {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: lighten($text-on-light, 30%);
+
+    i {
+        font-size: 20px;
+        margin-right: 0.5rem;
+    }
+
+    p {
+        color: inherit;
+        font-size: 14px;
+        //font-family: "Roboto Mono", monospace;
+        //text-align: center;
+    }
+}

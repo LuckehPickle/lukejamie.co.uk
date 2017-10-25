@@ -50,6 +50,7 @@
     right: 0;
     background: $admin-nav-background;
     box-shadow: 6px 0 20px rgba(0, 0, 0, 0.05);
+    //border-right: 1px solid hsl(0, 0%, 75%);
 
     ul {
         display: flex;
@@ -99,7 +100,7 @@
         i {
             color: lighten($admin-anchor, 5%);
             margin-bottom: 0.5rem;
-            font-size: 23px;
+            font-size: 21px;
         }
     }
 }
@@ -107,14 +108,14 @@
 
 @media (min-width: 1000px) {
     .admin-content {
-        margin-left: 270px;
+        margin-left: 260px;
     }
 
     .admin-navigation {
         top: 0;
         right: auto;
         height: 100vh;
-        width: 270px;
+        width: 260px;
 
         ul {
             display: block;

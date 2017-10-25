@@ -1,17 +1,25 @@
+require 'admin_authentication_helper'
+
 class Admin::PromoCodesController < ApplicationController
+
+    include AdminAuthenticationHelper
 
     before_action :authenticate_user!
     layout 'admin'
 
     def index
+        return if enforce_admin(current_user)
         @promo_codes = PromoCode.page(params[:page]).per(20)
     end
 
     def new
+        return if enforce_admin(current_user)
         @promo_code = PromoCode.new
     end
 
     def create
+        return if enforce_admin(current_user)
+
         @promo_code = PromoCode.new promo_code_params
 
         if @promo_code.save
@@ -23,10 +31,12 @@ class Admin::PromoCodesController < ApplicationController
     end
 
     def edit
+        return if enforce_admin(current_user)
         @promo_code = PromoCode.find params[:id]
     end
 
     def update
+        return if enforce_admin(current_user)
         @promo_code = PromoCode.find params[:id]
 
         if @promo_code.update promo_code_params
@@ -38,6 +48,8 @@ class Admin::PromoCodesController < ApplicationController
     end
 
     def destroy
+        return if enforce_admin(current_user)
+
         @promo_code = PromoCode.find params[:id]
         @promo_code.destroy
 

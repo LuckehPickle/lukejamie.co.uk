@@ -70,7 +70,8 @@
  * masonry .............................. A masonry layout.
  * flash ................................ Flash! Aaaahhhaa! Saviour of the universe.
  * editor ............................... Markdown editor, supported by code mirror.
- * admin table .......................... A table for holding admin content.
+ * admin list ........................... A list of models in the admin panel.
+ * copyright ............................ Styling for copyright statements.
  */
 
 @import "components/button";
@@ -78,4 +79,5 @@
 @import "components/masonry";
 @import "components/flash";
 @import "components/editor";
-@import "components/admin-table";
+@import "components/admin-list";
+@import "components/copyright";

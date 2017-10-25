@@ -2,6 +2,8 @@ class PromoCode < ApplicationRecord
 
     self.primary_key = 'code'
 
+    default_scope { order(updated_at: :desc) }
+
     validates :code,
               presence: true,
               uniqueness: true,
