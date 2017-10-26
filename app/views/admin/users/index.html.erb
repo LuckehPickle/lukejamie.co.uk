@@ -5,12 +5,16 @@
     <p>Here you can view all of Luke Jamie's users.</p>
 </div>
 
-<% if not @users.empty? %>
-    <div class="admin-list">
-        <%= render @users %>
-    </div>
-<% else %>
-    I'm empty
-<% end %>
+<div class="admin-content-tools">
 
-<%= paginate @users %>
+    <div class="search-wrapper">
+        <input type="search" placeholder="Search users" />
+        <i class="material-icons">&#xE8B6;</i>
+    </div>
+
+</div>
+
+<%= render layout: 'admin/admin_list', locals: { objects: @users, search_placeholder: 'Search users' } do %>
+    <h2>There's nothing here...</h2>
+    <p>...but tumbleweeds. I have no idea how you're seeing this though, as you need an account just to view this page...</p>
+<% end %>

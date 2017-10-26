@@ -1,9 +1,10 @@
 .button {
+    display: inline-block;
     font-family: "Roboto", Helvetica, sans-serif;
     font-size: 15px;
     font-weight: 500;
-    color: $gold-text;
-    background: linear-gradient(0deg, $gold-from, $gold-to);
+    color: $purple-text;
+    background: linear-gradient(0deg, $purple-from, $purple-to);
     border: none;
     border-radius: 3px;
     padding: 0.8rem 1.4rem;
@@ -12,6 +13,7 @@
     vertical-align: middle;
     cursor: pointer;
     transition: all 200ms;
+    transform: translateY(0px);
 
     &:hover {
         transform: translateY(-1px);

@@ -2,15 +2,19 @@
 
 <div class="admin-content-header">
     <h1>Orders</h1>
-    <p>View all orders.</p>
+    <p><%= t('order_description') %></p>
 </div>
 
-<% if not @orders.empty? %>
-    <div class="admin-list">
-        <%= render @orders %>
-    </div>
-<% else %>
-    I'm empty
-<% end %>
+<div class="admin-content-tools">
 
-<%= paginate @orders %>
+    <div class="search-wrapper">
+        <input type="search" placeholder="Search orders" />
+        <i class="material-icons">&#xE8B6;</i>
+    </div>
+
+</div>
+
+<%= render layout: 'admin/admin_list', locals: { objects: @orders, search_placeholder: 'Search orders' } do %>
+    <h2>There's nothing here...</h2>
+    <p>...but tumbleweeds. Once you've received an order or two, you'll be able to view and manage them here.</p>
+<% end %>

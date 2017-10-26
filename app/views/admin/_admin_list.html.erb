@@ -1,0 +1,14 @@
+<div class="admin-list">
+    <% if not objects.empty? %>
+        <%= render objects %>
+    <% else %>
+        <div class="empty-state-wrapper">
+            <%= yield %>
+        </div>
+        <% 4.times do %>
+            <div class="admin-list-item admin-list-item-placeholder"></div>
+        <% end %>
+    <% end %>
+</div>
+
+<%= paginate objects %>

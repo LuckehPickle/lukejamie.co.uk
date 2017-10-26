@@ -23,7 +23,7 @@
     <div id="promo-code-dates">
         <div class="progress-bar">
             <% if promo_code.finish_date.at_end_of_day < Time.now %>
-                <span class="progress"></span>
+                <span class="progress progress-completed"></span>
             <% elsif promo_code.active? %>
                 <span class="progress" style="width: <%= promo_code.percentage %>%;"></span>
             <% end %>

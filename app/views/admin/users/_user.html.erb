@@ -1,6 +1,5 @@
 <%= link_to admin_user_path(user), class: 'admin-list-item' do %>
 
-
     <!-- User information -->
     <div class="grow">
         <p id="user-name">
@@ -11,18 +10,12 @@
             <% end %>
 
             <% if user.order_count != 0 %>
-                <span class="list-badge" title="This user has made <%= pluralize user.order_count, 'order' %>">
+                <span class="list-badge" id="user-orders-badge" title="This user has made <%= pluralize user.order_count, 'order' %>">
                     <%= pluralize user.order_count, 'order' %>
                 </span>
             <% end %>
         </p>
         <p><%= user.email %></p>
-    </div>
-
-
-    <!-- IP Address -->
-    <div>
-        <p id="user-ip"><%= user.current_sign_in_ip %></p>
     </div>
 
     <!-- Dates -->

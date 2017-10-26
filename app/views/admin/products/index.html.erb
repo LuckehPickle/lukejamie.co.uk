@@ -5,12 +5,32 @@
     <p><%= t('product_description') %></p>
 </div>
 
-<div class="tools">
+<div class="admin-content-tools">
+
+    <div class="search-wrapper">
+        <input type="search" placeholder="Search products" />
+        <i class="material-icons">&#xE8B6;</i>
+    </div>
+
+    <%= link_to 'New product', new_admin_product_path, class: 'button' %>
 
 </div>
 
-<div class="infinite-masonry">
-    <%= render @products %>
-</div>
+<% if not @products.empty? %>
+    <div class="infinite-masonry">
+        <%= render @products %>
+    </div>
+<% else %>
+    <div class="admin-list">
+        <div class="empty-state-wrapper">
+            <h2>There's nothing here...</h2>
+            <p>...but tumbleweeds. Once you've created a product or two, you'll be able to view them here in all their glory.</p>
+            <%= link_to t('new_product'), new_admin_product_path, class: 'button' %>
+        </div>
+        <% 4.times do %>
+            <div class="admin-list-item admin-list-item-placeholder"></div>
+        <% end %>
+    </div>
+<% end %>
 
 <%= paginate @products %>

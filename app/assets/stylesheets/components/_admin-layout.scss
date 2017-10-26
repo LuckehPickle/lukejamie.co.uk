@@ -6,7 +6,7 @@
     & > *:first-child { margin-top: 0; }
 
     .admin-content-header {
-        margin-bottom: 2rem;
+        margin-bottom: 1.75rem;
 
         h1 {
             font-size: 15px;
@@ -20,6 +20,8 @@
             line-height: 1.5;
             margin: 0 0 1rem;
         }
+
+        & > *:last-child { margin-bottom: 0; }
     }
 
     .admin-content-form {
@@ -41,6 +43,13 @@
         }
     }
 
+}
+
+.admin-content-tools {
+    margin: 0 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .admin-navigation {

@@ -67,17 +67,21 @@
  *
  * button ............................... Fancy looking buttons!
  * admin layout ......................... Layout for admin pages.
+ * admin list ........................... A list of models in the admin panel.
+ * admin quilt .......................... A quilt layout.
  * masonry .............................. A masonry layout.
  * flash ................................ Flash! Aaaahhhaa! Saviour of the universe.
  * editor ............................... Markdown editor, supported by code mirror.
- * admin list ........................... A list of models in the admin panel.
  * copyright ............................ Styling for copyright statements.
+ * search ............................... Search bar.
  */
 
 @import "components/button";
 @import "components/admin-layout";
+@import "components/admin-list";
+@import "components/admin-quilt";
 @import "components/masonry";
 @import "components/flash";
 @import "components/editor";
-@import "components/admin-list";
 @import "components/copyright";
+@import "components/search";

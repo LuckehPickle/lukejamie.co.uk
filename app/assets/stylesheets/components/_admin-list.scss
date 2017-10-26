@@ -1,15 +1,42 @@
 .admin-list {
+    position: relative;
     background: white;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
     border-radius: 3px;
     overflow: hidden;
-    padding: 1rem 0;
+    padding: 0.75rem 0;
+    margin: 0 0 2rem;
 
     & > *:last-child { border-bottom: none; }
+
+    .empty-state-wrapper {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1rem;
+        text-align: center;
+        line-height: 1.6;
+
+        h2 {
+            margin: 0 0 2rem;
+            font-size: 16px;
+        }
+
+        p {
+            max-width: 350px;
+            margin: 0 0 2rem;
+        }
+    }
 }
 
 .admin-list-item {
-    padding: 1.25rem 0.75rem;
+    padding: 1.2rem 0.75rem;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -18,15 +45,20 @@
     i.inactive { color: $progress-inactive; }
 
     .progress-bar {
-        width: 200px;
+        width: 220px;
         height: 6px;
         background: hsl(0, 0, 90%);
+        border-radius: 4px;
         overflow: hidden;
 
         .progress {
             display: block;
             background: $progress-active;
             height: 6px;
+        }
+
+        .progress-completed {
+            background: linear-gradient(0deg, $purple-from, $purple-to);
         }
     }
 
@@ -69,6 +101,17 @@
 
     &:hover {
         background: rgba(0, 0, 0, 0.04);
+    }
+
+    &.admin-list-item-placeholder {
+        padding: 2.25rem 0;
+        margin: 0.5rem 1.25rem 1.25rem;
+        background: hsl(0, 0%, 99%);
+        border-radius: 2px;
+
+        &:last-child {
+            margin-bottom: 0.5rem;
+        }
     }
 
 }
@@ -121,6 +164,7 @@
     color: $green-text;
 }
 
+#user-orders-badge,
 #needs-shipping-badge {
     background: $teal;
     color: $teal-text;

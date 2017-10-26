@@ -12,7 +12,7 @@
     <div class="brick-footer">
         <div>
             <p class="name"><%= product.name %></p>
-            <p class="price"><%= number_to_currency product.price, locale: :en_GB %></p>
+            <p class="price"><%= number_to_currency product.price, unit: '£' %></p>
         </div>
 
         <p>Updated <%= local_time_ago product.updated_at %></p>
