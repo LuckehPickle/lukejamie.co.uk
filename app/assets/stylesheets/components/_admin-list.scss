@@ -91,10 +91,11 @@
     .list-badge {
         margin-left: 0.5rem;
         background: $gold-from;
-        padding: 2px 5px;
+        padding: 3px 5px;
         border-radius: 2px;
-        font-family: "Roboto Mono", monospace;
-        font-size: 12px;
+        font-family: "Roboto", Helvetica, sans-serif;
+        font-size: 13px;
+        line-height: 1.0;
         color: $gold-text;
         text-transform: lowercase;
     }
@@ -164,13 +165,7 @@
     color: $green-text;
 }
 
-#user-orders-badge,
 #needs-shipping-badge {
     background: $teal;
     color: $teal-text;
-}
-
-#returned-badge {
-    background: $orange;
-    color: $orange-text;
 }

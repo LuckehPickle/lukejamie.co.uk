@@ -9,7 +9,10 @@ class Admin::PromoCodesController < ApplicationController
 
     def index
         return if enforce_admin(current_user)
-        @promo_codes = PromoCode.page(params[:page]).per(20)
+        query = params[:query].present? ? params[:query] : '*'
+        @promo_codes = PromoCode.search query,
+                                        page: params[:page],
+                                        per_page: 20
     end
 
     def new

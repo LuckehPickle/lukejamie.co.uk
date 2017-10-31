@@ -7,7 +7,7 @@ class Admin::AdminController < ApplicationController
     layout 'admin'
 
     def index
-        enforce_admin(current_user)
+        return if enforce_admin(current_user)
     end
 
 end

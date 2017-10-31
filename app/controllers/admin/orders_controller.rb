@@ -9,7 +9,15 @@ class Admin::OrdersController < ApplicationController
 
     def index
         return if enforce_admin(current_user)
-        @orders = Order.page(params[:page]).per(20)
+        query = params[:query].present? ? params[:query] : '*'
+        @orders = Order.search query,
+                               page: params[:page],
+                               per_page: 20
+    end
+
+    def show
+        return if enforce_admin(current_user)
+        @order = Order.find_by!(reference: params[:id])
     end
 
     def edit

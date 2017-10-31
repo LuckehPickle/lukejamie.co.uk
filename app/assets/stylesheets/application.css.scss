@@ -74,6 +74,7 @@
  * editor ............................... Markdown editor, supported by code mirror.
  * copyright ............................ Styling for copyright statements.
  * search ............................... Search bar.
+ * footer ............................... Store footer.
  */
 
 @import "components/button";
@@ -85,3 +86,4 @@
 @import "components/editor";
 @import "components/copyright";
 @import "components/search";
+@import "components/footer";

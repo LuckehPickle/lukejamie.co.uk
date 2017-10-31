@@ -28,7 +28,7 @@ Rails.application.routes.draw do
         root 'admin#index'
         resources :products,    except: [:show, :destroy]
         resources :promo_codes, except: :show, path: 'promo-codes'
-        resources :orders,        only: [:index, :edit, :update]
+        resources :orders,        only: [:index, :show, :edit, :update]
         resources :users,       except: [:new, :create]
     end
 

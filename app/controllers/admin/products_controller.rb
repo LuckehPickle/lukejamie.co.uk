@@ -10,7 +10,10 @@ class Admin::ProductsController < ApplicationController
 
     def index
         return if enforce_admin(current_user)
-        @products = Product.page(params[:page]).per(30)
+        query = params[:query].present? ? params[:query] : '*'
+        @products = Product.search query,
+                                   page: params[:page],
+                                   per_page: 30
     end
 
 

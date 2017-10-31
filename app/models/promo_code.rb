@@ -1,8 +1,18 @@
 class PromoCode < ApplicationRecord
 
-    self.primary_key = 'code'
+    searchkick callbacks: :async
 
-    default_scope { order(updated_at: :desc) }
+    def search_data
+        {
+            code: code,
+            label: label,
+            start_date: start_date,
+            finish_date: finish_date,
+            active: active?
+        }
+    end
+
+    self.primary_key = 'code'
 
     validates :code,
               presence: true,
@@ -50,8 +60,7 @@ class PromoCode < ApplicationRecord
     ##
     # Determines whether this promo code is currently active.
     def active?
-        Time.now >= start_date.at_beginning_of_day and
-            Time.now <= finish_date.at_end_of_day
+        start_date <= Date.today and finish_date >= Date.today
     end
 
 

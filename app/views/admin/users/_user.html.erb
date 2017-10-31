@@ -5,6 +5,10 @@
         <p id="user-name">
             <%= user.name %>
 
+            <% if user.confirmed_at.nil? %>
+                <span class="list-badge" title="This user has not yet confirmed their email address.">unconfirmed</span>
+            <% end %>
+
             <% if user.admin? %>
                 <span class="list-badge" id="admin-badge" title="This user is an administrator">admin</span>
             <% end %>

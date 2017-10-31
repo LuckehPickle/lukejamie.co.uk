@@ -7,11 +7,15 @@ class Admin::UsersController < ApplicationController
     before_action :authenticate_user!
     layout 'admin'
 
+
     def index
         return if enforce_admin(current_user)
-
-        @users = User.page(params[:page]).per(20)
+        query = params[:query].present? ? params[:query] : '*'
+        @users = User.search query,
+                             page: params[:page],
+                             per_page: 20
     end
+
 
     def show
         enforce_admin(current_user)
@@ -22,6 +26,7 @@ class Admin::UsersController < ApplicationController
 
         @user = User.find params[:id]
     end
+
 
     def update
         enforce_admin(current_user)
@@ -35,6 +40,7 @@ class Admin::UsersController < ApplicationController
             render 'edit'
         end
     end
+
 
     def destroy
         enforce_admin(current_user)

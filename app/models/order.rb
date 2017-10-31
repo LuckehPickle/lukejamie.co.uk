@@ -1,5 +1,14 @@
 class Order < ApplicationRecord
 
+    searchkick callbacks: :async
+
+    def search_data
+        {
+            reference: reference,
+            state: state
+        }
+    end
+
     self.primary_key = 'reference'
 
     enum state: [ :processing, :shipped, :returned, :refunded ]

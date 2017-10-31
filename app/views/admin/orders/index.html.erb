@@ -8,7 +8,10 @@
 <div class="admin-content-tools">
 
     <div class="search-wrapper">
-        <input type="search" placeholder="Search orders" />
+        <%= form_tag admin_orders_path, method: :get, class: 'search-form' do %>
+            <%= search_field_tag :query, params[:query], placeholder: 'Search orders' %>
+            <%= submit_tag 'Search' %>
+        <% end %>
         <i class="material-icons">&#xE8B6;</i>
     </div>
 
