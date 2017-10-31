@@ -9,7 +9,7 @@ module AdminAuthenticationHelper
     # +user+::A devise user model.
     def enforce_admin (user)
         unless user.admin?
-            flash[:notice] = t(:must_be_admin)
+            flash[:notice] = t('admin.user.must_be_admin')
             redirect_to root_path
             return true
         end

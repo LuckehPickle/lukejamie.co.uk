@@ -2,6 +2,10 @@
     <%= content_for?(:subtitle) ? yield(:subtitle) + ' (Admin Panel)' : 'Admin Panel' %>
 <% end %>
 
+<% content_for :scripts do %>
+    <%= javascript_include_tag 'codemirror.js', 'markdown.js' %>
+<% end %>
+
 <% content_for :content do %>
 
     <%= render 'admin/navigation' %>

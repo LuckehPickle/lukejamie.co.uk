@@ -13,8 +13,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require local-time
-//= require codemirror
-//= require markdown
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function () {

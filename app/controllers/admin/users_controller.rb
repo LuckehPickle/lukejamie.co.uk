@@ -34,7 +34,7 @@ class Admin::UsersController < ApplicationController
         @user = User.find params[:id]
 
         if @user.update user_params
-            flash[:notice] = t(:update_user) % { name: @user.name }
+            flash[:notice] = t('admin.user.update') % { name: @user.name }
             redirect_to admin_users_path
         else
             render 'edit'

@@ -30,11 +30,18 @@ class Admin::OrdersController < ApplicationController
         @order = Order.find_by_reference! params[:id]
 
         if @order.update order_params
-            flash[:notice] = t('update_order') % { reference: @order.reference }
+            flash[:notice] = t('admin.order.update') % { reference: @order.reference }
             redirect_to admin_orders_path
         else
             render 'edit'
         end
     end
+
+
+    private
+
+        def order_params
+            params.require(:order)
+        end
 
 end

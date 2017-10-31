@@ -2,7 +2,7 @@
 
 <div class="admin-content-header">
     <h1>Products</h1>
-    <p><%= t('product_description') %></p>
+    <p><%= t('admin.product.subtitle') %></p>
 </div>
 
 <div class="admin-content-tools">
@@ -15,7 +15,7 @@
         <i class="material-icons">&#xE8B6;</i>
     </div>
 
-    <%= link_to 'New product', new_admin_product_path, class: 'button' %>
+    <%= link_to t('admin.product.new'), new_admin_product_path, class: 'button' %>
 
 </div>
 
@@ -28,7 +28,7 @@
         <div class="empty-state-wrapper">
             <h2>There's nothing here...</h2>
             <p>...but tumbleweeds. Once you've created a product or two, you'll be able to view them here in all their glory.</p>
-            <%= link_to t('new_product'), new_admin_product_path, class: 'button' %>
+            <%= link_to t('admin.product.new'), new_admin_product_path, class: 'button' %>
         </div>
         <% 4.times do %>
             <div class="admin-list-item admin-list-item-placeholder"></div>

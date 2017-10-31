@@ -60,6 +60,11 @@
     background: hsl(0, 0%, 100%);
     box-shadow: 6px 0 20px rgba(0, 0, 0, 0.05);
 
+    .logo {
+        padding: 2.5rem 2.5rem 0.5rem;
+        width: 100%;
+    }
+
     ul {
         display: flex;
         list-style-type: none;

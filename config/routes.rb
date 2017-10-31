@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     root 'welcome#index'
     resources :products, only: [:index, :show]
 
+    resources :support_articles,
+              path: 'support',
+              only: [:index, :show]
+
     namespace :account do
         root 'users#show'
         resources :addresses, except: :show
@@ -26,10 +30,15 @@ Rails.application.routes.draw do
 
     namespace :admin do
         root 'admin#index'
-        resources :products,    except: [:show, :destroy]
-        resources :promo_codes, except: :show, path: 'promo-codes'
-        resources :orders,        only: [:index, :show, :edit, :update]
-        resources :users,       except: [:new, :create]
+        resources :products, except: [:show, :destroy]
+        resources :promo_codes,
+                  except: :show,
+                  path: 'promo-codes'
+        resources :orders, only: [:index, :show, :edit, :update]
+        resources :users,  except: [:new, :create]
+        resources :support_articles,
+                  except: :show,
+                  path: 'support-articles'
     end
 
 end

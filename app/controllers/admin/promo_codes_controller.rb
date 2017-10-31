@@ -26,7 +26,7 @@ class Admin::PromoCodesController < ApplicationController
         @promo_code = PromoCode.new promo_code_params
 
         if @promo_code.save
-            flash[:notice] = t('create_promo_code') % { code: @promo_code.code }
+            flash[:notice] = t('admin.promo_code.create') % { code: @promo_code.code }
             redirect_to admin_promo_codes_path
         else
             render 'new'
@@ -43,7 +43,7 @@ class Admin::PromoCodesController < ApplicationController
         @promo_code = PromoCode.find params[:id]
 
         if @promo_code.update promo_code_params
-            flash[:notice] = t('update_promo_code') % {code: @promo_code.code }
+            flash[:notice] = t('admin.promo_code.update') % {code: @promo_code.code }
             redirect_to admin_promo_codes_path
         else
             render 'edit'
@@ -56,7 +56,7 @@ class Admin::PromoCodesController < ApplicationController
         @promo_code = PromoCode.find params[:id]
         @promo_code.destroy
 
-        flash[:notice] = t('delete_promo_code') % {code: @promo_code.code }
+        flash[:notice] = t('admin.promo_code.delete') % {code: @promo_code.code }
         redirect_to admin_promo_codes_path
     end
 

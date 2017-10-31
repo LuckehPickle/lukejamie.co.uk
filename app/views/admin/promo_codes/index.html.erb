@@ -2,7 +2,7 @@
 
 <div class="admin-content-header">
     <h1>Promo codes</h1>
-    <p><%= t('promo_code_description') %></p>
+    <p><%= t('admin.promo_code.subtitle') %></p>
 </div>
 
 <div class="admin-content-tools">
@@ -15,12 +15,12 @@
         <i class="material-icons">&#xE8B6;</i>
     </div>
 
-    <%= link_to 'New promo code', new_admin_promo_code_path, class: 'button' %>
+    <%= link_to t('admin.promo_code.new'), new_admin_promo_code_path, class: 'button' %>
 
 </div>
 
-<%= render layout: 'admin/admin_list', locals: { objects: @promo_codes, search_placeholder: 'Search promo codes' } do %>
+<%= render layout: 'admin/admin_list', locals: { objects: @promo_codes } do %>
     <h2>There's nothing here...</h2>
     <p>...but tumbleweeds. Once you've created a promo code or two, you'll be able to view them here in all their glory.</p>
-    <%= link_to t('new_promo_code'), new_admin_promo_code_path, class: 'button' %>
+    <%= link_to t('admin.promo_code.new'), new_admin_promo_code_path, class: 'button' %>
 <% end %>

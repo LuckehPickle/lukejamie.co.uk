@@ -2,7 +2,7 @@
 
 <div class="admin-content-header">
     <h1>Orders</h1>
-    <p><%= t('order_description') %></p>
+    <p><%= t('admin.order.subtitle') %></p>
 </div>
 
 <div class="admin-content-tools">
@@ -17,7 +17,7 @@
 
 </div>
 
-<%= render layout: 'admin/admin_list', locals: { objects: @orders, search_placeholder: 'Search orders' } do %>
+<%= render layout: 'admin/admin_list', locals: { objects: @orders } do %>
     <h2>There's nothing here...</h2>
     <p>...but tumbleweeds. Once you've received an order or two, you'll be able to view and manage them here.</p>
 <% end %>

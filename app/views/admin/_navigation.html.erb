@@ -1,5 +1,9 @@
 <nav class="admin-navigation">
 
+    <%= link_to root_path do %>
+        <%= image_tag 'luke-jamie-apparel.svg', class: 'logo' %>
+    <% end %>
+
     <ul>
 
         <!-- Store front -->
@@ -18,14 +22,6 @@
             <% end %>
         </li>
 
-        <!-- Products -->
-        <li <%= 'active' if request.fullpath.start_with? admin_products_path %>>
-            <%= link_to admin_products_path do %>
-                <i class="material-icons">&#xE53B;</i>
-                <span>Products</span>
-            <% end %>
-        </li>
-
         <!-- Orders -->
         <li <%= 'active' if request.fullpath.start_with? admin_orders_path %>>
             <%= link_to admin_orders_path do %>
@@ -34,11 +30,27 @@
             <% end %>
         </li>
 
+        <!-- Products -->
+        <li <%= 'active' if request.fullpath.start_with? admin_products_path %>>
+            <%= link_to admin_products_path do %>
+                <i class="material-icons">&#xE53B;</i>
+                <span>Products</span>
+            <% end %>
+        </li>
+
         <!-- Promo Codes -->
         <li <%= 'active' if request.fullpath.start_with? admin_promo_codes_path %>>
             <%= link_to admin_promo_codes_path do %>
                 <i class="material-icons">&#xE53F;</i>
                 <span>Promo codes</span>
+            <% end %>
+        </li>
+
+        <!-- Support Articles -->
+        <li <%= 'active' if request.fullpath.start_with? admin_support_articles_path %>>
+            <%= link_to admin_support_articles_path do %>
+                <i class="material-icons">&#xE865;</i>
+                <span>Support articles</span>
             <% end %>
         </li>
 

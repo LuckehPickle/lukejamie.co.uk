@@ -3,6 +3,7 @@
  *
  *= require normalize
  *= require codemirror
+ *= require payment-webfont
  *= require_self
  */
 
@@ -75,6 +76,7 @@
  * copyright ............................ Styling for copyright statements.
  * search ............................... Search bar.
  * footer ............................... Store footer.
+ * wrapper .............................. A content wrapper.
  */
 
 @import "components/button";
@@ -87,3 +89,4 @@
 @import "components/copyright";
 @import "components/search";
 @import "components/footer";
+@import "components/wrapper";

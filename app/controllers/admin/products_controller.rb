@@ -28,7 +28,7 @@ class Admin::ProductsController < ApplicationController
         @product = Product.new product_params
 
         if @product.save
-            flash[:notice] = t('create_product') % { name: @product.name }
+            flash[:notice] = t('admin.product.create') % { name: @product.name }
             redirect_to admin_products_path
         else
             render 'new'
@@ -49,7 +49,7 @@ class Admin::ProductsController < ApplicationController
         @product = Product.find_by_slug! params[:id]
 
         if @product.update product_params
-            flash[:notice] = t('update_product') % { name: @product.name }
+            flash[:notice] = t('admin.product.update') % { name: @product.name }
             redirect_to admin_products_path
         else
             render 'edit'
