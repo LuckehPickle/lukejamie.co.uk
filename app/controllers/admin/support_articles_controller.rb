@@ -72,7 +72,12 @@ class Admin::SupportArticlesController < ApplicationController
     private
 
         def article_params
-            params.require(:support_article).permit(:title, :body)
+            params.require(:support_article).permit(
+                :title,
+                :category,
+                :description,
+                :body
+            )
         end
 
 end

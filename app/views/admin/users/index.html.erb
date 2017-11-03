@@ -10,7 +10,7 @@
     <div class="search-wrapper">
         <%= form_tag admin_users_path, method: :get, class: 'search-form' do %>
             <%= search_field_tag :query, params[:query], placeholder: 'Search users' %>
-            <%= submit_tag 'Search' %>
+            <%= submit_tag 'Search', name: nil %>
         <% end %>
         <i class="material-icons">&#xE8B6;</i>
     </div>

@@ -9,23 +9,18 @@
 
 
 
-/**
+/*
  * -- Settings --
  * Adjustments here will cascade throughout the entire project, allowing for quick modifications.
- *
- * colors ............................... Color palette.
  */
 
 @import "settings/colors";
 
 
 
-/**
+/*
  * -- Tools --
  * Various tools for use within stylesheets. Mostly used for mixins.
- *
- * hidden ............................... A mixin for hiding elements from visually, or from screen readers.
- * no select ............................ A mixin for preventing highlighting.
  */
 
 @import "tools/hidden";
@@ -49,15 +44,12 @@
 /*
  * -- Elements --
  * Styles which target a particular HTML 5 element.
- *
- * body ................................. Generic changes to the document body.
- * form ................................. Various form related styles.
- * anchors .............................. General styles for links/anchors.
  */
 
 @import "elements/body";
 @import "elements/form";
 @import "elements/anchors";
+@import "elements/headings";
 
 
 
@@ -65,18 +57,6 @@
 /*
  * -- Components --
  * Styles which target a particular custom component.
- *
- * button ............................... Fancy looking buttons!
- * admin layout ......................... Layout for admin pages.
- * admin list ........................... A list of models in the admin panel.
- * admin quilt .......................... A quilt layout.
- * masonry .............................. A masonry layout.
- * flash ................................ Flash! Aaaahhhaa! Saviour of the universe.
- * editor ............................... Markdown editor, supported by code mirror.
- * copyright ............................ Styling for copyright statements.
- * search ............................... Search bar.
- * footer ............................... Store footer.
- * wrapper .............................. A content wrapper.
  */
 
 @import "components/button";
@@ -88,5 +68,8 @@
 @import "components/editor";
 @import "components/copyright";
 @import "components/search";
+@import "components/header";
 @import "components/footer";
 @import "components/wrapper";
+@import "components/support-article";
+@import "components/article-list";

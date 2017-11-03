@@ -3,8 +3,10 @@ Rails.application.routes.draw do
     devise_for :users,
                path: 'auth',
                controllers: {
-                   sessions: 'user/sessions',
-                   registrations: 'user/registrations'
+                   confirmations: 'user/confirmations',
+                   passwords: 'user/passwords',
+                   registrations: 'user/registrations',
+                   sessions: 'user/sessions'
                },
                path_names: {
                    sign_in: 'login',

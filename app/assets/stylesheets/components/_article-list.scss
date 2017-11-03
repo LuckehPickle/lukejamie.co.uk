@@ -1,0 +1,45 @@
+.articles-section {
+    margin: 0 0 5rem;
+    font-size: 17px;
+    line-height: 1.6;
+
+    h1 {
+        color: $bold-text;
+        font-size: 22px;
+        margin: 0 0 0.5rem;
+    }
+
+    p {
+        margin: 0 0 1rem;
+    }
+}
+
+.article-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-gap: 1rem;
+    margin: 2rem 0;
+    font-size: 16px;
+
+    & > a {
+        display: inline-block;
+        padding: 0 1rem;
+        color: $text;
+
+        & > *:last-child { margin-bottom: 0; }
+
+        p {
+            margin: 0 0 0.4rem;
+            color: lighten($text, 10%);
+
+            &.title {
+                font-weight: bold;
+                color: $blue;
+            }
+        }
+
+        &:hover {
+            .title { color: darken($blue, 10%); }
+        }
+    }
+}

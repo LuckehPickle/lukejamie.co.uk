@@ -6,6 +6,9 @@ $purple-from: hsl(280, 44%, 47%);
 $purple-to:   hsl(300, 44%, 47%);
 $purple-text: hsl(282, 15%, 95%);
 
+$blue: hsl(218, 48%, 52%);
+$blue-text: hsl(218, 15%, 95%);
+
 $teal: hsl(168, 76%, 42%);
 $teal-text: hsl(168, 15%, 97%);
 
@@ -21,12 +24,22 @@ $slate-text: hsl(0, 15%, 95%);
 $charcoal: hsl(0, 0%, 17%);
 $charcoal-text: hsl(0, 15%, 95%);
 
-$text-on-light: hsl(0, 20%, 20%);
+$text:      hsl(0, 0%, 30%);
+$bold-text: hsl(0, 0%, 20%);
 
 $highlight-foreground: white;
 $highlight-background: salmon;
 
-$border-color: hsl(39, 0%, 73%);
+$border-color: hsl(200, 15%, 85%);
 
 $progress-active: hsl(145, 63%, 49%);
 $progress-inactive: hsl(5, 80%, 45%);
+
+$facebook-colour: hsl(221, 15%, 96%);
+$facebook-background: hsl(221, 44%, 41%);
+
+$twitter-colour: hsl(203, 15%, 96%);
+$twitter-background:  hsl(203, 89%, 53%);
+
+$instagram-colour: hsl(4, 15%, 98%);
+$instagram-background: hsl(4, 78%, 61%);

@@ -1,2 +1,8 @@
-<h1>Admin::SupportArticles#new</h1>
-<p>Find me in app/views/admin/support_articles/new.html.erb</p>
+<% content_for :subtitle do %>New article<% end %>
+
+<div class="admin-content-header">
+    <h1>Create a support article</h1>
+    <p>This article will be automatically posted to the knowledgebase.</p>
+</div>
+
+<%= render 'form' %>

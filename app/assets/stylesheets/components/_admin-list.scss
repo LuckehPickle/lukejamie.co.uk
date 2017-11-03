@@ -71,21 +71,21 @@
         flex-shrink: 0;
 
         a {
-            color: $text-on-light;
+            color: $text;
             font-weight: bold;
         }
 
         p {
             margin: 0 0 8px;
             font-size: 15px;
-            color: $text-on-light;
+            color: $text;
         }
 
         p:last-child {
             margin-bottom: 0;
         }
 
-        .dim  { color: lighten($text-on-light, 30%); }
+        .dim  { color: lighten($text, 30%); }
     }
 
     .list-badge {
@@ -98,6 +98,7 @@
         line-height: 1.0;
         color: $gold-text;
         text-transform: lowercase;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
     &:hover {
@@ -132,6 +133,7 @@
     text-align: right;
 }
 
+#support-article-title,
 #order-reference,
 #promo-code-code,
 #user-name {
@@ -150,10 +152,11 @@
 }
 
 #order-user {
-    color: lighten($text-on-light, 30%);
-    span { color: $text-on-light; }
+    color: lighten($text, 30%);
+    span { color: $text; }
 }
 
+#policy-badge,
 #admin-badge,
 #refunded-badge {
     background: $purple-from;

@@ -1,0 +1,99 @@
+$article-spacing: 1rem;
+
+.article-wrapper {
+    display: flex;
+
+    .support-topics {
+        flex-shrink: 0;
+        width: 240px;
+        padding-right: 2.5rem;
+        margin-right: 2.5rem;
+        font-size: 15px;
+        line-height: 1.6;
+        border-right: 1px solid $border-color;
+
+        h2 {
+            font-size: 17px;
+            font-weight: bold;
+            margin: 0 0 0.5rem;
+            color: $bold-text;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+
+            a {
+                display: inline-block;
+                margin: 0.25rem 0;
+                color: lighten($text, 0%);
+            }
+        }
+    }
+
+    article {
+        flex-grow: 1;
+        line-height: 1.7;
+        font-size: 16px;
+        max-width: 700px;
+
+        & > * {
+            margin: 0 0 $article-spacing;
+            &:last-child { margin-bottom: 0; }
+        }
+
+        header {
+            h1 {
+                text-transform: uppercase;
+                font-size: 17px;
+                margin: 0;
+                color: lighten($text, 8%);
+            }
+
+            p {
+                margin: 0;
+                font-size: 15px;
+                color: lighten($text, 25%)
+            }
+        }
+
+        h1 {
+            color: $bold-text;
+            margin-top: 2 * $article-spacing;
+            font-size: 19px;
+        }
+
+        h2 {
+            color: $bold-text;
+            margin-top: 2rem;
+            font-size: 16px;
+        }
+
+        code {
+            font-family: "Roboto Mono", "Monaco", "Inconsolata", "Consolas", monospace;
+            font-size: 0.86em;
+            background: hsl(0, 0%, 94%);
+            letter-spacing: 0;
+            border-radius: 3px;
+        }
+
+        p > code {
+            padding: 0.2rem 0;
+
+            &:before,
+            &:after {
+                content: '\00a0';
+                letter-spacing: -0.2em;
+            }
+        }
+
+        pre code {
+            display: block;
+            line-height: 1.5;
+            padding: 1rem;
+        }
+
+
+    }
+}

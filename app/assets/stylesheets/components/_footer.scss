@@ -4,7 +4,7 @@
     color: $slate-text;
     font-size: 15px;
     line-height: 1.6;
-    margin: 4rem 0 0;
+    margin: 7.5rem 0 0;
 
     .social-wrapper,
     .footer-wrapper {
@@ -18,11 +18,49 @@
     }
 
     .social-wrapper {
-        padding-bottom: 0;
+        transform: translateY(-1.5rem);
+        padding: 0;
+        margin-bottom: -1.5rem;
+        justify-content: center;
 
         a {
-            color: white;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.6;
+            vertical-align: middle;
+            padding: 0.75rem 1.25rem 0.75rem 1rem;
+            margin-right: 1rem;
+
+            svg {
+                width:  24px;
+                height: 24px;
+                margin-right: 0.75rem;
+                padding: 1px 0;
+            }
+
+            path { fill: $charcoal-text; }
+
+            &#facebook {
+                color: $facebook-colour;
+                background: $facebook-background;
+            }
+
+            &#twitter {
+                color: $twitter-colour;
+                background: $twitter-background;
+
+                svg { padding-top: 3px; }
+            }
+
+            &#instagram {
+                color: $instagram-colour;
+                background: $instagram-background;
+            }
         }
+
+        & > *:last-child { margin-right: 0; }
     }
 
     .footer-column {
@@ -68,7 +106,7 @@
         background: $charcoal;
 
         .footer-wrapper {
-            padding: 1.25rem 1rem;
+            padding: 0.5rem 1rem;
             align-items: center;
             justify-content: space-between;
         }
@@ -79,7 +117,10 @@
         }
 
         img { width: 170px; }
-        a { line-height: 1.0; }
+        a {
+            line-height: 1.0;
+            padding: 0.75rem 0;
+        }
     }
 
 }

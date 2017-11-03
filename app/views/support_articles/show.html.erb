@@ -1,2 +1,27 @@
-<h1>SupportArticles#show</h1>
-<p>Find me in app/views/support_articles/show.html.erb</p>
+<% content_for :title do %><%= @article.title %><% end %>
+
+<div class="wrapper">
+
+    <div class="article-wrapper">
+
+        <div class="support-topics">
+            <h2>Support topics</h2>
+            <ul>
+                <% @articles.each do |article| %>
+                    <li><%= link_to article.title, support_article_path(article) %></li>
+                <% end %>
+            </ul>
+        </div>
+
+        <article>
+            <header>
+                <h1><%= @article.title %></h1>
+                <p>Last updated <%= local_time_ago @article.updated_at %></p>
+            </header>
+
+            <%= markdown @article.body %>
+        </article>
+
+    </div>
+
+</div>

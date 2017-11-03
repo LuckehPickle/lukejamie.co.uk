@@ -28,11 +28,11 @@
 
         p {
             margin: 0 0 8px;
-            color: lighten($text-on-light, 30%);
+            color: lighten($text, 30%);
         }
 
         .name {
-            color: $text-on-light;
+            color: $text;
             font-weight: 500;
         }
 

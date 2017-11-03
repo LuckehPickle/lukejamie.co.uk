@@ -1,0 +1,16 @@
+<%= link_to edit_admin_support_article_path(support_article), class: 'admin-list-item' do %>
+
+    <!-- Promo code information -->
+    <div class="grow">
+        <p id="support-article-title">
+            <%= support_article.title %>
+            <% if support_article.guide? %>
+                <span class="list-badge" id="guide-badge">guide</span>
+            <% elsif support_article.policy? %>
+                <span class="list-badge" id="policy-badge">policy</span>
+            <% end %>
+        </p>
+        <p><%= truncate support_article.description, length: 100%></p>
+    </div>
+
+<% end %>

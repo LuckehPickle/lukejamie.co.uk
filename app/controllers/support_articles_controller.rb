@@ -3,11 +3,12 @@ class SupportArticlesController < ApplicationController
     layout 'store'
 
     def index
-        @articles = SupportArticle.all
+        @articles = SupportArticle.all.page(params[:page]).per(20)
     end
 
     def show
-        @article = SupportArticle.find_by! slug: params[:id]
+        @articles = SupportArticle.all.order(created_at: :desc)
+        @article  = SupportArticle.find_by! slug: params[:id]
     end
 
 end

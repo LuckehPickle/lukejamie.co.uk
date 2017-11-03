@@ -39,6 +39,7 @@ gem 'devise'
 gem 'searchkick'
 gem 'kaminari'
 gem 'connection_pool'
+gem 'redcarpet'
 
 group :development, :test do
     # Adds support for Capybara system testing and selenium driver

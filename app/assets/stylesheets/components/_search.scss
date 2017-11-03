@@ -18,7 +18,7 @@
         font-family: "Roboto", Helvetica, sans-serif;
         font-size: 15px;
         //font-weight: 500;
-        color: $text-on-light;
+        color: $text;
         line-height: 1.0;
         width: 100%;
         border: none;
@@ -26,7 +26,7 @@
         outline: none;
 
         &:focus + i {
-            color: lighten($text-on-light, 10%);
+            color: lighten($text, 10%);
         }
     }
 
@@ -34,7 +34,7 @@
         position: absolute;
         top: 0;
         font-size: 20px;
-        color: lighten($text-on-light, 35%);
+        color: lighten($text, 35%);
         transition: color 200ms;
         padding: 13px 1.1rem;
         pointer-events: none;

@@ -16,7 +16,7 @@
 
         p {
             font-size: 15px;
-            color: lighten($text-on-light, 25%);
+            color: lighten($text, 25%);
             line-height: 1.5;
             margin: 0 0 1rem;
         }
@@ -61,7 +61,7 @@
     box-shadow: 6px 0 20px rgba(0, 0, 0, 0.05);
 
     .logo {
-        padding: 2.5rem 2.5rem 0.5rem;
+        padding: 2rem 2rem 0;
         width: 100%;
     }
 

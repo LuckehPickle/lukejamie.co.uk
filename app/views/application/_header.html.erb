@@ -1,1 +1,84 @@
-<div class="header"></div>
+<div class="header-spacer"></div>
+
+<div class="header" data-turbolinks-permanent>
+    <div class="header-wrapper">
+
+        <%= link_to root_path, class: 'logo' do %>
+            <%= image_tag 'luke-jamie.svg' %>
+        <% end %>
+
+        <div class="search-wrapper">
+            <%= form_tag products_path, method: :get, class: 'search-form' do %>
+                <%= search_field_tag :query, params[:query], placeholder: 'Search apparel' %>
+                <%= submit_tag 'Search', name: nil %>
+            <% end %>
+        </div>
+
+        <ul class="navigation">
+            <li>
+                <div class="dropdown-wrapper">
+
+                    <!-- Products dropdown trigger -->
+                    <div class="dropdown-trigger">
+                        <span>Products</span>
+                        <i class="material-icons">&#xE5C5;</i>
+                    </div>
+
+                    <!-- Products dropdown -->
+                    <div class="dropdown">
+                        <div class="products-dropdown">
+                            <ul>
+                                <li><h2>Categories</h2></li>
+                                <li><%= link_to 'T-Shirts', 'javascript:void(0)' %></li>
+                                <li><%= link_to 'Hoodies', 'javascript:void(0)' %></li>
+                                <li><%= link_to 'Shoes', 'javascript:void(0)' %></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </li>
+
+            <% if user_signed_in? %>
+                <li>
+                    <div class="dropdown-wrapper">
+
+                        <!-- Account dropdown trigger -->
+                        <div class="dropdown-trigger">
+                            <span>Account</span>
+                            <i class="material-icons">&#xE5C5;</i>
+                        </div>
+
+                        <!-- Account dropdown -->
+                        <div class="dropdown">
+                            <ul>
+                                <li><p class="name"><%= current_user.name %></p></li>
+                                <li><%= link_to 'Overview', account_root_path %></li>
+                                <li><%= link_to 'Wishlist', 'javascript:void(0)' %></li>
+                                <li><%= link_to 'Addresses', account_addresses_path %></li>
+                                <li><%= link_to 'Order history', account_orders_path %></li>
+                                <% if current_user.admin? %>
+                                    <li><%= link_to 'Admin panel', admin_root_path %></li>
+                                <% end %>
+                                <li><%= link_to 'Settings', account_settings_path %></li>
+                                <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' } %></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </li>
+            <% else %>
+                <li><%= link_to 'Login', new_user_session_path %></li>
+                <li><%= link_to 'Sign up', new_user_registration_path %></li>
+            <% end %>
+        </ul>
+
+        <div class="basket-wrapper">
+            <div class="basket-trigger">
+                <i class="material-icons">&#xE8CC;</i>
+                <span class="items-in-basket">0</span>
+            </div>
+        </div>
+
+    </div>
+</div>

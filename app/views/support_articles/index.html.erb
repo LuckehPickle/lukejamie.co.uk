@@ -1,6 +1,47 @@
 <% content_for :title do %>Support<% end %>
 
 <div class="wrapper">
-    <h1>Help &amp; Support</h1>
-    <p>Welcome to our extensive knowledge base. Because we all need help sometimes.</p>
+
+    <!-- Guides -->
+    <div class="articles-section">
+        <h1>Guides</h1>
+        <p>Looking to learn something new? Or perhaps you're just stuck. Either way, this is the place for you!</p>
+
+        <div class="article-list">
+            <% @articles.each do |article| %>
+                <% if article.guide? %>
+                    <%= render article %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
+    <!-- Policies -->
+    <div class="articles-section">
+        <h1>Policies</h1>
+        <p>Looking to learn something new? Or perhaps you're just stuck. Either way, this is the place for you!</p>
+
+        <div class="article-list">
+            <% @articles.each do |article| %>
+                <% if article.policy? %>
+                    <%= render article %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
+    <!-- Misc -->
+    <div class="articles-section">
+        <h1>Miscellaneous</h1>
+        <p>Looking to learn something new? Or perhaps you're just stuck. Either way, this is the place for you!</p>
+
+        <div class="article-list">
+            <% @articles.each do |article| %>
+                <% if article.miscellaneous? %>
+                    <%= render article %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
 </div>

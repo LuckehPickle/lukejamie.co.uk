@@ -28,4 +28,53 @@ document.addEventListener("turbolinks:load", function () {
         });
     }
 
+
+    /**
+     * Determines whether the given element has the given class.
+     *
+     * @param elem Element to check.
+     * @param {string} className Class to search for.
+     */
+    var hasClass = function (elem, className) {
+        if (elem.classList) {
+            return elem.classList.contains(className);
+        } else {
+            return new RegExp('(^| )' + className + '( |$)', 'gi').test(elem.className);
+        }
+    };
+
+
+    /**
+     * Toggles the state of a dropdown.
+     * @param event Click event.
+     */
+    var toggleDropdown = function (event) {
+
+        // Get trigger
+        var trigger = event.target;
+
+        // Climb DOM tree until trigger is found
+        while (!hasClass(trigger, "dropdown-trigger")) {
+            trigger = trigger.parentNode;
+            // Ensure we don't reach the document body
+            if (trigger === document.body) return;
+        }
+
+        var dropdown = trigger.nextElementSibling;
+
+        if (dropdown.hasAttribute("active")) {
+            dropdown.removeAttribute("active");
+        } else {
+            dropdown.setAttribute("active", "");
+        }
+
+    };
+
+
+    var dropdownTriggers = document.querySelectorAll(".dropdown-trigger");
+
+    dropdownTriggers.forEach(function (trigger) {
+        trigger.addEventListener("click", toggleDropdown);
+    });
+
 });
