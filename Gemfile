@@ -40,6 +40,7 @@ gem 'searchkick'
 gem 'kaminari'
 gem 'connection_pool'
 gem 'redcarpet'
+gem 'paperclip', '~> 5.0.0'
 
 group :development, :test do
     # Adds support for Capybara system testing and selenium driver

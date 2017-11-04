@@ -7,7 +7,9 @@
         </div>
     <% end %>
 
-    <div class="image-placeholder"></div>
+    <div class="image">
+        <%= image_tag product.display_picture.url(:display) %>
+    </div>
 
     <div class="brick-footer">
         <div>

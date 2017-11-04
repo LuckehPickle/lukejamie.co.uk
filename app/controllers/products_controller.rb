@@ -4,7 +4,10 @@ class ProductsController < ApplicationController
 
     def index
         query = params[:query].present? ? params[:query] : '*'
-        @products = Product.search query, page: params[:page], per_page: 40
+        @products = Product.search query,
+                                   where: { hidden: false },
+                                   page: params[:page],
+                                   per_page: 40
     end
 
     def show

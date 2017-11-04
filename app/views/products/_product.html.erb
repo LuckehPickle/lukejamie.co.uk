@@ -1,0 +1,26 @@
+<%= link_to product_path(product), class: 'brick' do %>
+
+    <div class="brick-body">
+        <div class="banners">
+            <% if product.sale? %>
+                <div class="banner" id="sale-banner"><%= (product.discount * 100).round %>% Off</div>
+            <% end %>
+        </div>
+        <div class="image">
+            <%= image_tag product.display_picture.url(:display) %>
+        </div>
+    </div>
+
+    <div class="brick-footer">
+        <p class="name"><%= product.name %></p>
+        <p>
+            <% if product.sale? %>
+                <span class="strike"><%= number_to_currency product.price, unit: '£' %></span>
+                <span class="discount"><%= number_to_currency product.price * (1 - product.discount), unit: '£' %></span>
+            <% else %>
+                <%= number_to_currency product.price, unit: '£' %>
+            <% end %>
+        </p>
+    </div>
+
+<% end %>

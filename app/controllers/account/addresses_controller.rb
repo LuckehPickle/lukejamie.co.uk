@@ -1,5 +1,6 @@
 class Account::AddressesController < ApplicationController
 
+    layout 'store'
     before_action :authenticate_user!
 
     def index
@@ -15,7 +16,7 @@ class Account::AddressesController < ApplicationController
         @address.user = current_user
 
         if @address.save
-            flash[:notice] = t('create_address') % {
+            flash[:notice] = t('account.address.create') % {
                 address: @address.line_one,
                 town: @address.town
             }
@@ -33,7 +34,7 @@ class Account::AddressesController < ApplicationController
         @address = Address.find params[:id]
 
         if @address.update address_params
-            flash[:notice] = t('update_address') % {
+            flash[:notice] = t('account.address.update') % {
                 address: @address.line_one,
                 town: @address.town
             }
@@ -47,7 +48,7 @@ class Account::AddressesController < ApplicationController
         @address = Address.find params[:id]
         @address.destroy
 
-        flash[:notice] = t('delete_address') % {
+        flash[:notice] = t('account.address.delete') % {
             address: @address.line_one,
             town: @address.town
         }

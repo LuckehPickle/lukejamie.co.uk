@@ -1,20 +1,90 @@
-.infinite-masonry {
+.masonry {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 2rem;
     margin: 0 0 2rem;
+
+    .brick {
+        text-decoration: none;
+    }
+
+    .brick-body {
+        position: relative;
+        border-radius: 2px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+
+        .banners {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .banner {
+            background: $gold-from;
+            padding: 0.3rem 0.6rem;
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 1.5;
+            border-radius: 0 2px 0 2px;
+            color: $gold-text;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .brick-footer {
+        color: $text;
+        font-size: 15px;
+        text-align: center;
+
+        p {
+            margin: 0 0 0.2rem;
+            flex-shrink: 0;
+            line-height: 1.6;
+
+            &.name {
+                flex-grow: 1;
+                font-weight: bold;
+            }
+        }
+
+        .strike {
+            color: lighten($text, 15%);
+            margin-right: 0.25rem;
+            text-decoration: line-through;
+        }
+
+        .discount {
+            color: $bold-text;
+        }
+    }
+
+    .image {
+        width: 100%;
+        background: #DDD;
+
+        img {
+            width: 100%;
+            line-height: 1.0;
+            vertical-align: middle;
+        }
+    }
+}
+
+.admin-masonry {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 
     .brick {
         position: relative;
         background: white;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-        //border: 1px solid hsl(0, 0%, 75%);
+        border-radius: 2px;
         overflow: hidden;
-        border-radius: 3px;
-        text-decoration: none;
     }
 
     .brick-footer {
+        text-align: left;
         padding: 1.25rem;
         font-size: 15px;
 
@@ -57,10 +127,8 @@
             margin-right: 0.5rem;
         }
     }
+}
 
-    .image-placeholder {
-        width: 100%;
-        height: 250px;
-        background: #DDD;
-    }
+.pagination {
+    text-align: center;
 }

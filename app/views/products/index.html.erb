@@ -1,2 +1,33 @@
-<h1>Product#index</h1>
-<p>Find me in app/views/product/index.html.erb</p>
+<% content_for :title do %>Products<% end %>
+
+<div class="hero">
+    <div class="wrapper">
+        <h1>Luke Jamie Apparel</h1>
+        <p>Hey</p>
+
+        <div class="search-box">
+            <p>Looking for something specific? </p>
+            <div class="search-wrapper">
+                <%= form_tag products_path, method: :get, class: 'search-form' do %>
+                    <%= search_field_tag :query, params[:query], placeholder: 'Search apparel' %>
+                    <%= submit_tag 'Search', name: nil %>
+                <% end %>
+                <i class="material-icons">&#xE8B6;</i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper" style="margin-top: 3rem;">
+
+    <!--<div class="sale-banner">-->
+        <!--<i class="material-icons">&#xE031;</i>-->
+        <!--<span><strong>Sale on now!</strong> Use promo code <strong>SUMMER2018</strong> to get <strong>15% off</strong> your order!</span>-->
+    <!--</div>-->
+
+    <div class="masonry">
+        <%= render @products %>
+    </div>
+
+    <%= paginate @products %>
+</div>

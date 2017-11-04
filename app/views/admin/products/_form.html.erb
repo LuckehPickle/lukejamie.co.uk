@@ -1,4 +1,4 @@
-<%= form_for [:admin, @product], html: { class: 'admin-content-form'} do |f| %>
+<%= form_for [:admin, @product], html: { class: 'admin-content-form', multipart: true } do |f| %>
 
     <%= render partial: 'application/form-errors', locals: { object: @product } %>
 
@@ -9,14 +9,31 @@
     </div>
 
     <div>
+        <%= f.label :category %>
+        <%= f.select :category, Product.categories.keys.map { |category| [category.titleize, category]} %>
+    </div>
+
+    <div>
         <%= f.label :description %>
         <p>Markdown is supported. See <a href="https://guides.github.com/features/mastering-markdown/#syntax" target="_blank">this guide</a> for help.</p>
         <%= f.text_area :description, class: 'CodeMirror' %>
     </div>
 
     <div>
-        <%= f.label :price %>
-        <%= f.number_field :price %>
+        <%= f.label :display_picture %>
+        <%= f.file_field :display_picture %>
+    </div>
+
+    <div class="conjoined">
+        <div>
+            <%= f.label :price %>
+            <%= f.number_field :price %>
+        </div>
+
+        <div>
+            <%= f.label :discount %>
+            <%= f.number_field :discount, step: '0.01' %>
+        </div>
     </div>
 
     <div>

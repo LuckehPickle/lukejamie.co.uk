@@ -27,11 +27,12 @@
                     <!-- Products dropdown -->
                     <div class="dropdown">
                         <div class="products-dropdown">
-                            <ul>
+                            <ul class="categories">
                                 <li><h2>Categories</h2></li>
                                 <li><%= link_to 'T-Shirts', 'javascript:void(0)' %></li>
                                 <li><%= link_to 'Hoodies', 'javascript:void(0)' %></li>
                                 <li><%= link_to 'Shoes', 'javascript:void(0)' %></li>
+                                <li><%= link_to 'Browse all', products_path %></li>
                             </ul>
                         </div>
                     </div>
@@ -68,8 +69,8 @@
                     </div>
                 </li>
             <% else %>
-                <li><%= link_to 'Login', new_user_session_path %></li>
-                <li><%= link_to 'Sign up', new_user_registration_path %></li>
+                <li><%= link_to 'Login', new_user_session_path, class: 'navigation-link' %></li>
+                <li><%= link_to 'Sign up', new_user_registration_path, class: 'navigation-link' %></li>
             <% end %>
         </ul>
 

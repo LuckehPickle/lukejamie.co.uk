@@ -63,7 +63,15 @@ class Admin::ProductsController < ApplicationController
         ##
         # Filters parameters
         def product_params
-            params.require(:product).permit(:name, :description, :price, :hidden)
+            params.require(:product).permit(
+                :name,
+                :category,
+                :description,
+                :display_picture,
+                :price,
+                :discount,
+                :hidden
+            )
         end
 
 end

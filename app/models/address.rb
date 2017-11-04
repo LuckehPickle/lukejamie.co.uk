@@ -17,10 +17,9 @@ class Address < ApplicationRecord
               length: { within: 3..64 }
 
     validates :postcode,
-              length: { is: 6 },
               format: {
                   with: /\A([A-Z][A-Z0-9]?[A-Z0-9]?[A-Z0-9]?[0-9][A-Z0-9]{2})\z/,
-                  message: I18n.t('invalid_postcode')
+                  message: I18n.t('account.address.invalid_postcode')
               }
 
 end
