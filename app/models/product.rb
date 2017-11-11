@@ -10,11 +10,12 @@ class Product < ApplicationRecord
         {
             name: name,
             description: description,
+            category: category,
             hidden: hidden
         }
     end
 
-    enum category: [ :shirt, :hoodie, :shoes, :tracksuit_pants ]
+    enum category: [ :shirt, :hoodie, :shoes, :trackies ]
 
     has_many :sizes, dependent: :destroy
     has_many :order_products

@@ -1,39 +1,44 @@
 <% content_for :title do %>Register<% end %>
 
-<div class="wrapper">
-    <h2>Register</h2>
+<h1>Create an account</h1>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+<%= form_for resource, as: resource_name, url: registration_path(resource_name) do |f| %>
 
-        <div class="field">
-            <%= f.label :name %><br/>
+    <%= devise_error_messages! %>
+
+    <div class="input-wrapper">
+        <%= f.label :name %>
+        <div class="input">
+            <i class="material-icons">&#xE7FD;</i>
             <%= f.text_field :name, autofocus: true %>
         </div>
+    </div>
 
-        <div class="field">
-            <%= f.label :email %><br/>
+    <div class="input-wrapper">
+        <%= f.label :email %>
+        <div class="input">
+            <i class="material-icons">&#xE158;</i>
             <%= f.email_field :email %>
         </div>
+    </div>
 
-        <div class="field">
-            <%= f.label :password %>
-            <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br/>
+    <div class="input-wrapper">
+        <%= f.label :password %>
+        <div class="input">
+            <i class="material-icons">&#xE897;</i>
             <%= f.password_field :password, autocomplete: 'off' %>
         </div>
+    </div>
 
-        <div class="field">
-            <%= f.label :password_confirmation %><br/>
+    <div class="input-wrapper">
+        <%= f.label :password_confirmation %>
+        <div class="input">
+            <i class="material-icons">&#xE899;</i>
             <%= f.password_field :password_confirmation, autocomplete: 'off' %>
         </div>
+    </div>
 
-        <div class="actions">
-            <%= f.submit 'Sign up' %>
-        </div>
-    <% end %>
-
-    <%= render 'devise/shared/links' %>
-
-</div>
+    <div class="submit-wrapper">
+        <%= f.submit 'Sign up', class: 'button button-grow' %>
+    </div>
+<% end %>

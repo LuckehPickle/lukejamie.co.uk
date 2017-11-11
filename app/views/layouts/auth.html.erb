@@ -1,0 +1,24 @@
+<% content_for :theme do %>hsl(0, 0%, 20%)<% end %>
+<% content_for :styles do %>
+    <%= stylesheet_link_tag 'auth', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<% content_for :content do %>
+    <div class="auth-wrapper">
+
+        <%= link_to root_path, class: 'logo' do %>
+            <%= image_tag 'luke-jamie-apparel.svg' %>
+        <% end %>
+
+        <div class="auth-content">
+            <%= yield %>
+        </div>
+
+        <ul class="auth-links">
+            <%= render 'devise/shared/links' %>
+        </ul>
+
+    </div>
+<% end %>
+
+<%= render template: 'layouts/application' %>

@@ -29,9 +29,10 @@
                         <div class="products-dropdown">
                             <ul class="categories">
                                 <li><h2>Categories</h2></li>
-                                <li><%= link_to 'T-Shirts', 'javascript:void(0)' %></li>
-                                <li><%= link_to 'Hoodies', 'javascript:void(0)' %></li>
-                                <li><%= link_to 'Shoes', 'javascript:void(0)' %></li>
+                                <li><%= link_to 'T-Shirts',   products_path(category: 'shirts') %></li>
+                                <li><%= link_to 'Hoodies',    products_path(category: 'hoodies') %></li>
+                                <li><%= link_to 'Trackies',   products_path(category: 'trackies') %></li>
+                                <li><%= link_to 'Shoes',      products_path(category: 'shoes') %></li>
                                 <li><%= link_to 'Browse all', products_path %></li>
                             </ul>
                         </div>

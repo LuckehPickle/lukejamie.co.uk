@@ -70,7 +70,8 @@ class Admin::ProductsController < ApplicationController
                 :display_picture,
                 :price,
                 :discount,
-                :hidden
+                :hidden,
+                :featured
             )
         end
 

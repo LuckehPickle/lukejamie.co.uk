@@ -1,0 +1,62 @@
+form {
+
+    .input-wrapper {
+        margin: 0 0 1.5rem;
+
+        label {
+            display: block;
+            font-size: 15px;
+            margin: 0 0 0.3rem;
+        }
+
+        .input {
+            background: white;
+            border: 1px solid $border-color;
+            border-radius: 2px;
+            position: relative;
+
+            i {
+                position: absolute;
+                left: 0;
+                top: 0;
+                padding: 9px 0.75rem;
+                pointer-events: none;
+                font-size: 22px;
+            }
+
+            input {
+                width: 100%;
+                border: none;
+                background: none;
+                padding: 10px 10px 10px 3rem;
+                outline: none;
+                font-family: "Roboto", Helvetica, sans-serif;
+                font-size: 16px;
+            }
+
+        }
+
+        a {
+            display: block;
+            font-size: 15px;
+            text-decoration: underline;
+            margin: 0.5rem 0 0;
+        }
+    }
+
+    .checkbox-wrapper {
+        margin: 0 0 1.5rem;
+        label { font-size: 15px; }
+    }
+
+    .submit-wrapper {
+        margin: 2rem 0 0;
+
+        .button-grow {
+            width: 100%;
+            color: $gold-text;
+            background: $gold-from;
+        }
+    }
+
+}

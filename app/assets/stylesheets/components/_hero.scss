@@ -2,8 +2,8 @@
     text-align: center;
     color: $slate-text;
     background: $slate;
-    padding: 3rem 0;
-    margin: 0 0 10rem;
+    padding: 5rem 0;
+    margin: 0 0 7rem;
 
     .wrapper {
         position: relative;
@@ -15,19 +15,14 @@
         font-size: 3rem;
     }
 
-    .search-box {
-        width: 100%;
-        max-width: 700px;
-        margin: -3rem auto 0;
+    .featured-items {
+        margin-top: 4rem;
         text-align: left;
-        color: $text;
-        background: white;
-        padding: 1.5rem;
-        position: relative;
-        bottom: -6rem;
-        left: 0;
-        right: 0;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-        border-radius: 2px;
+
+        & > p {
+            font-size: 15px;
+            margin-bottom: 1.5rem;
+        }
     }
+
 }

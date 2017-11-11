@@ -1,4 +1,14 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="hero">
+    <div class="wrapper">
+        <h1>Luke Jamie Apparel</h1>
+        <p>This text is going to be replaced once the website is completed.</p>
 
-<%= link_to 'Admin panel', admin_root_path %>
+        <div class="featured-items">
+            <p>Featured</p>
+            <div class="masonry masonry-large">
+                <%= render @products %>
+            </div>
+        </div>
+
+    </div>
+</div>

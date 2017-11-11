@@ -47,7 +47,6 @@
  */
 
 @import "elements/body";
-@import "elements/form";
 @import "elements/anchors";
 @import "elements/headings";
 
@@ -60,9 +59,6 @@
  */
 
 @import "components/button";
-@import "components/admin-layout";
-@import "components/admin-list";
-@import "components/admin-quilt";
 @import "components/masonry";
 @import "components/flash";
 @import "components/editor";
@@ -75,4 +71,10 @@
 @import "components/article-list";
 @import "components/turblinks-progress-bar";
 @import "components/hero";
-@import "components/sale-banner";
+
+
+/*
+ * -- Layouts --
+ */
+
+@import "admin";

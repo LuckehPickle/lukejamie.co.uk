@@ -14,9 +14,11 @@
              2. Windows phones, IE, and Edge
              3. Safari
         -->
-        <meta name="theme-color" content="hsl(262, 52%, 34%)" />                   <!-- 1 -->
-        <meta name="msapplication-navbutton-color" content="hsl(262, 52%, 34%)" /> <!-- 2 -->
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />      <!-- 3 -->
+        <meta name="theme-color"
+              content="<%= yield(:theme).empty? ? 'hsl(0, 0%, 17%)' : yield(:theme) %>" />
+        <meta name="msapplication-navbutton-color"
+              content="<%= yield(:theme).empty? ? 'hsl(0, 0%, 17%)' : yield(:theme) %>" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
         <!-- Fix mobile viewports for responsive design. -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,13 +29,10 @@
                                 'https://fonts.googleapis.com/css?family=Roboto:400,500,700|Roboto+Mono:400,500,700|Roboto+Slab:700" rel="stylesheet',
                                 'https://fonts.googleapis.com/icon?family=Material+Icons',
                                 media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= yield :styles %>
 
-        <style>
-            <%= yield :styles %>
-        </style>
-
-        <%= yield :scripts %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= yield :scripts %>
 
     </head>
 
