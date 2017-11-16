@@ -1,6 +1,6 @@
 class SupportArticlesController < ApplicationController
 
-    layout 'store'
+    layout 'support'
 
     def index
         @articles = SupportArticle.all.page(params[:page]).per(20)

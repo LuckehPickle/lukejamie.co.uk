@@ -1,0 +1,14 @@
+@import "settings/colors";
+@import "components/account/navigation";
+
+.wrapper {
+    margin: 4rem auto;
+    display: flex;
+    align-items: flex-start;
+
+    & > * { flex-shrink: 0; }
+}
+
+.account-content {
+    flex-grow: 1;
+}

@@ -1,30 +1,39 @@
-<%= link_to edit_admin_promo_code_path(promo_code), class: 'admin-list-item' do %>
+<div class="list-item">
 
-    <!-- Promo code information -->
-    <div class="grow">
-        <p id="promo-code-code">
-            <%= promo_code.code %>
-            <% if promo_code.active? %>
-                <span class="list-badge" id="active-badge" title="This promo code is currently active">active</span>
-            <% end %>
-        </p>
-        <p><%= promo_code.label %></p>
+    <!-- Used to select an item for bulk actions -->
+    <div class="checkbox">
+        <i class="material-icons">&#xE835;</i>
     </div>
 
-    <!-- Discount -->
-    <div>
-        <p id="promo-code-discount">-<%= promo_code.discount %>%</p>
-    </div>
+    <%= link_to edit_admin_promo_code_path(promo_code), class: 'list-item-content' do %>
 
-    <!-- Dates and progress -->
-    <div id="promo-code-dates">
-        <div class="progress-bar">
-            <% if promo_code.finish_date.at_end_of_day < Time.now %>
-                <span class="progress progress-completed"></span>
-            <% elsif promo_code.active? %>
-                <span class="progress" style="width: <%= promo_code.percentage %>%;"></span>
-            <% end %>
+        <!-- Promo code information -->
+        <div style="flex-grow: 1">
+            <p id="promo-code-code">
+                <%= promo_code.code %>
+                <% if promo_code.active? %>
+                    <span class="list-badge" id="active-badge" title="This promo code is currently active">active</span>
+                <% end %>
+            </p>
+            <p><%= promo_code.label %></p>
         </div>
-    </div>
 
-<% end %>
+        <!-- Discount -->
+        <div>
+            <p id="promo-code-discount">-<%= promo_code.discount %>%</p>
+        </div>
+
+        <!-- Dates and progress -->
+        <div id="promo-code-dates">
+            <div class="progress-bar">
+                <% if promo_code.finish_date.at_end_of_day < Time.now %>
+                    <span class="progress progress-completed"></span>
+                <% elsif promo_code.active? %>
+                    <span class="progress" style="width: <%= promo_code.percentage %>%;"></span>
+                <% end %>
+            </div>
+        </div>
+
+    <% end %>
+
+</div>

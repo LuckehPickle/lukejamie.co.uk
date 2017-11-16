@@ -1,0 +1,11 @@
+<% content_for :styles do %>
+    <%= stylesheet_link_tag 'support', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<% content_for :content do %>
+    <%= render 'header' %>
+    <%= yield %>
+    <%= render 'footer' %>
+<% end %>
+
+<%= render template: 'layouts/application' %>

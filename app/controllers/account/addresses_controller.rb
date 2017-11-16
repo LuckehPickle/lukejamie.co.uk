@@ -1,6 +1,6 @@
 class Account::AddressesController < ApplicationController
 
-    layout 'store'
+    layout 'account'
     before_action :authenticate_user!
 
     def index

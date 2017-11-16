@@ -1,0 +1,31 @@
+.admin-wrapper {
+    padding: 2rem 2.5rem;
+    & > *:first-child { margin-top: 0; }
+
+    .admin-header {
+        margin-bottom: 1.75rem;
+
+        h1 {
+            font-size: 15px;
+            font-weight: 500;
+            margin: 0 0 0.5rem;
+            color: $text;
+        }
+
+        p {
+            font-size: 15px;
+            color: lighten($text, 10%);
+            line-height: 1.5;
+            margin: 0 0 1rem;
+        }
+
+        & > *:last-child { margin-bottom: 0; }
+    }
+
+    .content-tools {
+        margin: 0 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

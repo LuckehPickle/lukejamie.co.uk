@@ -1,7 +1,7 @@
 class Account::UsersController < ApplicationController
 
     before_action :authenticate_user!
-    layout 'store'
+    layout 'account'
 
     def show
         

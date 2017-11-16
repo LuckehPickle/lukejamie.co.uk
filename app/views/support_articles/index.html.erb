@@ -1,47 +1,40 @@
 <% content_for :title do %>Support<% end %>
 
+<div class="hero">
+    <div class="wrapper"></div>
+</div>
+
 <div class="wrapper">
-
     <!-- Guides -->
-    <div class="articles-section">
-        <h1>Guides</h1>
-        <p>Looking to learn something new? Or perhaps you're just stuck. Either way, this is the place for you!</p>
+    <h1>Guides</h1>
 
-        <div class="article-list">
-            <% @articles.each do |article| %>
-                <% if article.guide? %>
-                    <%= render article %>
-                <% end %>
+    <div class="article-list">
+        <% @articles.each do |article| %>
+            <% if article.guide? %>
+                <%= render article %>
             <% end %>
-        </div>
+        <% end %>
     </div>
 
     <!-- Policies -->
-    <div class="articles-section">
-        <h1>Policies</h1>
-        <p>Looking to learn something new? Or perhaps you're just stuck. Either way, this is the place for you!</p>
+    <h1>Policies</h1>
 
-        <div class="article-list">
-            <% @articles.each do |article| %>
-                <% if article.policy? %>
-                    <%= render article %>
-                <% end %>
+    <div class="article-list">
+        <% @articles.each do |article| %>
+            <% if article.policy? %>
+                <%= render article %>
             <% end %>
-        </div>
+        <% end %>
     </div>
 
     <!-- Misc -->
-    <div class="articles-section">
-        <h1>Miscellaneous</h1>
-        <p>Looking to learn something new? Or perhaps you're just stuck. Either way, this is the place for you!</p>
+    <h1>Miscellaneous</h1>
 
-        <div class="article-list">
-            <% @articles.each do |article| %>
-                <% if article.miscellaneous? %>
-                    <%= render article %>
-                <% end %>
+    <div class="article-list">
+        <% @articles.each do |article| %>
+            <% if article.miscellaneous? %>
+                <%= render article %>
             <% end %>
-        </div>
+        <% end %>
     </div>
-
 </div>

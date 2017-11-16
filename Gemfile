@@ -41,6 +41,8 @@ gem 'kaminari'
 gem 'connection_pool'
 gem 'redcarpet'
 gem 'paperclip', '~> 5.0.0'
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
 
 group :development, :test do
     # Adds support for Capybara system testing and selenium driver

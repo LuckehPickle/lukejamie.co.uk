@@ -1,0 +1,12 @@
+[gource]
+auto-skip-seconds=0.5
+background-colour=2B2B2B
+caption-colour=F4F0F0
+font-colour=F4F0F0
+filename-colour=F4F0F0
+logo=/home/sean/Documents/lukejamie.co.uk/luke-jamie-apparel.png
+seconds-per-day=5
+disable-bloom=true
+hide=bloom
+date-format=%A, %B %d, %Y
+camera-mode=overview

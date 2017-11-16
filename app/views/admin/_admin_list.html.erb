@@ -1,6 +1,16 @@
-<div class="admin-list">
+<div class="paginated-list">
+
+    <div class="list-header">
+        <div class="select-button">
+            <i class="material-icons">&#xE835;</i>
+        </div>
+        <div class="bulk-actions">
+            <%= link_to 'javascript:void(0)' %>
+        </div>
+    </div>
+
     <% if not objects.empty? %>
-        <%= render objects %>
+        <%= render objects, cached: true %>
     <% else %>
         <div class="empty-state-wrapper">
             <%= yield %>
@@ -9,6 +19,7 @@
             <div class="admin-list-item admin-list-item-placeholder"></div>
         <% end %>
     <% end %>
+
 </div>
 
 <%= paginate objects %>

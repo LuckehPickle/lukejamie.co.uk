@@ -24,7 +24,7 @@ class Product < ApplicationRecord
     has_attached_file :display_picture,
                       styles: {
                           thumb: '150x150#',
-                          display: '300x350#',
+                          display: '300x400#',
                           full: '720x1280>'
                       },
                       default_url: '/images/:style/missing.png'

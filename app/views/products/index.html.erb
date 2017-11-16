@@ -1,4 +1,4 @@
-<% content_for :title do %>Products<% end %>
+<% content_for :title do %>All products<% end %>
 
 <div class="hero">
     <div class="wrapper">
@@ -10,8 +10,9 @@
 <div class="wrapper" style="margin-top: 3rem;">
 
     <div class="masonry">
-        <%= render @products %>
+        <%= render @products, cached: true %>
     </div>
 
     <%= paginate @products %>
+
 </div>

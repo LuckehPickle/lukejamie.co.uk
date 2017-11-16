@@ -1,11 +1,11 @@
 <% content_for :subtitle do %>Products<% end %>
 
-<div class="admin-content-header">
+<div class="admin-header">
     <h1>Products</h1>
     <p><%= t('admin.product.subtitle') %></p>
 </div>
 
-<div class="admin-content-tools">
+<div class="content-tools">
 
     <div class="search-wrapper">
         <%= form_tag admin_products_path, method: :get, class: 'search-form' do %>
@@ -24,7 +24,7 @@
         <%= render @products %>
     </div>
 <% else %>
-    <div class="admin-list">
+    <div class="paginated-list">
         <div class="empty-state-wrapper">
             <h2>There's nothing here...</h2>
             <p>...but tumbleweeds. Once you've created a product or two, you'll be able to view them here in all their glory.</p>

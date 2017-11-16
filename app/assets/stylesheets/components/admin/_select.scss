@@ -1,0 +1,58 @@
+.select {
+    position: relative;
+    font-size: 15px;
+
+    .select-button {
+        border-radius: 3px;
+        transition: all 300ms;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 0.4rem 1rem;
+        font-weight: 500;
+        color: inherit;
+        line-height: 1.0;
+        vertical-align: middle;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        i {
+            font-size: 22px;
+            margin-right: -0.5rem;
+        }
+    }
+
+    .options {
+        position: absolute;
+        top: 34px;
+        right: 0;
+        background: white;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+        padding: 0.5rem 0;
+        margin: 0;
+        list-style-type: none;
+        z-index: 100;
+        color: $text;
+        visibility: hidden;
+
+        li {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem 1.25rem;
+            min-width: 180px;
+
+            i {
+                font-size: 20px;
+                margin-right: 1rem;
+            }
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+}

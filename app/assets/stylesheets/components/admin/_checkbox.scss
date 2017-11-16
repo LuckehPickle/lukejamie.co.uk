@@ -1,0 +1,18 @@
+.checkbox {
+    @include no-select();
+    cursor: pointer;
+    padding: 0.5rem;
+    color: lighten($text, 8%);
+
+    i {
+        font-size: 22px;
+        line-height: 1.0;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    &[active] {
+        color: $purple-from;
+    }
+
+}

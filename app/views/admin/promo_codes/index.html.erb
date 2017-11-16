@@ -1,12 +1,12 @@
 <% content_for :subtitle do %>Promo codes<% end %>
 
-<div class="admin-content-header">
+<div class="admin-header">
     <h1>Promo codes</h1>
     <p><%= t('admin.promo_code.subtitle') %></p>
 </div>
 
-<div class="admin-content-tools">
 
+<div class="content-tools">
     <div class="search-wrapper">
         <%= form_tag admin_promo_codes_path, method: :get, class: 'search-form' do %>
             <%= search_field_tag :query, params[:query], placeholder: 'Search promo codes' %>
@@ -14,13 +14,79 @@
         <% end %>
         <i class="material-icons">&#xE8B6;</i>
     </div>
-
     <%= link_to t('admin.promo_code.new'), new_admin_promo_code_path, class: 'button' %>
-
 </div>
 
-<%= render layout: 'admin/admin_list', locals: { objects: @promo_codes } do %>
-    <h2>There's nothing here...</h2>
-    <p>...but tumbleweeds. Once you've created a promo code or two, you'll be able to view them here in all their glory.</p>
-    <%= link_to t('admin.promo_code.new'), new_admin_promo_code_path, class: 'button' %>
-<% end %>
+
+<div class="paginated-list">
+
+    <div class="list-header">
+
+        <!-- Used to select all/none -->
+        <div class="checkbox">
+            <i class="material-icons">&#xE835;</i>
+        </div>
+
+        <!-- A group of actions that can be applied to all currently selected items -->
+        <div class="bulk-actions">
+
+            <!-- Set state of all currently selected orders -->
+            <div class="select" id="select-order-state">
+
+                <!-- Toggles the select's dropdown -->
+                <div class="select-button">
+                    <span>State</span>
+                    <i class="material-icons">&#xE5C5;</i>
+                </div>
+
+                <!-- Dropdown -->
+                <ul class="options">
+
+                    <!-- State: processing -->
+                    <li id="order-state-processing">
+                        <i class="material-icons">&#xE923;</i>
+                        <span>Processing</span>
+                    </li>
+
+                    <!-- State: shipped -->
+                    <li id="order-state-shipped">
+                        <i class="material-icons">&#xE558;</i>
+                        <span>Shipped</span>
+                    </li>
+
+                    <!-- State: returned -->
+                    <li id="order-state-returned">
+                        <i class="material-icons">&#xE554;</i>
+                        <span>Returned</span>
+                    </li>
+
+                    <!-- State: refunded -->
+                    <li id="order-state-refunded">
+                        <i class="material-icons">&#xE227;</i>
+                        <span>Refunded</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="bulk-action" id="delete-promo-code">
+                <i class="material-icons">&#xE92B;</i>
+                <span>Delete</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <% if not @promo_codes.empty? %>
+        <div class="list-content">
+            <%= render partial: 'admin/promo_codes/promo_code',
+                       collection: @promo_codes,
+                       cached: true %>
+        </div>
+    <% else %>
+        I'm empty. <!-- TODO -->
+    <% end %>
+
+</div>

@@ -1,0 +1,15 @@
+@import "settings/colors";
+@import "tools/no-select";
+
+@import "components/admin/list";
+@import "components/admin/navigation";
+@import "components/admin/quilt";
+@import "components/admin/wrapper";
+@import "components/admin/form";
+@import "components/admin/select";
+@import "components/admin/checkbox";
+@import "components/admin/copyright";
+
+body {
+    background: hsl(0, 0%, 90%);
+}

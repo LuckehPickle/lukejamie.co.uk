@@ -1,13 +1,103 @@
-.admin-list {
-    position: relative;
-    background: white;
+.paginated-list {
+    background: hsl(0, 0%, 94%);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
     border-radius: 3px;
     overflow: hidden;
-    padding: 0.75rem 0;
     margin: 0 0 2rem;
 
-    & > *:last-child { border-bottom: none; }
+    .list-header {
+        color: $text;
+        background: white;
+        padding: 1rem 1.25rem;
+        display: flex;
+        align-items: center;
+        line-height: 1.0;
+        vertical-align: middle;
+        transition: background 300ms;
+
+        .bulk-actions {
+            margin-left: auto;
+
+        }
+
+        &[active] {
+            color: white;
+            background: $blue;
+        }
+
+        .checkbox[active] {
+            color: white;
+        }
+    }
+
+    .list-content {
+        position: relative;
+        padding: 0.5rem 0;
+    }
+
+    .list-item {
+        display: flex;
+        align-items: center;
+        padding: 0 1.25rem;
+        background: transparent;
+        transition: background 200ms;
+
+        &[active] {
+            background: white;
+        }
+
+        .list-item-content {
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+
+            & > div {
+                padding: 0 0.75rem;
+                flex-shrink: 0;
+
+                p {
+                    margin: 0 0 8px;
+                    font-size: 15px;
+                    color: $text;
+                }
+
+                p:last-child { margin-bottom: 0; }
+                .dim  { color: lighten($text, 20%); }
+            }
+
+            .list-badge {
+                margin-left: 0.5rem;
+                background: $gold-from;
+                padding: 3px 5px;
+                border-radius: 2px;
+                font-family: "Roboto", Helvetica, sans-serif;
+                font-size: 13px;
+                line-height: 1.0;
+                color: $gold-text;
+                text-transform: lowercase;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        .progress-bar {
+            width: 220px;
+            height: 6px;
+            background: hsl(0, 0, 90%);
+            border-radius: 4px;
+            overflow: hidden;
+
+            .progress {
+                display: block;
+                background: $progress-active;
+                height: 6px;
+            }
+
+            .progress-completed {
+                background: linear-gradient(0deg, $purple-from, $purple-to);
+            }
+        }
+    }
 
     .empty-state-wrapper {
         position: absolute;
@@ -35,75 +125,7 @@
     }
 }
 
-.admin-list-item {
-    padding: 1.2rem 0.75rem;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-
-    i.active   { color: $progress-active; }
-    i.inactive { color: $progress-inactive; }
-
-    .progress-bar {
-        width: 220px;
-        height: 6px;
-        background: hsl(0, 0, 90%);
-        border-radius: 4px;
-        overflow: hidden;
-
-        .progress {
-            display: block;
-            background: $progress-active;
-            height: 6px;
-        }
-
-        .progress-completed {
-            background: linear-gradient(0deg, $purple-from, $purple-to);
-        }
-    }
-
-    .grow {
-        flex-grow: 1;
-    }
-
-    & > div {
-        padding: 0 1.25rem;
-        flex-shrink: 0;
-
-        a {
-            color: $text;
-            font-weight: bold;
-        }
-
-        p {
-            margin: 0 0 8px;
-            font-size: 15px;
-            color: $text;
-        }
-
-        p:last-child {
-            margin-bottom: 0;
-        }
-
-        .dim  { color: lighten($text, 30%); }
-    }
-
-    .list-badge {
-        margin-left: 0.5rem;
-        background: $gold-from;
-        padding: 3px 5px;
-        border-radius: 2px;
-        font-family: "Roboto", Helvetica, sans-serif;
-        font-size: 13px;
-        line-height: 1.0;
-        color: $gold-text;
-        text-transform: lowercase;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    }
-
-    &:hover {
-        background: rgba(0, 0, 0, 0.04);
-    }
+.list-item {
 
     &.admin-list-item-placeholder {
         padding: 2.25rem 0;
@@ -144,7 +166,6 @@
 
 #user-ip {
     font-family: "Roboto Mono", monospace;
-    //color: lighten($text-on-light, 30%);
 }
 
 #order-reference {
@@ -152,7 +173,7 @@
 }
 
 #order-user {
-    color: lighten($text, 30%);
+    color: lighten($text, 20%);
     span { color: $text; }
 }
 

@@ -1,23 +1,42 @@
-<%= link_to admin_order_path(order), class: 'admin-list-item' do %>
+<div class="list-item">
 
-    <!-- Order information -->
-    <div class="grow">
-        <p id="order-reference">
-            #<%= order.reference %>
-            <% if order.processing? %>
-                <span class="list-badge" id="needs-shipping-badge" title="This order is currently awaiting shipping.">needs shipping</span>
-            <% elsif order.returned? %>
-                <span class="list-badge" id="returned-badge" title="This order has been returned.">returned</span>
-            <% elsif order.refunded? %>
-                <span class="list-badge" id="refunded-badge" title="This order has been refunded.">refunded</span>
-            <% end %>
-        </p>
-        <p>Ordered <%= local_time_ago order.created_at %></p>
+    <!-- Used to select an item for bulk actions -->
+    <div class="checkbox">
+        <i class="material-icons">&#xE835;</i>
     </div>
 
-    <div style="text-align: right;">
-        <p id="order-user">Ordered by <span><%= order.user.name %></span></p>
-        <p>Includes <%= pluralize order.quantity, 'items' %></p>
-    </div>
+    <!-- Content of item -->
+    <%= link_to admin_order_path(order), class: 'list-item-content' do %>
 
-<% end %>
+        <!-- Order information -->
+        <div style="flex-grow: 1;">
+
+            <!-- Reference number and badges -->
+            <p id="order-reference">
+                <span>#<%= order.reference %></span>
+
+                <!-- Badges -->
+                <% if order.processing? %>
+                    <span class="list-badge" id="needs-shipping-badge" title="This order is currently awaiting shipping.">needs shipping</span>
+                <% elsif order.returned? %>
+                    <span class="list-badge" id="returned-badge" title="This order has been returned.">returned</span>
+                <% elsif order.refunded? %>
+                    <span class="list-badge" id="refunded-badge" title="This order has been refunded.">refunded</span>
+                <% end %>
+
+            </p>
+
+            <!-- Time of order-->
+            <p>Ordered <%= local_time_ago order.created_at %></p>
+
+        </div>
+
+        <!-- Orderer -->
+        <div style="text-align: right;">
+            <p id="order-user">Ordered by <span><%= order.user.name %></span></p>
+            <p>Includes <%= pluralize order.quantity, 'items' %></p>
+        </div>
+
+    <% end %>
+
+</div>
