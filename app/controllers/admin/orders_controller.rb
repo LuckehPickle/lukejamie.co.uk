@@ -1,32 +1,39 @@
-require 'admin_authentication_helper'
-
 class Admin::OrdersController < ApplicationController
-
-    include AdminAuthenticationHelper
 
     before_action :authenticate_user!
     layout 'admin'
 
+
+    # GET /admin/orders
     def index
-        return if enforce_admin(current_user)
+        @orders = Order.page(params[:page]).per(20)
+    end
+
+
+    # GET /admin/orders/search
+    def search
         query = params[:query].present? ? params[:query] : '*'
         @orders = Order.search query,
                                page: params[:page],
                                per_page: 20
+        render 'index'
     end
 
+
+    # GET /admin/orders/:id
     def show
-        return if enforce_admin(current_user)
         @order = Order.find_by!(reference: params[:id])
     end
 
+
+    # GET /admin/orders/:id/edit
     def edit
-        return if enforce_admin(current_user)
         @order = Order.find_by_reference! params[:id]
     end
 
+
+    # PUT /admin/orders/:id
     def update
-        return if enforce_admin(current_user)
         @order = Order.find_by_reference! params[:id]
 
         if @order.update order_params
@@ -41,7 +48,7 @@ class Admin::OrdersController < ApplicationController
     private
 
         def order_params
-            params.require(:order)
+            params.require(:order).permit
         end
 
 end

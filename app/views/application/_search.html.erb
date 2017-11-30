@@ -1,0 +1,9 @@
+<div class="search-wrapper">
+    <i class="material-icons">&#xE8B6;</i>
+
+    <!-- Search form -->
+    <%= form_tag url, method: :get, class: 'search-form' do %>
+        <%= search_field_tag :query, params[:query], placeholder: placeholder %>
+        <%= submit_tag 'Search', name: nil %>
+    <% end %>
+</div>

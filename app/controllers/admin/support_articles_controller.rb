@@ -1,31 +1,33 @@
-require 'admin_authentication_helper'
-
 class Admin::SupportArticlesController < ApplicationController
-
-    include AdminAuthenticationHelper
 
     before_action :authenticate_user!
     layout 'admin'
 
 
+    # GET /admin/support
     def index
-        return if enforce_admin(current_user)
+        @articles = SupportArticle.page(params[:page]).per(20)
+    end
 
+
+    # GET /admin/support/search
+    def search
         query = params[:query].present? ? params[:query] : '*'
         @articles = SupportArticle.search query,
                                           page: params[:page],
                                           per_page: 20
+        render 'index'
     end
 
 
+    # GET /admin/support/new
     def new
-        return if enforce_admin(current_user)
         @article = SupportArticle.new
     end
 
 
+    # POST /admin/support
     def create
-        return if enforce_admin(current_user)
         @article = SupportArticle.new article_params
 
         if @article.save
@@ -37,16 +39,14 @@ class Admin::SupportArticlesController < ApplicationController
     end
 
 
+    # GET /admin/support/:id/edit
     def edit
-        return if enforce_admin(current_user)
-
         @article = SupportArticle.find_by! slug: params[:id]
     end
 
 
+    # PUT /admin/support/:id
     def update
-        return if enforce_admin(current_user)
-
         @article = SupportArticle.find_by! slug: params[:id]
 
         if @article.update article_params
@@ -58,6 +58,7 @@ class Admin::SupportArticlesController < ApplicationController
     end
 
 
+    # DELETE /admin/support/:id
     def destroy
         return if enforce_admin(current_user)
 

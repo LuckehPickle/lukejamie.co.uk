@@ -1,5 +1,5 @@
 <% content_for :title do %>
-    <%= content_for?(:subtitle) ? yield(:subtitle) + ' (Admin Panel)' : 'Admin Panel' %>
+    <%= content_for?(:subtitle) ? yield(:subtitle) : 'Admin Panel' %>
 <% end %>
 
 <% content_for :styles do %>

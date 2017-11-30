@@ -1,77 +1,62 @@
 <% content_for :subtitle do %>Orders<% end %>
 
+<!-- Orders header -->
 <div class="admin-header">
     <h1>Orders</h1>
     <p><%= t('admin.order.subtitle') %></p>
 </div>
 
-
-<div class="content-tools">
-    <div class="search-wrapper">
-        <%= form_tag admin_orders_path, method: :get, class: 'search-form' do %>
-            <%= search_field_tag :query, params[:query], placeholder: 'Search orders' %>
-            <%= submit_tag 'Search', name: nil %>
-        <% end %>
-        <i class="material-icons">&#xE8B6;</i>
-    </div>
+<!-- Controls for dealing with a list -->
+<div class="list-controls">
+    <%= render_search admin_orders_search_path, 'Search orders' %>
 </div>
 
+<!-- Paginated list of all orders -->
+<div class="list">
 
-<div class="paginated-list">
+    <%= render_list_header do %>
 
-    <div class="list-header">
+        <!-- Set state of all currently selected orders -->
+        <div class="select" id="select-order-state">
 
-        <!-- Used to select all/none -->
-        <div class="checkbox">
-            <i class="material-icons">&#xE835;</i>
-        </div>
-
-        <!-- A group of actions that can be applied to all currently selected items -->
-        <div class="bulk-actions">
-
-            <!-- Set state of all currently selected orders -->
-            <div class="select" id="select-order-state">
-
-                <!-- Toggles the select's dropdown -->
-                <div class="select-button">
-                    <span>State</span>
-                    <i class="material-icons">&#xE5C5;</i>
-                </div>
-
-                <!-- Dropdown -->
-                <ul class="options">
-
-                    <!-- State: processing -->
-                    <li id="order-state-processing">
-                        <i class="material-icons">&#xE923;</i>
-                        <span>Processing</span>
-                    </li>
-
-                    <!-- State: shipped -->
-                    <li id="order-state-shipped">
-                        <i class="material-icons">&#xE558;</i>
-                        <span>Shipped</span>
-                    </li>
-
-                    <!-- State: returned -->
-                    <li id="order-state-returned">
-                        <i class="material-icons">&#xE554;</i>
-                        <span>Returned</span>
-                    </li>
-
-                    <!-- State: refunded -->
-                    <li id="order-state-refunded">
-                        <i class="material-icons">&#xE227;</i>
-                        <span>Refunded</span>
-                    </li>
-
-                </ul>
-
+            <!-- Toggles the select's dropdown -->
+            <div class="select-button">
+                <span>State</span>
+                <i class="material-icons">&#xE5C5;</i>
             </div>
 
+            <!-- Dropdown -->
+            <ul class="options">
+
+                <!-- State: processing -->
+                <li id="order-state-processing">
+                    <i class="material-icons">&#xE923;</i>
+                    <span>Processing</span>
+                </li>
+
+                <!-- State: shipped -->
+                <li id="order-state-shipped">
+                    <i class="material-icons">&#xE558;</i>
+                    <span>Shipped</span>
+                </li>
+
+                <!-- State: returned -->
+                <li id="order-state-returned">
+                    <i class="material-icons">&#xE554;</i>
+                    <span>Returned</span>
+                </li>
+
+                <!-- State: refunded -->
+                <li id="order-state-refunded">
+                    <i class="material-icons">&#xE227;</i>
+                    <span>Refunded</span>
+                </li>
+
+            </ul>
+
         </div>
 
-    </div>
+    <% end %>
 
     <% if not @orders.empty? %>
         <div class="list-content">

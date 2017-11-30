@@ -5,7 +5,7 @@
     <p><%= t('admin.product.subtitle') %></p>
 </div>
 
-<div class="content-tools">
+<div class="list-controls">
 
     <div class="search-wrapper">
         <%= form_tag admin_products_path, method: :get, class: 'search-form' do %>
@@ -24,7 +24,7 @@
         <%= render @products %>
     </div>
 <% else %>
-    <div class="paginated-list">
+    <div class="list">
         <div class="empty-state-wrapper">
             <h2>There's nothing here...</h2>
             <p>...but tumbleweeds. Once you've created a product or two, you'll be able to view them here in all their glory.</p>

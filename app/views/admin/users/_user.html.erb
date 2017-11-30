@@ -1,30 +1,43 @@
-<%= link_to admin_user_path(user), class: 'admin-list-item' do %>
+<div class="list-item">
 
-    <!-- User information -->
-    <div class="grow">
-        <p id="user-name">
-            <%= user.name %>
-
-            <% if user.confirmed_at.nil? %>
-                <span class="list-badge" title="This user has not yet confirmed their email address.">unconfirmed</span>
-            <% end %>
-
-            <% if user.admin? %>
-                <span class="list-badge" id="admin-badge" title="This user is an administrator">admin</span>
-            <% end %>
-
-            <% if user.order_count != 0 %>
-                <span class="list-badge" id="user-orders-badge" title="This user has made <%= pluralize user.order_count, 'order' %>">
-                    <%= pluralize user.order_count, 'order' %>
-                </span>
-            <% end %>
-        </p>
-        <p><%= user.email %></p>
+    <!-- Used to select an item for bulk actions -->
+    <div class="checkbox">
+        <i class="material-icons">&#xE835;</i>
     </div>
 
-    <!-- Dates -->
-    <div>
-        <p>Joined <%= local_time_ago user.created_at %></p>
-    </div>
+    <%= link_to edit_admin_user_path(user), class: 'list-item-content' do %>
 
-<% end %>
+        <!-- User information -->
+        <div style="flex-grow: 1">
+            <p id="user-name">
+                <%= user.name %>
+
+                <% if user.confirmed_at.nil? %>
+                    <span class="list-badge" title="This user has not yet confirmed their email address.">unconfirmed</span>
+                <% end %>
+
+                <% if user.admin? %>
+                    <span class="list-badge" id="admin-badge" title="This user is an administrator">admin</span>
+                <% end %>
+
+                <% if user.order_count != 0 %>
+                    <span class="list-badge" id="user-orders-badge" title="This user has made <%= pluralize user.order_count, 'order' %>">
+                        <%= pluralize user.order_count, 'order' %>
+                    </span>
+                <% end %>
+            </p>
+            <p><%= user.email %></p>
+        </div>
+
+        <div>
+            <p><%= user.last_sign_in_ip %></p>
+        </div>
+
+        <!-- Dates -->
+        <div>
+            <p>Joined <%= local_time_ago user.created_at %></p>
+        </div>
+
+    <% end %>
+
+</div>

@@ -1,23 +1,89 @@
 <% content_for :subtitle do %>Users<% end %>
 
+<!-- Users header -->
 <div class="admin-header">
     <h1>Users</h1>
     <p>Here you can view all of Luke Jamie's users.</p>
 </div>
 
-<div class="content-tools">
+<!-- Controls for dealing with lists -->
+<div class="list-controls">
+    <%= render_search admin_users_search_path, 'Search users' %>
+</div>
 
-    <div class="search-wrapper">
-        <%= form_tag admin_users_path, method: :get, class: 'search-form' do %>
-            <%= search_field_tag :query, params[:query], placeholder: 'Search users' %>
-            <%= submit_tag 'Search', name: nil %>
-        <% end %>
-        <i class="material-icons">&#xE8B6;</i>
-    </div>
+<!-- Paginated list of users -->
+<div class="list">
+
+    <%= render_list_header do %>
+
+        <!-- Set confirmation status -->
+        <div class="select" id="select-user-state">
+
+            <!-- Toggles the select's dropdown -->
+            <div class="select-button">
+                <span>State</span>
+                <i class="material-icons">&#xE5C5;</i>
+            </div>
+
+            <!-- Dropdown -->
+            <ul class="options">
+
+                <!-- State: unconfirmed -->
+                <li id="user-state-unconfirmed">
+                    <i class="material-icons">&#xE835;</i>
+                    <span>Unconfirmed</span>
+                </li>
+
+                <!-- State: confirmed -->
+                <li id="user-state-confirmed">
+                    <i class="material-icons">&#xE834;</i>
+                    <span>Confirmed</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- Set role of all currently selected users -->
+        <div class="select" id="select-user-role">
+
+            <!-- Toggles the select's dropdown -->
+            <div class="select-button">
+                <span>Role</span>
+                <i class="material-icons">&#xE5C5;</i>
+            </div>
+
+            <!-- Dropdown -->
+            <ul class="options">
+
+                <!-- Role: customer -->
+                <li id="user-role-customer">
+                    <i class="material-icons">&#xE7FD;</i>
+                    <span>Customer</span>
+                </li>
+
+                <!-- Role: admin -->
+                <li id="user-role-admin">
+                    <i class="material-icons">&#xE8D3;</i>
+                    <span>Admin</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+    <% end %>
+
+    <% if not @users.empty? %>
+        <div class="list-content">
+            <%= render partial: 'admin/users/user',
+                       collection: @users,
+                       cached: true %>
+        </div>
+    <% else %>
+        I'm empty. <!-- TODO -->
+    <% end %>
 
 </div>
 
-<%= render layout: 'admin/admin_list', locals: { objects: @users } do %>
-    <h2>There's nothing here...</h2>
-    <p>...but tumbleweeds. I have no idea how you're seeing this though, as you need an account just to view this page...</p>
-<% end %>
+<%= paginate @users %>

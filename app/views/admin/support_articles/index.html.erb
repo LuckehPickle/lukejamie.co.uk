@@ -1,26 +1,78 @@
 <% content_for :subtitle do %>Support articles<% end %>
 
+<!-- Support articles header -->
 <div class="admin-header">
     <h1>Support articles</h1>
     <p><%= t('admin.support_article.subtitle') %></p>
 </div>
 
-<div class="content-tools">
+<!-- Controls for dealing with a list -->
+<div class="list-controls">
 
-    <div class="search-wrapper">
-        <%= form_tag admin_support_articles_path, method: :get, class: 'search-form' do %>
-            <%= search_field_tag :query, params[:query], placeholder: 'Search articles' %>
-            <%= submit_tag 'Search', name: nil %>
-        <% end %>
-        <i class="material-icons">&#xE8B6;</i>
-    </div>
+    <%= render_search admin_support_search_path, 'Search articles' %>
 
+    <!-- Create a new article -->
     <%= link_to t('admin.support_article.new'), new_admin_support_article_path, class: 'button' %>
 
 </div>
 
-<%= render layout: 'admin/admin_list', locals: { objects: @articles } do %>
-    <h2>There's nothing here...</h2>
-    <p>...but tumbleweeds. Once you've created an article or two, you'll be able to view them here in all their glory.</p>
-    <%= link_to t('admin.support_article.new'), new_admin_support_article_path, class: 'button' %>
-<% end %>
+<!-- Paginated list of articles -->
+<div class="list">
+
+    <%= render_list_header do %>
+
+        <!-- Set category of currently selected articles -->
+        <div class="select" id="select-article-category">
+
+            <!-- Toggles the select's dropdown -->
+            <div class="select-button">
+                <span>Category</span>
+                <i class="material-icons">&#xE5C5;</i>
+            </div>
+
+            <!-- Dropdown -->
+            <ul class="options">
+
+                <!-- Category: guide -->
+                <li id="article-category-guide">
+                    <i class="material-icons">&#xE86E;</i>
+                    <span>Guide</span>
+                </li>
+
+                <!-- Category: policy -->
+                <li id="article-category-policy">
+                    <i class="material-icons">&#xE90E;</i>
+                    <span>Policy</span>
+                </li>
+
+                <!-- Category: misc -->
+                <li id="article-category-misc">
+                    <i class="material-icons">&#xE2C7;</i>
+                    <span>Miscellaneous</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- Delete an article -->
+        <div class="bulk-action" id="delete-article">
+            <i class="material-icons">&#xE872;</i>
+            <span>Delete</span>
+        </div>
+
+    <% end %>
+
+    <% if not @articles.empty? %>
+        <div class="list-content">
+            <%= render partial: 'admin/support_articles/support_article',
+                       collection: @articles,
+                       cached: true %>
+        </div>
+    <% else %>
+        I'm empty. <!-- TODO -->
+    <% end %>
+
+</div>
+
+<%= paginate @articles %>

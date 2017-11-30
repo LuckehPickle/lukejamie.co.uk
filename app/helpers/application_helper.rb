@@ -25,4 +25,31 @@ module ApplicationHelper
         markdown.render(text).html_safe
     end
 
+
+    ###
+    # Renders a search field for the given +url+.
+    #
+    # Params:
+    # +url+::URL to post query to.
+    # +placeholder+::Search input's placeholder text.
+    def render_search (url, placeholder)
+        render partial: 'application/search',
+               locals: {
+                   url: url,
+                   placeholder: placeholder
+               }
+    end
+
+
+    ###
+    # Renders a new list header. The given block is used to poulate any bulk
+    # actions.
+    #
+    # Params:
+    # +bulk_actions+::A block defining related bulk actions.
+    def render_list_header (&bulk_actions)
+        render partial: 'application/list-header',
+               locals: { bulk_actions: bulk_actions }
+    end
+
 end

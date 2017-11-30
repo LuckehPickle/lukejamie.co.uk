@@ -1,36 +1,38 @@
-require 'admin_authentication_helper'
-
 class Admin::UsersController < ApplicationController
-
-    include AdminAuthenticationHelper
 
     before_action :authenticate_user!
     layout 'admin'
 
 
+    # GET /admin/users
     def index
-        return if enforce_admin(current_user)
+        @users = User.page(params[:page]).per(20)
+    end
+
+
+    # GET /admin/users/search
+    def search
         query = params[:query].present? ? params[:query] : '*'
         @users = User.search query,
                              page: params[:page],
                              per_page: 20
+        render 'index'
     end
 
 
+    # GET /admin/users/:id
     def show
-        enforce_admin(current_user)
     end
 
-    def edit
-        return if enforce_admin(current_user)
 
+    # GET /admin/users/:id/edit
+    def edit
         @user = User.find params[:id]
     end
 
 
+    # PUT /admin/users/:id
     def update
-        enforce_admin(current_user)
-
         @user = User.find params[:id]
 
         if @user.update user_params
@@ -42,6 +44,7 @@ class Admin::UsersController < ApplicationController
     end
 
 
+    # DELETE /admin/users/:id
     def destroy
         enforce_admin(current_user)
     end
