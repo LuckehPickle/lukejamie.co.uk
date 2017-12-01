@@ -1,30 +1,38 @@
-require 'admin_authentication_helper'
-
 class Admin::ProductsController < ApplicationController
-
-    include AdminAuthenticationHelper
 
     before_action :authenticate_user!
     layout 'admin'
 
 
+    # GET /admin/products
     def index
-        return if enforce_admin(current_user)
-        query = params[:query].present? ? params[:query] : '*'
-        @products = Product.search query,
-                                   page: params[:page],
-                                   per_page: 30
+        @products = Product.order(updated_at: :desc).page(params[:page]).per(20)
     end
 
 
+    # GET /admin/products/search
+    def search
+        query = params[:query].present? ? params[:query] : '*'
+        @products = Product.search query,
+                                   fields: [:name, :description],
+                                   order: {
+                                       _score: :asc,
+                                       updated_at: :asc
+                                   },
+                                   page: params[:page],
+                                   per_page: 30
+        render 'index'
+    end
+
+
+    # GET /admin/products/new
     def new
-        return if enforce_admin(current_user)
         @product = Product.new
     end
 
 
+    # POST /admin/products
     def create
-        return if enforce_admin(current_user)
         @product = Product.new product_params
 
         if @product.save
@@ -36,16 +44,14 @@ class Admin::ProductsController < ApplicationController
     end
 
 
+    # GET /admin/products/:id/edit
     def edit
-        return if enforce_admin(current_user)
-
         @product = Product.find_by_slug! params[:id]
     end
 
 
+    # PUT /admin/products/:id
     def update
-        return if enforce_admin(current_user)
-
         @product = Product.find_by_slug! params[:id]
 
         if @product.update product_params

@@ -32,12 +32,12 @@ Rails.application.routes.draw do
 
     namespace :admin do
         root 'admin#index'
+
+        get '/products/search', to: 'products#search'
         resources :products, except: [:show, :destroy]
 
         get '/promo-codes/search', to: 'promo_codes#search'
-        resources :promo_codes,
-                  except: :show,
-                  path: 'promo-codes'
+        resources :promo_codes, except: :show, path: 'promo-codes'
 
         get '/orders/search', to: 'orders#search'
         resources :orders, only: [:index, :show, :edit, :update]
@@ -45,10 +45,10 @@ Rails.application.routes.draw do
         get '/users/search', to: 'users#search'
         resources :users,  except: [:new, :create]
 
-        get '/support/search', to: 'support_articles#search'
-        resources :support_articles,
-                  except: :show,
-                  path: 'support'
+        get '/support/search',   to: 'support_articles#search'
+        match '/support/delete', to: 'support_articles#destroy_many', via: :delete
+        resources :support_articles, except: :show, path: 'support'
+
     end
 
 end

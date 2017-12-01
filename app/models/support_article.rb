@@ -9,7 +9,8 @@ class SupportArticle < ApplicationRecord
     def search_data
         {
             title: title,
-            body: body
+            body: body,
+            updated_at: updated_at
         }
     end
 

@@ -14,6 +14,11 @@ class Admin::PromoCodesController < ApplicationController
     def search
         query = params[:query].present? ? params[:query] : '*'
         @promo_codes = PromoCode.search query,
+                                        fields: [:code, :label],
+                                        order: {
+                                            _score: :asc,
+                                            updated_at: :asc
+                                        },
                                         page: params[:page],
                                         per_page: 20
         render 'index'
@@ -41,14 +46,12 @@ class Admin::PromoCodesController < ApplicationController
 
     # GET /admin/promo-codes/:id/edit
     def edit
-        return if enforce_admin(current_user)
         @promo_code = PromoCode.find params[:id]
     end
 
 
     # PUT /admin/promo-codes/:id
     def update
-        return if enforce_admin(current_user)
         @promo_code = PromoCode.find params[:id]
 
         if @promo_code.update promo_code_params
@@ -62,8 +65,6 @@ class Admin::PromoCodesController < ApplicationController
 
     # DELETE /admin/promo-codes/:id
     def destroy
-        return if enforce_admin(current_user)
-
         @promo_code = PromoCode.find params[:id]
         @promo_code.destroy
 

@@ -8,31 +8,29 @@
         cursor: pointer;
         display: flex;
         align-items: center;
-        padding: 0.4rem 1rem;
-        font-weight: 500;
-        color: inherit;
         line-height: 1.0;
         vertical-align: middle;
 
         i {
-            font-size: 22px;
+            font-size: 20px;
             margin-right: -0.5rem;
         }
     }
 
     .options {
         position: absolute;
-        top: 34px;
-        right: 0;
+        top: 42px;
+        right: 0.25rem;
         background: white;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         border-radius: 3px;
         padding: 0.5rem 0;
         margin: 0;
         list-style-type: none;
-        z-index: 100;
+        z-index: 1000;
         color: $text;
         display: none;
+        font-weight: 400;
 
         &[active] {
             display: block;

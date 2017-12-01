@@ -14,6 +14,11 @@ class Admin::UsersController < ApplicationController
     def search
         query = params[:query].present? ? params[:query] : '*'
         @users = User.search query,
+                             fields: [:name, :email],
+                             order: {
+                                 _score: :asc,
+                                 updated_at: :asc
+                             },
                              page: params[:page],
                              per_page: 20
         render 'index'

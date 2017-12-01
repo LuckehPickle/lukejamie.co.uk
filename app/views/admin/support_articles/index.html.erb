@@ -25,7 +25,7 @@
         <div class="select" id="select-article-category">
 
             <!-- Toggles the select's dropdown -->
-            <div class="select-button">
+            <div class="select-button bulk-action">
                 <span>Category</span>
                 <i class="material-icons">&#xE5C5;</i>
             </div>
@@ -56,10 +56,14 @@
         </div>
 
         <!-- Delete an article -->
-        <div class="bulk-action" id="delete-article">
+        <%= link_to admin_support_delete_path,
+                    remote: true,
+                    method: :delete,
+                    class: 'bulk-action',
+                    data: { confirm: 'Are you sure? This action is potentially dangerous.' } do %>
             <i class="material-icons">&#xE872;</i>
             <span>Delete</span>
-        </div>
+        <% end %>
 
     <% end %>
 

@@ -6,7 +6,7 @@ class Admin::SupportArticlesController < ApplicationController
 
     # GET /admin/support
     def index
-        @articles = SupportArticle.page(params[:page]).per(20)
+        @articles = SupportArticle.order(updated_at: :desc).page(params[:page]).per(20)
     end
 
 
@@ -14,6 +14,11 @@ class Admin::SupportArticlesController < ApplicationController
     def search
         query = params[:query].present? ? params[:query] : '*'
         @articles = SupportArticle.search query,
+                                          fields: [:title, :body],
+                                          order: {
+                                              _score: :asc,
+                                              updated_at: :asc
+                                          },
                                           page: params[:page],
                                           per_page: 20
         render 'index'
@@ -67,6 +72,12 @@ class Admin::SupportArticlesController < ApplicationController
 
         flash[:notice] = t('admin.support_article.delete') % { title: @article.title }
         redirect_to admin_support_articles_path
+    end
+
+
+    # DELETE /admin/support/delete
+    def destroy_many
+        objects = params[:ids].split(',')
     end
 
 

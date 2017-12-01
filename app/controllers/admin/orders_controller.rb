@@ -14,6 +14,11 @@ class Admin::OrdersController < ApplicationController
     def search
         query = params[:query].present? ? params[:query] : '*'
         @orders = Order.search query,
+                               fields: [:reference],
+                               order: {
+                                   _score: :asc,
+                                   updated_at: :asc
+                               },
                                page: params[:page],
                                per_page: 20
         render 'index'
