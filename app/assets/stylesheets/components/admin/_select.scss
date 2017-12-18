@@ -19,8 +19,8 @@
 
     .options {
         position: absolute;
-        top: 42px;
-        right: 0.25rem;
+        top: 45px;
+        right: 5px;
         background: white;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         border-radius: 3px;
@@ -31,6 +31,18 @@
         color: $text;
         display: none;
         font-weight: 400;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: -7px;
+            right: 1rem;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 10px 12.1px 10px;
+            border-color: transparent transparent white transparent;
+        }
 
         &[active] {
             display: block;

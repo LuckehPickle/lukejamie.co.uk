@@ -9,7 +9,8 @@ class User < ApplicationRecord
         {
             name: name,
             email: email,
-            role: role
+            role: role,
+            updated_at: updated_at
         }
     end
 

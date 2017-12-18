@@ -11,24 +11,20 @@ en:
   admin:
     order:
       update: "Updated order '%{reference}'."
-      subtitle: "Here's a list of all orders made in the store front."
     product:
       create: "Successfully created a new product named '%{name}'."
       update: "Updated '%{name}'."
-      subtitle: "Create new products, or update existing ones."
       new: "Create new product"
     promo_code:
       create: "Successfully created a new promo code '%{code}'."
       update: "Updated promo code '%{code}'."
       delete: "Deleted promo code '%{code}'."
-      subtitle: "Here you can view all promotional, discount codes."
       new: "Create promo code"
       finish_after_start_date: "must be after start date."
     support_article:
       create: "Successfully created a new support article titled '%{title}'."
       update: "Updated support article '%{title}'."
       delete: "Deleted support article '%{title}'."
-      subtitle: "View and edit all articles in the Luke Jamie knowledgebase."
       new: "Create article"
     user:
       update: "Updated '%{name}'."

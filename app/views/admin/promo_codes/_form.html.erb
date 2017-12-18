@@ -2,22 +2,31 @@
 
     <%= render partial: 'application/form-errors', locals: { object: @promo_code } %>
 
-    <div>
+    <div class="input-wrapper">
         <%= f.label :code %>
-        <p>Should be alphanumeric.</p>
-        <%= f.text_field :code %>
+        <p class="hint">Should be alphanumeric.</p>
+        <div class="input">
+            <i class="material-icons">&#xE53F;</i>
+            <%= f.text_field :code, autofocus: true %>
+        </div>
     </div>
 
-    <div>
+    <div class="input-wrapper">
         <%= f.label :label %>
-        <p>A brief description about this code.</p>
-        <%= f.text_field :label %>
+        <p class="hint">Provide a brief description of this code.</p>
+        <div class="input">
+            <i class="material-icons">&#xE892;</i>
+            <%= f.text_field :label %>
+        </div>
     </div>
 
-    <div>
+    <div class="input-wrapper">
         <%= f.label :discount %>
-        <p>As a percentage.</p>
-        <%= f.number_field :discount, min: '0', max: '100' %>
+        <p class="hint">As a percentage.</p>
+        <div class="input">
+            <i class="material-icons">&#xE227;</i>
+            <%= f.number_field :discount, min: '0', max: '100' %>
+        </div>
     </div>
 
     <div class="conjoined">

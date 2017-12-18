@@ -8,7 +8,8 @@ class PromoCode < ApplicationRecord
             label: label,
             start_date: start_date,
             finish_date: finish_date,
-            active: active?
+            active: active?,
+            updated_at: updated_at
         }
     end
 

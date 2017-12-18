@@ -3,41 +3,46 @@
 <!-- Promo codes header -->
 <div class="admin-header">
     <h1>Promo codes</h1>
-    <p><%= t('admin.promo_code.subtitle') %></p>
 </div>
 
-<!-- Controls for dealing with lists -->
-<div class="list-controls">
+<div class="admin-wrapper">
 
-    <%= render_search admin_promo_codes_search_path, 'Search promo codes' %>
+    <!-- Controls for dealing with lists -->
+    <div class="list-controls">
 
-    <!-- Create new promo code-->
-    <%= link_to t('admin.promo_code.new'), new_admin_promo_code_path, class: 'button' %>
+        <%= render_search admin_promo_codes_search_path, 'Search promo codes' %>
 
-</div>
+        <!-- Create new promo code-->
+        <%= link_to t('admin.promo_code.new'), new_admin_promo_code_path, class: 'button' %>
 
-<!-- Paginated list of all promo codes -->
-<div class="list">
+    </div>
 
-    <%= render_list_header do %>
+    <!-- Paginated list of all promo codes -->
+    <div class="list">
 
-        <!-- Delete a promo code -->
-        <div class="bulk-action" id="delete-promo-code">
-            <i class="material-icons">&#xE872;</i>
-            <span>Delete</span>
-        </div>
+        <%= render_list_header do %>
 
-    <% end %>
+            <!-- Delete a promo code -->
+            <div class="bulk-action" id="delete-promo-code">
+                <i class="material-icons">&#xE872;</i>
+                <span>Delete</span>
+            </div>
+
+        <% end %>
 
 
-    <% if not @promo_codes.empty? %>
-        <div class="list-content">
-            <%= render partial: 'admin/promo_codes/promo_code',
-                       collection: @promo_codes,
-                       cached: true %>
-        </div>
-    <% else %>
-        I'm empty. <!-- TODO -->
-    <% end %>
+        <% if not @promo_codes.empty? %>
+            <div class="list-content">
+                <%= render partial: 'admin/promo_codes/promo_code',
+                           collection: @promo_codes,
+                           cached: true %>
+            </div>
+        <% else %>
+            I'm empty. <!-- TODO -->
+        <% end %>
+
+    </div>
+
+    <%= render 'admin/copyright' %>
 
 </div>

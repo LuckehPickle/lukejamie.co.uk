@@ -1,3 +1,58 @@
-form {
-    // TODO
+.admin-content-form {
+    background: white;
+    border: 1px solid hsl(0, 0%, 90%);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 0 2rem;
+    padding: 2rem 1.25rem;
+
+    .input-wrapper {
+        margin: 0 0 1.5rem;
+
+        label {
+            display: block;
+            font-size: 15px;
+            margin: 0 0 0.3rem;
+        }
+
+        .hint {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .input {
+            background: white;
+            border: 1px solid $border-color;
+            border-radius: 2px;
+            position: relative;
+            max-width: 300px;
+
+            i {
+                position: absolute;
+                left: 0;
+                top: 0;
+                padding: 10px 15px;
+                pointer-events: none;
+                font-size: 18px;
+            }
+
+            input {
+                width: 100%;
+                border: none;
+                background: none;
+                padding: 10px 10px 10px 3rem;
+                outline: none;
+                font-family: "Roboto", Helvetica, sans-serif;
+                font-size: 15px;
+            }
+
+        }
+
+        a {
+            display: block;
+            font-size: 15px;
+            text-decoration: underline;
+            margin: 0.5rem 0 0;
+        }
+    }
 }

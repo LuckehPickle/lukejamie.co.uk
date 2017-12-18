@@ -172,8 +172,60 @@ var initCheckboxes = function () {
 };
 
 
+var toggleMobileNav = function () {
+
+    var mobileBar = document.querySelector(".mobile-bar");
+    var navigation = document.querySelector(".navigation");
+
+    if (mobileBar.hasAttribute("active")) {
+        mobileBar.removeAttribute("active");
+        navigation.removeAttribute("active");
+    } else {
+        mobileBar.setAttribute("active", "");
+        navigation.setAttribute("active", "");
+    }
+
+};
+
+
+var closeMobileNav = function () {
+
+    var mobileBar = document.querySelector(".mobile-bar");
+    var navigation = document.querySelector(".navigation");
+
+    mobileBar.removeAttribute("active");
+    navigation.removeAttribute("active");
+
+};
+
+
+/**
+ * Initialises mobile navigation dropdown.
+ */
+var initMobileDropdown = function () {
+
+    document.addEventListener("click", function (event) {
+
+        // Get event target
+        var target = event.target;
+
+        // Delegated event listener for select buttons
+        if (containsSelector(target, ".mobile-nav-trigger")) {
+            toggleMobileNav();
+        } else {
+            closeMobileNav();
+        }
+
+    });
+
+};
+
+
 // Code fired every page load
 document.addEventListener("turbolinks:load", function () {
     initMarkdownEditors();
     initCheckboxes();
 });
+
+
+ready(initMobileDropdown);

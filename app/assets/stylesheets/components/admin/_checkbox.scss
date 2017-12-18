@@ -2,17 +2,17 @@
     @include no-select();
     cursor: pointer;
     padding: 0.5rem;
-    color: lighten($text, 8%);
+    color: lighten($text, 20%);
 
     i {
-        font-size: 22px;
+        font-size: 20px;
         line-height: 1.0;
         vertical-align: middle;
         display: inline-block;
     }
 
     &[active] {
-        color: $blue;
+        color: $gold-from;
     }
 
 }

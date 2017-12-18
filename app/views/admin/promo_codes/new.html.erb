@@ -1,8 +1,11 @@
 <% content_for :subtitle do %>New promo code<% end %>
 
 <div class="admin-header">
+    <!-- TODO Add a link back to the promo codes page -->
     <h1>Create a promo code</h1>
-    <p>Users will be able to use this code for as long as it's valid.</p>
 </div>
 
-<%= render 'form' %>
+<div class="admin-wrapper">
+    <%= render 'form' %>
+    <%= render 'admin/copyright' %>
+</div>

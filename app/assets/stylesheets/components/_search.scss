@@ -10,8 +10,9 @@
     width: 100%;
     max-width: 500px;
     background: white;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
+    //box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    border: 1px solid hsl(0, 0%, 90%);
     overflow: hidden;
 
     input[type="search"] {
@@ -36,7 +37,7 @@
         font-size: 20px;
         color: lighten($text, 35%);
         transition: color 200ms;
-        padding: 13px 1.1rem;
+        padding: 10px 1.1rem;
         pointer-events: none;
     }
 

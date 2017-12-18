@@ -3,80 +3,85 @@
 <!-- Support articles header -->
 <div class="admin-header">
     <h1>Support articles</h1>
-    <p><%= t('admin.support_article.subtitle') %></p>
 </div>
 
-<!-- Controls for dealing with a list -->
-<div class="list-controls">
+<div class="admin-wrapper">
 
-    <%= render_search admin_support_search_path, 'Search articles' %>
+    <!-- Controls for dealing with a list -->
+    <div class="list-controls">
 
-    <!-- Create a new article -->
-    <%= link_to t('admin.support_article.new'), new_admin_support_article_path, class: 'button' %>
+        <%= render_search admin_support_search_path, 'Search articles' %>
 
-</div>
+        <!-- Create a new article -->
+        <%= link_to t('admin.support_article.new'), new_admin_support_article_path, class: 'button' %>
 
-<!-- Paginated list of articles -->
-<div class="list">
+    </div>
 
-    <%= render_list_header do %>
+    <!-- Paginated list of articles -->
+    <div class="list">
 
-        <!-- Set category of currently selected articles -->
-        <div class="select" id="select-article-category">
+        <%= render_list_header do %>
 
-            <!-- Toggles the select's dropdown -->
-            <div class="select-button bulk-action">
-                <span>Category</span>
-                <i class="material-icons">&#xE5C5;</i>
+            <!-- Set category of currently selected articles -->
+            <div class="select" id="select-article-category">
+
+                <!-- Toggles the select's dropdown -->
+                <div class="select-button bulk-action">
+                    <span>Category</span>
+                    <i class="material-icons">&#xE5C5;</i>
+                </div>
+
+                <!-- Dropdown -->
+                <ul class="options">
+
+                    <!-- Category: guide -->
+                    <li id="article-category-guide">
+                        <i class="material-icons">&#xE86E;</i>
+                        <span>Guide</span>
+                    </li>
+
+                    <!-- Category: policy -->
+                    <li id="article-category-policy">
+                        <i class="material-icons">&#xE90E;</i>
+                        <span>Policy</span>
+                    </li>
+
+                    <!-- Category: misc -->
+                    <li id="article-category-misc">
+                        <i class="material-icons">&#xE2C7;</i>
+                        <span>Miscellaneous</span>
+                    </li>
+
+                </ul>
+
             </div>
 
-            <!-- Dropdown -->
-            <ul class="options">
+            <!-- Delete an article -->
+            <%= link_to admin_support_delete_path,
+                        remote: true,
+                        method: :delete,
+                        class: 'bulk-action',
+                        data: { confirm: 'Are you sure? This action is potentially dangerous.' } do %>
+                <i class="material-icons">&#xE872;</i>
+                <span>Delete</span>
+            <% end %>
 
-                <!-- Category: guide -->
-                <li id="article-category-guide">
-                    <i class="material-icons">&#xE86E;</i>
-                    <span>Guide</span>
-                </li>
-
-                <!-- Category: policy -->
-                <li id="article-category-policy">
-                    <i class="material-icons">&#xE90E;</i>
-                    <span>Policy</span>
-                </li>
-
-                <!-- Category: misc -->
-                <li id="article-category-misc">
-                    <i class="material-icons">&#xE2C7;</i>
-                    <span>Miscellaneous</span>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- Delete an article -->
-        <%= link_to admin_support_delete_path,
-                    remote: true,
-                    method: :delete,
-                    class: 'bulk-action',
-                    data: { confirm: 'Are you sure? This action is potentially dangerous.' } do %>
-            <i class="material-icons">&#xE872;</i>
-            <span>Delete</span>
         <% end %>
 
-    <% end %>
+        <% if not @articles.empty? %>
+            <div class="list-content">
+                <%= render partial: 'admin/support_articles/support_article',
+                           collection: @articles,
+                           cached: true %>
+            </div>
+        <% else %>
+            I'm empty. <!-- TODO -->
+        <% end %>
 
-    <% if not @articles.empty? %>
-        <div class="list-content">
-            <%= render partial: 'admin/support_articles/support_article',
-                       collection: @articles,
-                       cached: true %>
-        </div>
-    <% else %>
-        I'm empty. <!-- TODO -->
-    <% end %>
+    </div>
+
+    <%= paginate @articles %>
+
+    <%= render 'admin/copyright' %>
 
 </div>
-
-<%= paginate @articles %>

@@ -1,7 +1,7 @@
 .list {
-    background: hsl(0, 0%, 97%);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
+    background: white;
+    border: 1px solid hsl(0, 0%, 90%);
+    border-radius: 5px;
     overflow: hidden;
     margin: 0 0 2rem;
     transition: background 300ms;
@@ -12,8 +12,8 @@
 
     .list-header {
         color: $text;
-        background: white;
-        border-bottom: 1px solid hsl(0, 0%, 91%);
+        //background: white;
+        border-bottom: 1px solid hsl(0, 0%, 88%);
         padding: 0.5rem 1.25rem;
         display: flex;
         align-items: center;
@@ -63,8 +63,8 @@
         }
 
         &[active] {
-            color: white;
-            background: $blue;
+            color: $gold-text;
+            background: $gold-from;
             .selected-item-count { display: inline-block; }
             .bulk-actions { display: flex; }
         }
@@ -78,7 +78,7 @@
 
     .list-content {
         position: relative;
-        padding: 0.5rem 0;
+        padding: 0;
     }
 
     .list-item {
@@ -86,10 +86,15 @@
         align-items: center;
         padding: 0 1.25rem;
         background: transparent;
+        border-top: 1px solid hsl(0, 0, 94%);
         transition: background 200ms;
 
         &[active] {
             background: white;
+        }
+
+        &:first-child {
+            border-top: none;
         }
 
         .list-item-content {
@@ -114,13 +119,13 @@
 
             .list-badge {
                 margin-left: 0.5rem;
-                background: $purple-from;
+                background: $gold-to;
                 padding: 3px 5px;
                 border-radius: 2px;
                 font-family: "Roboto", Helvetica, sans-serif;
                 font-size: 13px;
                 line-height: 1.0;
-                color: $purple-text;
+                color: $gold-text;
                 text-transform: lowercase;
                 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
             }
@@ -140,7 +145,7 @@
             }
 
             .progress-completed {
-                background: linear-gradient(0deg, $purple-from, $purple-to);
+                background: linear-gradient(0deg, $gold-from, $gold-to);
             }
         }
     }
@@ -176,6 +181,13 @@
 
 #order-reference {
     text-transform: uppercase;
+}
+
+#support-article-description {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #order-user {
