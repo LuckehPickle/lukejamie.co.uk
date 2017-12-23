@@ -2,38 +2,43 @@
 
 <div class="admin-header">
     <h1>Products</h1>
-    <p><%= t('admin.product.subtitle') %></p>
 </div>
 
-<div class="list-controls">
+<div class="admin-wrapper">
 
-    <div class="search-wrapper">
-        <%= form_tag admin_products_path, method: :get, class: 'search-form' do %>
-            <%= search_field_tag :query, params[:query], placeholder: 'Search products' %>
-            <%= submit_tag 'Search', name: nil %>
-        <% end %>
-        <i class="material-icons">&#xE8B6;</i>
-    </div>
+    <div class="list-controls">
 
-    <%= link_to t('admin.product.new'), new_admin_product_path, class: 'button' %>
-
-</div>
-
-<% if not @products.empty? %>
-    <div class="masonry admin-masonry">
-        <%= render @products %>
-    </div>
-<% else %>
-    <div class="list">
-        <div class="empty-state-wrapper">
-            <h2>There's nothing here...</h2>
-            <p>...but tumbleweeds. Once you've created a product or two, you'll be able to view them here in all their glory.</p>
-            <%= link_to t('admin.product.new'), new_admin_product_path, class: 'button' %>
+        <div class="search-wrapper">
+            <%= form_tag admin_products_path, method: :get, class: 'search-form' do %>
+                <%= search_field_tag :query, params[:query], placeholder: 'Search products' %>
+                <%= submit_tag 'Search', name: nil %>
+            <% end %>
+            <i class="material-icons">&#xE8B6;</i>
         </div>
-        <% 4.times do %>
-            <div class="admin-list-item admin-list-item-placeholder"></div>
-        <% end %>
-    </div>
-<% end %>
 
-<%= paginate @products %>
+        <%= link_to t('admin.product.new'), new_admin_product_path, class: 'button' %>
+
+    </div>
+
+    <% if not @products.empty? %>
+        <div class="masonry admin-masonry">
+            <%= render @products %>
+        </div>
+    <% else %>
+        <div class="list">
+            <div class="empty-state-wrapper">
+                <h2>There's nothing here...</h2>
+                <p>...but tumbleweeds. Once you've created a product or two, you'll be able to view them here in all their glory.</p>
+                <%= link_to t('admin.product.new'), new_admin_product_path, class: 'button' %>
+            </div>
+            <% 4.times do %>
+                <div class="admin-list-item admin-list-item-placeholder"></div>
+            <% end %>
+        </div>
+    <% end %>
+
+    <%= paginate @products %>
+
+    <%= render 'admin/copyright' %>
+
+</div>

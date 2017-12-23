@@ -5,16 +5,16 @@
     <div class="input-wrapper">
         <%= f.label :code %>
         <p class="hint">Should be alphanumeric.</p>
-        <div class="input">
+        <div class="input icon-input">
             <i class="material-icons">&#xE53F;</i>
-            <%= f.text_field :code, autofocus: true %>
+            <%= f.text_field :code, autofocus: true, id: 'promo-code-input' %>
         </div>
     </div>
 
     <div class="input-wrapper">
         <%= f.label :label %>
         <p class="hint">Provide a brief description of this code.</p>
-        <div class="input">
+        <div class="input icon-input">
             <i class="material-icons">&#xE892;</i>
             <%= f.text_field :label %>
         </div>
@@ -23,28 +23,32 @@
     <div class="input-wrapper">
         <%= f.label :discount %>
         <p class="hint">As a percentage.</p>
-        <div class="input">
-            <i class="material-icons">&#xE227;</i>
+        <div class="input symbol-input">
             <%= f.number_field :discount, min: '0', max: '100' %>
+            <span class="symbol">%</span>
         </div>
     </div>
 
     <div class="conjoined">
 
-        <div>
+        <div class="input-wrapper">
             <%= f.label :start_date %>
-            <%= f.date_field :start_date %>
+            <div class="input">
+                <%= f.date_field :start_date, class: 'flatpickr' %>
+            </div>
         </div>
 
-        <div>
+        <div class="input-wrapper">
             <%= f.label :finish_date %>
-            <%= f.date_field :finish_date %>
+            <div class="input">
+                <%= f.date_field :finish_date, class: 'flatpickr' %>
+            </div>
         </div>
 
     </div>
 
     <div class="buttons">
-        <%= f.submit @promo_code.new_record? ? 'Create promo code' : 'Update promo code', class: 'button' %>
+        <%= f.submit @promo_code.new_record? ? 'Create' : 'Save changes', class: 'button' %>
         <%= link_to 'Cancel', admin_promo_codes_path, class: 'button button-secondary' %>
     </div>
 

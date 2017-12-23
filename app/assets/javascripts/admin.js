@@ -143,8 +143,7 @@ var initMarkdownEditors = function () {
         CodeMirror.fromTextArea(editor, {
             mode: 'markdown',
             indentUnit: 4,
-            lineWrapping: true,
-            lineNumbers: true
+            lineWrapping: true
         });
     });
 };
@@ -221,10 +220,21 @@ var initMobileDropdown = function () {
 };
 
 
+/**
+ * Initialises date pickers with flatpickr.
+ */
+var initDateInputs = function () {
+    flatpickr(".flatpickr", {
+        altInput: true
+    });
+};
+
+
 // Code fired every page load
 document.addEventListener("turbolinks:load", function () {
     initMarkdownEditors();
     initCheckboxes();
+    initDateInputs();
 });
 
 

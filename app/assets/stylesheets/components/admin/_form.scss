@@ -4,20 +4,29 @@
     border-radius: 5px;
     overflow: hidden;
     margin: 0 0 2rem;
-    padding: 2rem 1.25rem;
+    padding: 2rem;
+
+    .conjoined {
+        display: flex;
+
+        .input-wrapper {
+            margin-right: 1rem;
+            &:last-child { margin-right: 0; }
+        }
+    }
 
     .input-wrapper {
-        margin: 0 0 1.5rem;
+        margin: 0 0 2rem;
 
         label {
             display: block;
-            font-size: 15px;
-            margin: 0 0 0.3rem;
+            font-weight: bold;
         }
 
-        .hint {
+        label, .hint {
             font-size: 15px;
-            margin: 0;
+            margin: 0 0 0.6rem;
+            color: lighten($text, 8%);
         }
 
         .input {
@@ -25,7 +34,36 @@
             border: 1px solid $border-color;
             border-radius: 2px;
             position: relative;
-            max-width: 300px;
+            color: darken($text, 4%);
+
+            select,
+            input {
+                width: 100%;
+                border: none;
+                background: none;
+                padding: 10px;
+                outline: none;
+                font-family: "Roboto", Helvetica, sans-serif;
+                font-size: 15px;
+            }
+
+            textarea, .CodeMirror {
+                font-family: "Roboto", Helvetica, sans-serif;
+                font-size: 15px;
+                width: 100%;
+                color: darken($text, 4%);
+                line-height: 1.5;
+                padding: 12px 1rem;
+                border: none;
+
+                .CodeMirror-line,
+                .CodeMirror-lines { padding: 0; }
+            }
+        }
+
+        .icon-input,
+        .select-input {
+            max-width: 340px;
 
             i {
                 position: absolute;
@@ -37,22 +75,48 @@
             }
 
             input {
-                width: 100%;
-                border: none;
-                background: none;
-                padding: 10px 10px 10px 3rem;
-                outline: none;
-                font-family: "Roboto", Helvetica, sans-serif;
-                font-size: 15px;
+                padding-left: 3rem;
+            }
+
+            select {
+                padding: 8px 10px 8px 3rem;
             }
 
         }
 
+        .symbol-input {
+            max-width: 150px;
+            font-family: "Roboto Mono", monospace;
+
+            .symbol {
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 10px 15px;
+                pointer-events: none;
+                font-weight: bold;
+            }
+
+            input {
+                font-family: inherit;
+                padding-left: 2rem;
+                text-align: right;
+            }
+        }
+
         a {
-            display: block;
             font-size: 15px;
             text-decoration: underline;
             margin: 0.5rem 0 0;
         }
     }
+
+    .buttons {
+        margin-top: 1rem;
+    }
+}
+
+#promo-code-input {
+    font-family: "Roboto Mono", monospace;
+    letter-spacing: 1px;
 }

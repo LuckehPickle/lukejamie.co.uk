@@ -2,23 +2,33 @@
 
     <%= render partial: 'application/form-errors', locals: { object: @user } %>
 
-    <div>
+    <div class="input-wrapper">
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <div class="input icon-input">
+            <i class="material-icons">&#xE7FD;</i>
+            <%= f.text_field :name, autofocus: true %>
+        </div>
     </div>
 
-    <div>
+    <div class="input-wrapper">
         <%= f.label :email %>
-        <%= f.email_field :email %>
+        <p class="hint">Warning: Changing a user's email address can have severe consequences.</p>
+        <div class="input icon-input">
+            <i class="material-icons">&#xE0BE;</i>
+            <%= f.email_field :email %>
+        </div>
     </div>
 
-    <div>
+    <div class="input-wrapper">
         <%= f.label :role %>
-        <%= f.select :role, User.roles.keys.map { |role| [role.titleize, role]} %>
+        <div class="input select-input">
+            <i class="material-icons">&#xE85D;</i>
+            <%= f.select :role, User.roles.keys.map { |role| [role.titleize, role]} %>
+        </div>
     </div>
 
     <div class="buttons">
-        <%= f.submit 'Update user', class: 'button' %>
+        <%= f.submit 'Save changes', class: 'button' %>
         <%= link_to 'Cancel', admin_users_path, class: 'button button-secondary' %>
     </div>
 

@@ -4,6 +4,7 @@
 
 <% content_for :styles do %>
     <%= stylesheet_link_tag 'admin',
+                            'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css',
                             media: 'all',
                             'data-turbolinks-track': 'reload' %>
 <% end %>
@@ -11,6 +12,7 @@
 <% content_for :scripts do %>
     <%= javascript_include_tag 'codemirror.js',
                                'markdown.js',
+                               'https://cdn.jsdelivr.net/npm/flatpickr',
                                'admin.js' %>
 <% end %>
 

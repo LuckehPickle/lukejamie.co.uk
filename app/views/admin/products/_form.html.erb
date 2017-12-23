@@ -2,38 +2,54 @@
 
     <%= render partial: 'application/form-errors', locals: { object: @product } %>
 
-    <div>
+    <div class="input-wrapper">
         <%= f.label :name %>
-        <p>Should be unique.</p>
-        <%= f.text_field :name %>
+        <p class="hint">Must be unique.</p>
+        <div class="input icon-input">
+            <i class="material-icons">&#xE262;</i>
+            <%= f.text_field :name, autofucs: true %>
+        </div>
     </div>
 
-    <div>
+    <div class="input-wrapper">
         <%= f.label :category %>
-        <%= f.select :category, Product.categories.keys.map { |category| [category.titleize, category]} %>
+        <div class="input select-input">
+            <i class="material-icons">&#xE2C7;</i>
+            <%= f.select :category, Product.categories.keys.map { |category| [category.titleize, category]} %>
+        </div>
     </div>
 
-    <div>
+    <div class="input-wrapper">
         <%= f.label :description %>
-        <p>Markdown is supported. See <a href="https://guides.github.com/features/mastering-markdown/#syntax" target="_blank">this guide</a> for help.</p>
-        <%= f.text_area :description, class: 'CodeMirror' %>
+        <p class="hint">Markdown is supported. See <a href="https://guides.github.com/features/mastering-markdown/#syntax" target="_blank">this guide</a> for help.</p>
+        <div class="input">
+            <%= f.text_area :description, class: 'CodeMirror' %>
+        </div>
     </div>
 
-    <div>
+    <div class="input-wrapper">
         <%= f.label :display_picture %>
         <%= f.file_field :display_picture %>
     </div>
 
     <div class="conjoined">
-        <div>
+
+        <div class="input-wrapper">
             <%= f.label :price %>
-            <%= f.number_field :price %>
+            <div class="input symbol-input">
+                <span class="symbol">£</span>
+                <%= f.number_field :price %>
+            </div>
         </div>
 
-        <div>
+        <div class="input-wrapper">
             <%= f.label :discount %>
-            <%= f.number_field :discount, step: '0.01' %>
+            <div class="input symbol-input">
+                <span class="symbol">%</span>
+                <%= f.number_field :discount, step: '0.01' %>
+            </div>
         </div>
+
     </div>
 
     <div>
@@ -47,7 +63,7 @@
     </div>
 
     <div class="buttons">
-        <%= f.submit @product.new_record? ? 'Create product' : 'Update product', class: 'button' %>
+        <%= f.submit @product.new_record? ? 'Create' : 'Save changes', class: 'button' %>
         <%= link_to 'Cancel', admin_products_path, class: 'button button-secondary' %>
     </div>
 
