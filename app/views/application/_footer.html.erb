@@ -39,10 +39,9 @@
         <!-- Products -->
         <ul class="footer-column">
             <li><h2>Products</h2></li>
-            <li><%= link_to 'T-Shirts',   products_path(category: 'shirts') %></li>
+            <li><%= link_to 'Shirts',   products_path(category: 'shirts') %></li>
             <li><%= link_to 'Hoodies',    products_path(category: 'hoodies') %></li>
-            <li><%= link_to 'Trackies',   products_path(category: 'trackies') %></li>
-            <li><%= link_to 'Shoes',      products_path(category: 'shoes') %></li>
+            <li><%= link_to 'Joggers',   products_path(category: 'trackies') %></li>
             <li><%= link_to 'Browse all', products_path %></li>
         </ul>
 
@@ -72,7 +71,6 @@
             <% if user_signed_in? %>
                 <li><%= link_to 'Overview', account_root_path %></li>
                 <li><%= link_to 'Wishlist', 'javascript:void(0)' %></li>
-                <li><%= link_to 'Addresses', account_addresses_path %></li>
                 <li><%= link_to 'Order history', account_orders_path %></li>
                 <li><%= link_to 'Settings', account_settings_path %></li>
                 <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' } %></li>

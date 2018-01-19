@@ -31,13 +31,11 @@
 /*
  * -- Generic --
  * Generic changes that don't target particular elements or components.
- *
- * box sizing ........................... Provides a more sensible default for box sizing.
- * highlight ............................ Changes default text highlight appearance.
  */
 
 @import "generic/box-sizing";
 @import "generic/hightlight";
+@import "generic/text-rendering";
 
 
 
@@ -63,6 +61,7 @@
 @import "components/flash";
 @import "components/search";
 @import "components/header";
+@import "components/cart";
 @import "components/footer";
 @import "components/wrapper";
 @import "components/support-article";

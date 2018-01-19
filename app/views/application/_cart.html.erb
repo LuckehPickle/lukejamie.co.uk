@@ -1,0 +1,100 @@
+<!-- A wrapper for the cart's trigger and dropdown. -->
+<div class="cart-wrapper">
+
+    <!-- Triggers the cart dropdown -->
+    <div class="cart-trigger">
+        <i class="material-icons">&#xE8CC;</i>
+        <span class="items-in-cart">0</span>
+    </div>
+
+    <!-- Cart dropdown. -->
+    <div class="cart-dropdown">
+
+        <div class="cart-dropdown-body">
+
+            <div class="cart-item">
+
+                <div class="top">
+                    <a href="/" class="thumb"></a>
+                    <div class="cart-item-info">
+                        <a href="/" class="name">White Swan Tee</a>
+                        <p>Medium</p>
+                    </div>
+                    <p class="price">£22.00</p>
+                </div>
+
+                <div class="bottom">
+                    <div class="quantity">
+
+                        <!-- Reduce quantity -->
+                        <div class="remove">
+                            <i class="material-icons">&#xE15B;</i>
+                        </div>
+
+                        <%= text_field :product, :quantity %>
+
+                        <!-- Increase quantity -->
+                        <div class="add">
+                            <i class="material-icons">&#xE145;</i>
+                        </div>
+
+                    </div>
+
+                    <!-- Remove this product from your cart-->
+                    <div class="delete">
+                        <i class="material-icons">&#xE872;</i>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="cart-item">
+
+                <div class="top">
+                    <a href="/" class="thumb"></a>
+                    <div class="cart-item-info">
+                        <a href="/" class="name">Black Swan Tee</a>
+                        <p>Small</p>
+                    </div>
+                    <p class="price">£22.00</p>
+                </div>
+
+                <div class="bottom">
+
+                    <div class="quantity">
+
+                        <!-- Reduce quantity -->
+                        <div class="remove">
+                            <i class="material-icons">&#xE15B;</i>
+                        </div>
+
+                        <%= text_field :product, :quantity %>
+
+                        <!-- Increase quantity -->
+                        <div class="add">
+                            <i class="material-icons">&#xE145;</i>
+                        </div>
+
+                    </div>
+
+                    <!-- Remove this product from your cart-->
+                    <div class="delete">
+                        <i class="material-icons">&#xE872;</i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="cart-dropdown-footer">
+            <%= link_to '/', class: 'button' do %>
+                <span>Checkout £44.00</span>
+            <% end %>
+        </div>
+
+    </div>
+
+</div>

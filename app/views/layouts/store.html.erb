@@ -1,3 +1,7 @@
+<% content_for :scripts do %>
+    <%= javascript_include_tag 'store.js', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
 <% content_for :content do %>
     <%= render 'header' %>
     <%= yield %>

@@ -1,0 +1,162 @@
+.cart-wrapper {
+    position: relative;
+    margin-left: auto;
+
+    .cart-trigger {
+        cursor: pointer;
+        padding: 0.6rem;
+        position: relative;
+        top: 4px;
+        color: darken($charcoal-text, 8%);
+        i { font-size: 24px; }
+        &:hover { color: $charcoal-text; }
+
+        .items-in-cart {
+            position: absolute;
+            top: 2px;
+            right: 0;
+            font-family: "Roboto Mono", monospace;
+            font-size: 13px;
+            font-weight: bold;
+            color: $gold-text;
+            line-height: 1.0;
+            text-transform: lowercase;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+            background: $gold-from;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    }
+
+    .cart-dropdown {
+        position: absolute;
+        top: 4rem;
+        right: 0;
+        width: 350px;
+        background: white;
+        color: $text;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        font-size: 15px;
+    }
+
+    .cart-dropdown-body {
+        padding: 1rem 1.25rem 1rem 1rem;
+        background: hsl(0, 0%, 96%);
+        height: calc(100vh - 10rem);
+        max-height: 340px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        border-radius: 3px 3px 0 0;
+    }
+
+    .cart-dropdown-footer {
+        padding: 1rem;
+        border-radius: 0 0 3px 3px;
+
+        .button {
+            width: 100%;
+            line-height: 1.2;
+            text-align: center;
+        }
+    }
+
+    .cart-item {
+        margin-bottom: 1rem;
+
+        .top,
+        .bottom {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            color: $text;
+
+            & > * {
+                flex-shrink: 0;
+                margin-right: 1rem;
+                &:last-child { margin-right: 0; }
+            }
+        }
+
+        .bottom {
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            margin-left: 58px;
+        }
+
+        .thumb {
+            width: 45px;
+            height: 45px;
+            background: lighten($text, 60%);
+            border-radius: 3px;
+        }
+
+        .cart-item-info {
+            flex-grow: 1;
+            line-height: 1.6;
+
+            p { margin: 0; }
+
+            .name {
+                color: $bold-text;
+                font-weight: bold;
+            }
+        }
+
+        .price {
+            color: $gold-from;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        i {
+            padding: 0.5rem;
+            cursor: pointer;
+            color: $text;
+            font-size: 22px;
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+
+            .add,
+            .remove {
+                @include no-select;
+                cursor: pointer;
+                padding: 4px;
+
+                i {
+                    font-size: 15px;
+                    line-height: 1.0;
+                    padding: 3px;
+                    background: hsl(0, 0%, 86%);
+                    border-radius: 3px;
+                }
+            }
+
+            input {
+                font-family: "Roboto Mono", "Monaco", "Inconsolata", "Consolas", monospace;
+                font-size: 16px;
+                width: 30px;
+                padding: 0;
+                text-align: center;
+                line-height: 1.0;
+                background: transparent;
+                border: none;
+            }
+        }
+
+        .delete {
+
+            i {
+                font-size: 20px;
+            }
+        }
+    }
+}

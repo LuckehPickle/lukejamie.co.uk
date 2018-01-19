@@ -1,7 +1,6 @@
 <ul>
     <li><%= link_to 'Overview', account_root_path %></li>
     <li><%= link_to 'Wishlist', 'javascript:void(0)' %></li>
-    <li><%= link_to 'Addresses', account_addresses_path %></li>
     <li><%= link_to 'Order history', account_orders_path %></li>
     <li><%= link_to 'Settings', account_settings_path %></li>
     <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' } %></li>

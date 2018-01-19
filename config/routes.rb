@@ -15,6 +15,7 @@ Rails.application.routes.draw do
                }
 
     root 'welcome#index'
+    post '/products/cart', to: 'products#cart'
     resources :products, only: [:index, :show]
 
     resources :support_articles,
@@ -23,7 +24,6 @@ Rails.application.routes.draw do
 
     namespace :account do
         root 'users#show'
-        resources :addresses, except: :show
         resources :orders, only: [:index, :show]
         get '/settings',   to: 'users#edit'
         match '/settings', to: 'users#update',  via: [:patch, :put]

@@ -29,10 +29,9 @@
                         <div class="products-dropdown">
                             <ul class="categories">
                                 <li><h2>Categories</h2></li>
-                                <li><%= link_to 'T-Shirts',   products_path(category: 'shirts') %></li>
+                                <li><%= link_to 'Shirts',   products_path(category: 'shirts') %></li>
                                 <li><%= link_to 'Hoodies',    products_path(category: 'hoodies') %></li>
-                                <li><%= link_to 'Trackies',   products_path(category: 'trackies') %></li>
-                                <li><%= link_to 'Shoes',      products_path(category: 'shoes') %></li>
+                                <li><%= link_to 'Joggers',   products_path(category: 'joggers') %></li>
                                 <li><%= link_to 'Browse all', products_path %></li>
                             </ul>
                         </div>
@@ -57,7 +56,6 @@
                                 <li><p class="name"><%= current_user.name %></p></li>
                                 <li><%= link_to 'Overview', account_root_path %></li>
                                 <li><%= link_to 'Wishlist', 'javascript:void(0)' %></li>
-                                <li><%= link_to 'Addresses', account_addresses_path %></li>
                                 <li><%= link_to 'Order history', account_orders_path %></li>
                                 <% if current_user.admin? %>
                                     <li><%= link_to 'Admin panel', admin_root_path %></li>
@@ -75,12 +73,7 @@
             <% end %>
         </ul>
 
-        <div class="basket-wrapper">
-            <div class="basket-trigger">
-                <i class="material-icons">&#xE8CC;</i>
-                <span class="items-in-basket">0</span>
-            </div>
-        </div>
+        <%= render 'application/cart' %>
 
     </div>
 </div>

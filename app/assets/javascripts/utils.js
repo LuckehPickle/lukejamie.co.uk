@@ -61,3 +61,24 @@ var ready = function (func) {
         document.addEventListener('DOMContentLoaded', func);
     }
 };
+
+
+/**
+ * Creates a fragment, that can be inserted into the DOM.
+ * @param innerHTML HTML String that defines the fragement.
+ * @return {DocumentFragment} Fragment, to be inserted into DOM.
+ */
+var createFragment = function (innerHTML) {
+
+    var fragment = document.createDocumentFragment(),
+        temp = document.createElement("div");
+
+    temp.innerHTML = innerHTML;
+
+    while (temp.firstChild) {
+        fragment.appendChild(temp.firstChild);
+    }
+
+    return fragment;
+
+};
