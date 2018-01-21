@@ -2,7 +2,9 @@
 
     <div class="brick-body">
         <div class="banners">
-            <% if product.sale? %>
+            <% if not product.in_stock? %>
+                <div class="banner" id="sold-out-banner">Sold out</div>
+            <% elsif product.on_sale? %>
                 <div class="banner" id="sale-banner"><%= (product.discount * 100).round %>% Off</div>
             <% end %>
         </div>
@@ -14,7 +16,7 @@
     <div class="brick-footer">
         <p class="name"><%= product.name %></p>
         <p>
-            <% if product.sale? %>
+            <% if product.on_sale? %>
                 <span class="strike"><%= number_to_currency product.price, unit: '£' %></span>
                 <span class="discount"><%= number_to_currency product.price * (1 - product.discount), unit: '£' %></span>
             <% else %>

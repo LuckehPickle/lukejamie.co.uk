@@ -77,7 +77,13 @@ class Admin::ProductsController < ApplicationController
                 :price,
                 :discount,
                 :hidden,
-                :featured
+                :featured,
+                sizes_attributes: [
+                    :id,
+                    :label,
+                    :stock,
+                    :_destroy
+                ]
             )
         end
 

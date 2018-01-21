@@ -1,2 +1,83 @@
-<h1>Product#show</h1>
-<p>Find me in app/views/product/show.html.erb</p>
+<% content_for :title do %><%= @product.name %><% end %>
+
+<div class="wrapper">
+
+    <div class="product-wrapper">
+
+        <!-- Display picture -->
+        <div class="display-picture">
+            <div class="banners">
+                <% if not @product.in_stock? %>
+                    <div class="banner" id="sold-out-banner">Sold out</div>
+                <% elsif @product.on_sale? %>
+                    <div class="banner" id="sale-banner"><%= (@product.discount * 100).round %>% Off</div>
+                <% end %>
+            </div>
+            <%= image_tag @product.display_picture.url(:full) %>
+        </div>
+
+        <!-- Product information -->
+        <div class="product-info">
+
+            <h1><%= @product.name %></h1>
+            <%= markdown_simple @product.description %>
+
+            <p class="value">
+                <% if @product.on_sale? %>
+                    <span class="strike"><%= number_to_currency @product.price, unit: '£' %></span>
+                    <span class="discount"><%= number_to_currency @product.price * (1 - @product.discount), unit: '£' %></span>
+                <% else %>
+                    <%= number_to_currency @product.price, unit: '£' %>
+                <% end %>
+            </p>
+
+            <% if @product.in_stock? %>
+                <div class="select">
+
+                    <!-- Button -->
+                    <div class="select-button">
+                        <span>Select a size</span>
+                        <i class="material-icons">&#xE5C5;</i>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <ul class="options">
+                        <% @product.sizes.each do |size| %>
+                            <% if size.stock > 0 %>
+                                <li><%= size.label %></li>
+                            <% else %>
+                                <li class="disabled"><%= size.label %> (Out of stock)</li>
+                            <% end %>
+                        <% end %>
+                    </ul>
+
+                </div>
+            <% else %>
+                <p class="out-of-stock">Out of stock</p>
+            <% end %>
+
+            <div class="buttons">
+
+                <% if @product.in_stock? %>
+                    <!-- Add product to cart -->
+                    <div class="cart-toggle button">
+                        <i class="material-icons">&#xE854;</i>
+                        <span>Add to cart</span>
+                    </div>
+                <% end %>
+
+                <!-- Add product to wishlist -->
+                <div class="wishlist-toggle button">
+                    <i class="material-icons">&#xE87E;</i>
+                    <span>Add to wishlist</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>Gallery</h3>
+
+</div>

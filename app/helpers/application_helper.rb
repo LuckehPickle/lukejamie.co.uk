@@ -25,6 +25,21 @@ module ApplicationHelper
         markdown.render(text).html_safe
     end
 
+    def markdown_simple (text)
+        renderer = Redcarpet::Render::HTML.new
+
+        markdown = Redcarpet::Markdown.new(
+            renderer,
+            no_intra_emphasis: true,
+            autolink: true,
+            superscript: true,
+            underline: true,
+            strikethrough: true
+        )
+
+        markdown.render(text).html_safe
+    end
+
 
     ###
     # Renders a search field for the given +url+.

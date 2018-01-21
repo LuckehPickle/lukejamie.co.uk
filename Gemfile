@@ -43,6 +43,7 @@ gem 'redcarpet'
 gem 'paperclip', '~> 5.0.0'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
+gem 'cocoon'
 
 group :development, :test do
     # Adds support for Capybara system testing and selenium driver

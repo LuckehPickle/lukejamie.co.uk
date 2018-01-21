@@ -1,0 +1,25 @@
+<div class="nested-fields">
+
+    <!-- Size label -->
+    <div class="input-wrapper">
+        <%= f.label :label %>
+        <div class="input icon-input">
+            <i class="material-icons">&#xE892;</i>
+            <%= f.text_field :label %>
+        </div>
+    </div>
+
+    <!-- Size stock -->
+    <div class="input-wrapper">
+        <%= f.label :stock %>
+        <div class="input icon-input">
+            <i class="material-icons">&#xE1BD;</i>
+            <%= f.number_field :stock %>
+        </div>
+    </div>
+
+    <%= f.check_box :_destroy %>
+
+    <%= link_to_remove_association 'remove size', f %>
+
+</div>

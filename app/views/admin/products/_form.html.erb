@@ -2,15 +2,17 @@
 
     <%= render partial: 'application/form-errors', locals: { object: @product } %>
 
+    <!-- Product name -->
     <div class="input-wrapper">
         <%= f.label :name %>
         <p class="hint">Must be unique.</p>
         <div class="input icon-input">
-            <i class="material-icons">&#xE262;</i>
-            <%= f.text_field :name, autofucs: true %>
+            <i class="material-icons">&#xE892;</i>
+            <%= f.text_field :name, autofocus: true %>
         </div>
     </div>
 
+    <!-- Product category -->
     <div class="input-wrapper">
         <%= f.label :category %>
         <div class="input select-input">
@@ -19,21 +21,9 @@
         </div>
     </div>
 
-    <div class="input-wrapper">
-        <%= f.label :description %>
-        <p class="hint">Markdown is supported. See <a href="https://guides.github.com/features/mastering-markdown/#syntax" target="_blank">this guide</a> for help.</p>
-        <div class="input">
-            <%= f.text_area :description, class: 'CodeMirror' %>
-        </div>
-    </div>
-
-    <div class="input-wrapper">
-        <%= f.label :display_picture %>
-        <%= f.file_field :display_picture %>
-    </div>
-
     <div class="conjoined">
 
+        <!-- Product cost -->
         <div class="input-wrapper">
             <%= f.label :price %>
             <div class="input symbol-input">
@@ -42,6 +32,7 @@
             </div>
         </div>
 
+        <!-- Product discount -->
         <div class="input-wrapper">
             <%= f.label :discount %>
             <div class="input symbol-input">
@@ -52,6 +43,33 @@
 
     </div>
 
+    <!-- Product description -->
+    <div class="input-wrapper">
+        <%= f.label :description %>
+        <p class="hint">Markdown is supported. See <a href="https://guides.github.com/features/mastering-markdown/#syntax" target="_blank">this guide</a> for help.</p>
+        <div class="input">
+            <%= f.text_area :description, class: 'CodeMirror' %>
+        </div>
+    </div>
+
+    <!-- Product display picture -->
+    <div class="input-wrapper">
+        <%= f.label :display_picture %>
+        <%= f.file_field :display_picture %>
+    </div>
+
+    <h3>Sizes</h3>
+
+    <div id="sizes">
+        <%= f.fields_for :sizes do |size| %>
+            <%= render 'size_fields', f: size %>
+        <% end %>
+
+        <%= link_to_add_association 'add size', f, :sizes %>
+    </div>
+
+    <h3>Visibility</h3>
+
     <div>
         <%= f.check_box :featured %>
         <%= f.label :featured %>
@@ -59,7 +77,7 @@
 
     <div>
         <%= f.check_box :hidden %>
-        <%= f.label :hidden %>
+        <%= f.label :hidden, 'Hidden from store' %>
     </div>
 
     <div class="buttons">

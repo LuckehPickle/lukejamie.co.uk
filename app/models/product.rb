@@ -15,17 +15,23 @@ class Product < ApplicationRecord
         }
     end
 
-    enum category: [ :shirt, :hoodie, :shoes, :trackies ]
+    enum category: [ :shirt, :hoodie, :joggers ]
 
-    has_many :sizes, dependent: :destroy
+    has_many :sizes, dependent: :destroy, inverse_of: :product
     has_many :order_products
     has_many :orders, through: :order_products
+
+    accepts_nested_attributes_for :sizes,
+                                  reject_if: -> (attrs) {
+                                      attrs['label'].blank? || attrs['stock'].blank?
+                                  },
+                                  allow_destroy: true
 
     has_attached_file :display_picture,
                       styles: {
                           thumb: '150x150#',
                           display: '300x400#',
-                          full: '720x1280>'
+                          full: '700x1000#'
                       },
                       default_url: '/images/:style/missing.png'
 
@@ -71,8 +77,20 @@ class Product < ApplicationRecord
         slug
     end
 
-    def sale?
+    def on_sale?
         discount != 0.0
+    end
+
+    ##
+    # Determines whether this product is currently in stock
+    def in_stock?
+
+        # Iterate over all related styles
+        self.sizes.each do |size|
+            return true if size.stock > 0
+        end
+
+        false
     end
 
 end
