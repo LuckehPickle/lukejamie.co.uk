@@ -19,42 +19,19 @@
         <!-- Product information -->
         <div class="product-info">
 
+            <h2 class="category"><%= @product.category %></h2>
             <h1><%= @product.name %></h1>
-            <%= markdown_simple @product.description %>
 
             <p class="value">
                 <% if @product.on_sale? %>
-                    <span class="strike"><%= number_to_currency @product.price, unit: '£' %></span>
-                    <span class="discount"><%= number_to_currency @product.price * (1 - @product.discount), unit: '£' %></span>
+                    <span class="discount"><%= number_to_currency @product.price * (1 - @product.discount), unit: '£', strip_insignificant_zeros: true %></span>
+                    <span class="strike">normally <%= number_to_currency @product.price, unit: '£', strip_insignificant_zeros: true %></span>
                 <% else %>
-                    <%= number_to_currency @product.price, unit: '£' %>
+                    <%= number_to_currency @product.price, unit: '£', strip_insignificant_zeros: true %>
                 <% end %>
             </p>
 
-            <% if @product.in_stock? %>
-                <div class="select">
-
-                    <!-- Button -->
-                    <div class="select-button">
-                        <span>Select a size</span>
-                        <i class="material-icons">&#xE5C5;</i>
-                    </div>
-
-                    <!-- Dropdown -->
-                    <ul class="options">
-                        <% @product.sizes.each do |size| %>
-                            <% if size.stock > 0 %>
-                                <li><%= size.label %></li>
-                            <% else %>
-                                <li class="disabled"><%= size.label %> (Out of stock)</li>
-                            <% end %>
-                        <% end %>
-                    </ul>
-
-                </div>
-            <% else %>
-                <p class="out-of-stock">Out of stock</p>
-            <% end %>
+            <%= markdown_simple @product.description %>
 
             <div class="buttons">
 
@@ -62,7 +39,7 @@
                     <!-- Add product to cart -->
                     <div class="cart-toggle button">
                         <i class="material-icons">&#xE854;</i>
-                        <span>Add to cart</span>
+                        <span>Choose size</span>
                     </div>
                 <% end %>
 
@@ -79,5 +56,13 @@
     </div>
 
     <h3>Gallery</h3>
+
+    <div class="masonry">
+        <div class="brick">
+            <div class="brick-body">
+                <div class="image"><%= image_tag @product.display_picture.url(:display) %></div>
+            </div>
+        </div>
+    </div>
 
 </div>

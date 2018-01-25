@@ -1,12 +1,13 @@
-<div class="header-spacer"></div>
-
 <div class="header" data-turbolinks-permanent>
+
     <div class="header-wrapper">
 
+        <!-- Main logo -->
         <%= link_to root_path, class: 'logo' do %>
             <%= image_tag 'luke-jamie.svg' %>
         <% end %>
 
+        <!-- Search bar -->
         <div class="search-wrapper">
             <%= form_tag products_path, method: :get, class: 'search-form' do %>
                 <%= search_field_tag :query, params[:query], placeholder: 'Search apparel' %>
@@ -19,10 +20,10 @@
                 <div class="dropdown-wrapper">
 
                     <!-- Products dropdown trigger -->
-                    <div class="dropdown-trigger">
+                    <%= link_to products_path, class: 'dropdown-trigger' do %>
                         <span>Products</span>
                         <i class="material-icons">&#xE5C5;</i>
-                    </div>
+                    <% end %>
 
                     <!-- Products dropdown -->
                     <div class="dropdown">
