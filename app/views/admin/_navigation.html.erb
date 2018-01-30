@@ -1,4 +1,5 @@
 <div class="mobile-bar">
+
     <%= link_to admin_root_path, class: 'logo' do %>
         <%= image_tag 'luke-jamie.svg' %>
     <% end %>
@@ -6,6 +7,7 @@
     <div class="mobile-nav-trigger">
         <i class="material-icons">&#xE5D2;</i>
     </div>
+
 </div>
 
 <nav class="navigation">
@@ -30,7 +32,7 @@
         <li <%= 'active' if request.fullpath == '/admin' %>>
             <%= link_to admin_root_path do %>
                 <i class="material-icons">&#xE8F1;</i>
-                <span>Admin panel</span>
+                <span>Overview</span>
             <% end %>
         </li>
 

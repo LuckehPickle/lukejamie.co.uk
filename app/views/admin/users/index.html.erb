@@ -1,94 +1,83 @@
 <% content_for :subtitle do %>Users<% end %>
 
-<!-- Users header -->
-<div class="admin-header">
-    <h1>Users</h1>
+<!-- Controls for dealing with lists -->
+<div class="list-controls">
+    <%= render_search admin_users_search_path, 'Search users' %>
 </div>
 
-<div class="admin-wrapper">
+<!-- Paginated list of users -->
+<div class="list">
 
-    <!-- Controls for dealing with lists -->
-    <div class="list-controls">
-        <%= render_search admin_users_search_path, 'Search users' %>
-    </div>
+    <%= render_list_header do %>
 
-    <!-- Paginated list of users -->
-    <div class="list">
+        <!-- Set confirmation status -->
+        <div class="select" id="select-user-state">
 
-        <%= render_list_header do %>
-
-            <!-- Set confirmation status -->
-            <div class="select" id="select-user-state">
-
-                <!-- Toggles the select's dropdown -->
-                <div class="select-button bulk-action">
-                    <span>State</span>
-                    <i class="material-icons">&#xE5C5;</i>
-                </div>
-
-                <!-- Dropdown -->
-                <ul class="options">
-
-                    <!-- State: unconfirmed -->
-                    <li id="user-state-unconfirmed">
-                        <i class="material-icons">&#xE835;</i>
-                        <span>Unconfirmed</span>
-                    </li>
-
-                    <!-- State: confirmed -->
-                    <li id="user-state-confirmed">
-                        <i class="material-icons">&#xE834;</i>
-                        <span>Confirmed</span>
-                    </li>
-
-                </ul>
-
+            <!-- Toggles the select's dropdown -->
+            <div class="select-button bulk-action">
+                <span>State</span>
+                <i class="material-icons">&#xE5C5;</i>
             </div>
 
-            <!-- Set role of all currently selected users -->
-            <div class="select" id="select-user-role">
+            <!-- Dropdown -->
+            <ul class="options">
 
-                <!-- Toggles the select's dropdown -->
-                <div class="select-button bulk-action">
-                    <span>Role</span>
-                    <i class="material-icons">&#xE5C5;</i>
-                </div>
+                <!-- State: unconfirmed -->
+                <li id="user-state-unconfirmed">
+                    <i class="material-icons">&#xE835;</i>
+                    <span>Unconfirmed</span>
+                </li>
 
-                <!-- Dropdown -->
-                <ul class="options">
+                <!-- State: confirmed -->
+                <li id="user-state-confirmed">
+                    <i class="material-icons">&#xE834;</i>
+                    <span>Confirmed</span>
+                </li>
 
-                    <!-- Role: customer -->
-                    <li id="user-role-customer">
-                        <i class="material-icons">&#xE7FD;</i>
-                        <span>Customer</span>
-                    </li>
+            </ul>
 
-                    <!-- Role: admin -->
-                    <li id="user-role-admin">
-                        <i class="material-icons">&#xE8D3;</i>
-                        <span>Admin</span>
-                    </li>
+        </div>
 
-                </ul>
+        <!-- Set role of all currently selected users -->
+        <div class="select" id="select-user-role">
 
+            <!-- Toggles the select's dropdown -->
+            <div class="select-button bulk-action">
+                <span>Role</span>
+                <i class="material-icons">&#xE5C5;</i>
             </div>
 
-        <% end %>
+            <!-- Dropdown -->
+            <ul class="options">
 
-        <% if not @users.empty? %>
-            <div class="list-content">
-                <%= render partial: 'admin/users/user',
-                           collection: @users,
-                           cached: true %>
-            </div>
-        <% else %>
-            I'm empty. <!-- TODO -->
-        <% end %>
+                <!-- Role: customer -->
+                <li id="user-role-customer">
+                    <i class="material-icons">&#xE7FD;</i>
+                    <span>Customer</span>
+                </li>
 
-    </div>
+                <!-- Role: admin -->
+                <li id="user-role-admin">
+                    <i class="material-icons">&#xE8D3;</i>
+                    <span>Admin</span>
+                </li>
 
-    <%= paginate @users %>
+            </ul>
 
-    <%= render 'admin/copyright' %>
+        </div>
+
+    <% end %>
+
+    <% if not @users.empty? %>
+        <div class="list-content">
+            <%= render partial: 'admin/users/user',
+                       collection: @users,
+                       cached: true %>
+        </div>
+    <% else %>
+        I'm empty. <!-- TODO -->
+    <% end %>
 
 </div>
+
+<%= paginate @users %>

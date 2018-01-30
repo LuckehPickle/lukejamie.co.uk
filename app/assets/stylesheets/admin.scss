@@ -1,15 +1,13 @@
 @import "settings/colors";
 @import "tools/no-select";
 
+@import "elements/admin/headings";
+
 @import "components/admin/list";
 @import "components/admin/navigation";
-@import "components/admin/quilt";
 @import "components/admin/wrapper";
 @import "components/admin/form";
 @import "components/admin/checkbox";
 @import "components/admin/copyright";
 @import "components/admin/search";
 
-body {
-    background-color: hsl(0, 0%, 97%);
-}

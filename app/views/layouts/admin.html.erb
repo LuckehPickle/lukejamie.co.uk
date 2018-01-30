@@ -17,8 +17,15 @@
 <% end %>
 
 <% content_for :content do %>
+
     <%= render 'admin/navigation' %>
-    <%= yield %>
+
+    <div class="admin-wrapper">
+        <!--<h1><%= content_for?(:subtitle) ? yield(:subtitle) : 'Admin Panel' %></h1>-->
+        <%= yield %>
+        <%= render 'admin/copyright' %>
+    </div>
+
 <% end %>
 
 <%= render template: 'layouts/application' %>

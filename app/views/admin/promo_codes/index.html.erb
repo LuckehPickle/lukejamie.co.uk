@@ -1,48 +1,37 @@
 <% content_for :subtitle do %>Promo codes<% end %>
 
-<!-- Promo codes header -->
-<div class="admin-header">
-    <h1>Promo codes</h1>
+<!-- Controls for dealing with lists -->
+<div class="list-controls">
+
+    <%= render_search admin_promo_codes_search_path, 'Search promo codes' %>
+
+    <!-- Create new promo code-->
+    <%= link_to t('admin.promo_code.new'), new_admin_promo_code_path, class: 'button' %>
+
 </div>
 
-<div class="admin-wrapper">
+<!-- Paginated list of all promo codes -->
+<div class="list">
 
-    <!-- Controls for dealing with lists -->
-    <div class="list-controls">
+    <%= render_list_header do %>
 
-        <%= render_search admin_promo_codes_search_path, 'Search promo codes' %>
+        <!-- Delete a promo code -->
+        <div class="bulk-action" id="delete-promo-code">
+            <i class="material-icons">&#xE872;</i>
+            <span>Delete</span>
+        </div>
 
-        <!-- Create new promo code-->
-        <%= link_to t('admin.promo_code.new'), new_admin_promo_code_path, class: 'button' %>
-
-    </div>
-
-    <!-- Paginated list of all promo codes -->
-    <div class="list">
-
-        <%= render_list_header do %>
-
-            <!-- Delete a promo code -->
-            <div class="bulk-action" id="delete-promo-code">
-                <i class="material-icons">&#xE872;</i>
-                <span>Delete</span>
-            </div>
-
-        <% end %>
+    <% end %>
 
 
-        <% if not @promo_codes.empty? %>
-            <div class="list-content">
-                <%= render partial: 'admin/promo_codes/promo_code',
-                           collection: @promo_codes,
-                           cached: true %>
-            </div>
-        <% else %>
-            I'm empty. <!-- TODO -->
-        <% end %>
-
-    </div>
-
-    <%= render 'admin/copyright' %>
+    <% if not @promo_codes.empty? %>
+        <div class="list-content">
+            <%= render partial: 'admin/promo_codes/promo_code',
+                       collection: @promo_codes,
+                       cached: true %>
+        </div>
+    <% else %>
+        I'm empty. <!-- TODO -->
+    <% end %>
 
 </div>

@@ -1,77 +1,66 @@
 <% content_for :subtitle do %>Orders<% end %>
 
-<!-- Orders header -->
-<div class="admin-header">
-    <h1>Orders</h1>
+<div class="list-controls">
+    <%= render_search admin_orders_search_path, 'Search orders' %>
 </div>
 
-<div class="admin-wrapper">
+<!-- Paginated list of all orders -->
+<div class="list">
 
-    <div class="list-controls">
-        <%= render_search admin_orders_search_path, 'Search orders' %>
-    </div>
+    <%= render_list_header do %>
 
-    <!-- Paginated list of all orders -->
-    <div class="list">
+        <!-- Set state of all currently selected orders -->
+        <div class="select" id="select-order-state">
 
-        <%= render_list_header do %>
-
-            <!-- Set state of all currently selected orders -->
-            <div class="select" id="select-order-state">
-
-                <!-- Toggles the select's dropdown -->
-                <div class="select-button bulk-action">
-                    <span>State</span>
-                    <i class="material-icons">&#xE5C5;</i>
-                </div>
-
-                <!-- Dropdown -->
-                <ul class="options">
-
-                    <!-- State: processing -->
-                    <li id="order-state-processing">
-                        <i class="material-icons">&#xE923;</i>
-                        <span>Processing</span>
-                    </li>
-
-                    <!-- State: shipped -->
-                    <li id="order-state-shipped">
-                        <i class="material-icons">&#xE558;</i>
-                        <span>Shipped</span>
-                    </li>
-
-                    <!-- State: returned -->
-                    <li id="order-state-returned">
-                        <i class="material-icons">&#xE554;</i>
-                        <span>Returned</span>
-                    </li>
-
-                    <!-- State: refunded -->
-                    <li id="order-state-refunded">
-                        <i class="material-icons">&#xE227;</i>
-                        <span>Refunded</span>
-                    </li>
-
-                </ul>
-
+            <!-- Toggles the select's dropdown -->
+            <div class="select-button bulk-action">
+                <span>State</span>
+                <i class="material-icons">&#xE5C5;</i>
             </div>
 
-        <% end %>
+            <!-- Dropdown -->
+            <ul class="options">
 
-        <% if not @orders.empty? %>
-            <div class="list-content">
-                <%= render partial: 'admin/orders/order',
-                           collection: @orders,
-                           cached: true %>
-            </div>
-        <% else %>
-            I'm empty. <!-- TODO -->
-        <% end %>
+                <!-- State: processing -->
+                <li id="order-state-processing">
+                    <i class="material-icons">&#xE923;</i>
+                    <span>Processing</span>
+                </li>
 
-    </div>
+                <!-- State: shipped -->
+                <li id="order-state-shipped">
+                    <i class="material-icons">&#xE558;</i>
+                    <span>Shipped</span>
+                </li>
 
-    <%= paginate @orders %>
+                <!-- State: returned -->
+                <li id="order-state-returned">
+                    <i class="material-icons">&#xE554;</i>
+                    <span>Returned</span>
+                </li>
 
-    <%= render 'admin/copyright' %>
+                <!-- State: refunded -->
+                <li id="order-state-refunded">
+                    <i class="material-icons">&#xE227;</i>
+                    <span>Refunded</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+    <% end %>
+
+    <% if not @orders.empty? %>
+        <div class="list-content">
+            <%= render partial: 'admin/orders/order',
+                       collection: @orders,
+                       cached: true %>
+        </div>
+    <% else %>
+        I'm empty. <!-- TODO -->
+    <% end %>
 
 </div>
+
+<%= paginate @orders %>

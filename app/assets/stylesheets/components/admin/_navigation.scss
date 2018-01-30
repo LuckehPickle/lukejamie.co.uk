@@ -1,3 +1,5 @@
+$navigation-width: 275px;
+
 .mobile-bar {
     position: fixed;
     top: 0;
@@ -55,11 +57,7 @@
     .desktop-logo { display: none; }
 
     .navigation-heading {
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 11px;
-        font-weight: bold;
-        color: darken($slate-text, 20%);
+        color: darken($charcoal-text, 20%);
         margin: 2rem 0 0.75rem;
         padding: 0 0 0 1.5rem;
     }
@@ -71,7 +69,7 @@
         list-style-type: none;
         padding: 0;
         margin: 0 0 2rem;
-        color: darken($slate-text, 20%);
+        color: darken($charcoal-text, 20%);
 
         li {
             width: 100%;
@@ -90,7 +88,7 @@
                 }
 
                 a, i{
-                    color: $slate-text;
+                    color: $charcoal-text;
                 }
             }
         }
@@ -124,8 +122,6 @@
 }
 
 @media (min-width: 1000px) {
-
-    $navigation-width: 280px;
 
     .admin-header,
     .admin-wrapper {
