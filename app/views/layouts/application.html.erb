@@ -42,6 +42,13 @@
     </head>
 
     <body>
+
+        <div class="modal-wrapper">
+            <% if content_for?(:modals) %>
+                <%= yield(:modals) %>
+            <% end %>
+        </div>
+
         <%= render 'flashes' %>
         <%= content_for?(:content) ? yield(:content) : yield %>
     </body>

@@ -14,5 +14,4 @@
 //= require turbolinks
 //= require local-time
 //= require utils
-//= require components/cart
 //= require cocoon

@@ -1,5 +1,25 @@
 <% content_for :title do %>Products<% end %>
 
+<div class="hero">
+    <div class="wrapper">
+        <% if params[:category] %>
+            <h1>Browse <%= params[:category].titlecase %></h1>
+            <% if params[:category] == 'shirts' %>
+                <p>Hey</p>
+            <% elsif params[:category] == 'hoodies' %>
+                <p>Hey</p>
+            <% elsif params[:category] == 'joggers' %>
+                <p>Hey</p>
+            <% end %>
+        <% else %>
+            <h1>All Apparel</h1>
+            <p>View all that Luke Jamie has to offer, or search for something more specific.</p>
+        <% end %>
+
+        <%= render_search products_path, 'Search apparel' %>
+    </div>
+</div>
+
 <div class="wrapper">
 
     <div class="masonry">

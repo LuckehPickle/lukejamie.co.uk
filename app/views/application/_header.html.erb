@@ -10,7 +10,7 @@
         <!-- Search bar -->
         <div class="search-wrapper">
             <%= form_tag products_path, method: :get, class: 'search-form' do %>
-                <%= search_field_tag :query, params[:query], placeholder: 'Search apparel' %>
+                <%= search_field_tag :query, nil, placeholder: 'Search apparel' %>
                 <%= submit_tag 'Search', name: nil %>
             <% end %>
         </div>
@@ -78,3 +78,5 @@
 
     </div>
 </div>
+
+<div class="header-placeholder"></div>

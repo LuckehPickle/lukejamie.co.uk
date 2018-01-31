@@ -5,12 +5,14 @@
 }
 
 .search-wrapper {
+    text-align: left;
     position: relative;
     display: inline-block;
     width: 100%;
     max-width: 500px;
-    border-radius: 2px;
+    border-radius: 3px;
     overflow: hidden;
+    background: white;
 
     input[type="search"] {
         font-family: "Roboto", Helvetica, sans-serif;
@@ -25,5 +27,15 @@
         &:focus + i {
             color: lighten($text, 10%);
         }
+    }
+
+    i {
+        position: absolute;
+        top: 0;
+        font-size: 20px;
+        color: lighten($text, 35%);
+        transition: color 200ms;
+        padding: 10px 1.1rem;
+        pointer-events: none;
     }
 }

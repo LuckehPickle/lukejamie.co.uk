@@ -1,11 +1,16 @@
 <% content_for :title do %>Support<% end %>
 
 <div class="hero">
-    <div class="wrapper"></div>
+    <div class="wrapper">
+        <h1>Support</h1>
+        <p>Looking for help? Check out these featured articles, or search for something more specific.</p>
+
+        <%= render_search support_articles_path, 'Search articles' %>
+    </div>
 </div>
 
 <div class="wrapper">
-    <!-- Guides -->
+
     <h1>Guides</h1>
 
     <div class="article-list">

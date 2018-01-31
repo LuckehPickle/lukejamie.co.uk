@@ -1,17 +1,21 @@
-.button {
+.button,
+.button-secondary {
     display: inline-block;
     font-family: "Roboto", Helvetica, sans-serif;
     font-size: 15px;
     font-weight: 500;
-    color: $gold-text;
-    background: $gold-from;
     border: none;
-    border-radius: 3px;
     padding: 0.8rem 1.4rem;
     text-decoration: none;
     line-height: 1;
     vertical-align: middle;
     cursor: pointer;
+}
+
+.button {
+    color: $gold-text;
+    background: $gold-from;
+    border-radius: 3px;
     transition: all 200ms;
     transform: translateY(0px);
 
@@ -27,12 +31,5 @@
 }
 
 .button-secondary {
-    background: none;
-    color: $text;
-
-    &:hover {
-        background: rgba(0, 0, 0, 0.07);
-        box-shadow: none;
-        transform: none;
-    }
+    color: lighten($text, 10%);
 }

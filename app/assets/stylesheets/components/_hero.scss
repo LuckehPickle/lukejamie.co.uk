@@ -1,11 +1,38 @@
 .hero {
-    color: $orange-text;
-    background: $orange;
-    padding: 3rem 0;
+    position: relative;
+    background: $slate;
+    color: $slate-text;
+    padding: 4rem 0 0;
     margin: -6rem 0 6rem;
     text-align: center;
 
+    .wrapper {
+        color: $text;
+        background: white;
+        padding: 5rem 0 0;
+        border-radius: 3px 3px 0 0;
+
+        & > *:first-child { margin-top:    0; }
+        & > *:last-child  { margin-bottom: 0; }
+    }
+
     h1 {
         font-family: "Rubik", sans-serif;
+        font-size: 50px;
+        //text-shadow: 4px 4px $gold-from;
+        margin: 2rem 0;
+        color: $bold-text;
+    }
+
+    p {
+        //text-shadow: 1px 1px $gold-from;
+        max-width: 450px;
+        line-height: 1.6;
+        margin: 2rem auto;
+    }
+
+    .search-wrapper {
+        max-width: 450px;
+        border: 1px solid hsl(0, 0%, 90%);
     }
 }
